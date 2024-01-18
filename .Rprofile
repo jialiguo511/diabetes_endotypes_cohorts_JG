@@ -1,17 +1,11 @@
 
 source("functions/data_extract.R")
 
-require(tidyverse)
+library(tidyverse)
 
 # Read about how .Rprofile is useful
-# 
-if(Sys.info()["user"] == "JVARGH7"){
-  path_endotypes_folder <- "C:/Cloud/Emory University/li, zhongyu - Diabetes Endotypes Project (JV and ZL)"
-
-}
-if(Sys.info()["user"] == "ZLI854"){
-  # This would need to be edited for ZL
-  path_endotypes_folder <- "C:/Cloud/Emory University/li, zhongyu - Diabetes Endotypes Project (JV and ZL)"
+if(Sys.info()["user"] == "zhongyuli"){
+  path_endotypes_folder <- "/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/code_files/git/de_repo/diabetes_endotypes_cohorts"
 }
 
 duration_cutoff <- 1
