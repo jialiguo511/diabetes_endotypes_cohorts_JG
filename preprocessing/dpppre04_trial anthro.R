@@ -32,3 +32,6 @@ anthro <- bind_rows(data_extract(study_name,vl_column1,data_path),
   left_join(s03 %>% dplyr::select(study_id,height),
             by = "study_id")  %>% 
   mutate(bmi = weight/(height/100)^2)
+
+
+  
