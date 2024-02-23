@@ -10,24 +10,28 @@ data_path1 <-  paste0(path_endotypes_folder,"/working/jhs/Data/Visit1")
 data_path2 <-  paste0(path_endotypes_folder,"/working/jhs/Data/Visit2")
 data_path3 <-  paste0(path_endotypes_folder,"/working/jhs/Data/Visit3")
 
+
 # These can be accessed at https://github.com/jvargh7/functions
-source("C:/code/external/functions/preprocessing/convert_formats.R")
-
-convert_formats(data_path_analysisV,
-                file_name = "analysis1.sas7bdat",dest_type = "csv")
-convert_formats(data_path_analysisV,
-                file_name = "analysis2.sas7bdat",dest_type = "csv")
-convert_formats(data_path_analysisV,
-                file_name = "analysis3.sas7bdat",dest_type = "csv")
-
-convert_formats(data_path1,
-                file_name = "pfha.sas7bdat",dest_type = "csv")
-convert_formats(data_path2,
-                file_name = "hhxa.sas7bdat",dest_type = "csv")
-convert_formats(data_path3,
-                file_name = "pfhb.sas7bdat",dest_type = "csv")
+# not run for replication purpose in Feb 2024 by ZL, files exist already 
 
 
+#source("C:/code/external/functions/preprocessing/convert_formats.R")
+
+#convert_formats(data_path_analysisV,
+#               file_name = "analysis1.sas7bdat",dest_type = "csv")
+#convert_formats(data_path_analysisV,
+#                file_name = "analysis2.sas7bdat",dest_type = "csv")
+#convert_formats(data_path_analysisV,
+#                file_name = "analysis3.sas7bdat",dest_type = "csv")
+
+#convert_formats(data_path1,
+#                file_name = "pfha.sas7bdat",dest_type = "csv")
+#convert_formats(data_path2,
+#                file_name = "hhxa.sas7bdat",dest_type = "csv")
+#convert_formats(data_path3,
+#                file_name = "pfhb.sas7bdat",dest_type = "csv")
+
+source("/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/code_files/git/de_repo/diabetes_endotypes_cohorts/functions/data_extract.R")
 
 analysis1 <- data_extract(study_name,vl_column2,data_path_analysisV) 
 analysis2 <- data_extract(study_name,vl_column4,data_path_analysisV) 
