@@ -31,8 +31,6 @@ data_path3 <-  paste0(path_endotypes_folder,"/working/jhs/Data/Visit3")
 #convert_formats(data_path3,
 #                file_name = "pfhb.sas7bdat",dest_type = "csv")
 
-source("/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/code_files/git/de_repo/diabetes_endotypes_cohorts/functions/data_extract.R")
-
 analysis1 <- data_extract(study_name,vl_column2,data_path_analysisV) 
 analysis2 <- data_extract(study_name,vl_column4,data_path_analysisV) 
 analysis3 <- data_extract(study_name,vl_column6,data_path_analysisV) 
