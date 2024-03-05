@@ -1,5 +1,5 @@
 ## the purpose of this R file is to extract variables from visits 1-6 in the ARIC cohort 
-
+rm(list=ls()); gc(); source(".Rprofile")
 # Visit 1 
 
 data_path_v1 <-  paste0(path_aric_folder,"/Main_study/v1/CSV")
@@ -47,7 +47,7 @@ for (vl in vl_column4) {
 # Visit 5 
 
 data_path_v5 <-  paste0(path_aric_folder,"/Main_study/v5/CSV")
-vl_column5 <-c("derive_ncs51","status51","rex","ant","sbp","cbc","lip","chm")
+vl_column5 <-c("status51","rex","ant","sbp","cbc","lip","chm","derive51")
 for (vl in vl_column5) {
   new_data<-data_extract("ARIC",vl,data_path_v5)
   assign(vl, new_data)
@@ -55,19 +55,17 @@ for (vl in vl_column5) {
 }
 
 
-rex <- read_csv(paste0(path_aric_folder,"/Main_study/v5/CSV/rex.csv")) 
-ant <- read_csv(paste0(path_aric_folder,"/Main_study/v5/CSV/ant.csv")) 
-
 
 # Visit 6 
 data_path_v6 <-  paste0(path_aric_folder,"/Main_study/V6/CSV")
-vl_column6 <-c("derive61","status61","chem2","lipf")
+# before running this, please rename ant to ant_v6 and sbp to sbp_v6 in V6 folder
+# ZL duplicated ant and sbp and renamed them with _v6 tag. _v6 tag is also added in the phenotype excel file. 
+vl_column6 <-c("derive61","status61","chem2","lipf","ant_v6","sbp_v6")
 for (vl in vl_column6) {
   new_data<-data_extract("ARIC",vl,data_path_v6)
   assign(vl, new_data)
   rm(new_data)
 }
 
-## these two need to be extracted and renamed: "ant" and "sbp" for V6 
 
 
