@@ -23,6 +23,7 @@ for (vl in vl_column2) {
 }
 
 
+
 # Visit 3
 
 data_path_v3 <-  paste0(path_aric_folder,"/Main_study/v3/CSV")
@@ -58,7 +59,7 @@ for (vl in vl_column5) {
 
 # Visit 6 
 data_path_v6 <-  paste0(path_aric_folder,"/Main_study/V6/CSV")
-# before running this, please rename ant to ant_v6 and sbp to sbp_v6 in V6 folder
+# before running this, please make sure that ant is renamed to ant_v6 and sbp is renamed to sbp_v6 in V6 folder
 # ZL duplicated ant and sbp and renamed them with _v6 tag. _v6 tag is also added in the phenotype excel file. 
 vl_column6 <-c("derive61","status61","chem2","lipf","ant_v6","sbp_v6")
 for (vl in vl_column6) {

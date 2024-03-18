@@ -97,5 +97,6 @@ bind_rows(v1_d %>% mutate(wave = "V1"),
           long_d %>% mutate(wave = "V1-5")) %>% 
   write_csv(.,paste0(path_aric_folder,"/combined data dictionaries.csv"))
 
-view(v6_d)
-
+view(v1_d)
+view(v2_d)
+view(v4_d)
