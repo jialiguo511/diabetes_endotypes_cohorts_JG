@@ -340,18 +340,7 @@ rows_with_correct_age_diff_v3 <- which(aric_new$age_diff >= 0 & aric_new$age_dif
 selected_ids_v3 <- aric_new$study_id[rows_with_correct_age_diff_v3]
 selected_ids_v3# 194 participant in V3 meet the criteria
 
-## NOT working!! ###### NEED to KNOW WHY (?)
-selected_ids <- aric_new[aric_new$visit == 1 & aric_new$age_diff >= 0 & aric_new$age_diff <= 1, "study_id"]
 
-selected_ids <- aric_new %>%
-  filter(between(age_diff, 0, 1)) %>%
-  select(study_id)
-
-selected_ids <- aric_new %>%
-  filter(age_diff >= 0 & age_diff <= 1) %>%
-  select(study_id)
-
-sum(is.na(aric_new$study_id))
 
 #### Now, new DM in V2 
 #Need to modify:1)dmagediag = age if new DM; 2)create a diab_new_vx variable
@@ -503,15 +492,13 @@ sapply(aric_new_dm, class)
 
 #### From V2 to V6, calculate "dmduration" by subtracting "dmagediag" from "age" at the visit 
 
-
-
 library(tidyr)
 
 aric <- aric_new_dm %>%
   group_by(study_id) %>%
   fill(dmagediag,female,race,edu1,edu2,year_enrolled, .direction = "downup") %>%
   ungroup()%>% 
-  mutate(dmduration=age-dmagediag)
+  mutate(dmduration=age-dmagediag) # 3.18.24, need to keep only one record/participant
 
 saveRDS(aric,paste0(path_endotypes_folder,"/working/cleaned/aric.RDS"))
 

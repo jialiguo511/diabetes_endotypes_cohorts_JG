@@ -15,7 +15,7 @@ data_extract <- function(study_name, vl_column,data_path,df_name = character()){
     rename_at(vars(one_of(vl_column)),~"selected") %>% 
     dplyr::filter(!is.na(selected))
   
-  names_to_upper <- c("DPPOS","DPP","JHS","SEARCH","TODAY","ARIC")
+  names_to_upper <- c("DPPOS","DPP","JHS","SEARCH","TODAY","ARIC","BHS")
   
   if(study_name %in% names_to_upper){
     
