@@ -283,13 +283,10 @@ v6_new<-v6_all%>%
          -med_chol_4w,-sr_bp_4w,-med_bp_4w,-sbp1,-sbp2,-sbp3,-dbp1,-dbp2,-dbp3,
          -glucosef_si,-glucose_value)
 
+
 # join six visit, long format 
 
 aric_analysis<- bind_rows(v1_new,v2_new,v3_new,v4_new,v5_new,v6_new) 
-
-view(aric_analysis)
-colnames(aric_analysis)  
-table(aric_analysis$visit)
 
 
 ############ create diabetes variables ################ 
@@ -372,9 +369,6 @@ newdm_v2_ids <-aric_new$study_id[newdm_v2_rows]
 
 #### Now, new DM in V3 
 #Need to modify:1)dmagediag = age if new DM; 2)create a diab_new_vx variable 
-names(v3_new)
-unique(aric_analysis$diab_med_2w)
-diab_med_2w
 
 aric_new<-aric_new%>% 
   mutate(diab_126 = case_when(
@@ -457,7 +451,7 @@ aric_new<-aric_new%>%
       TRUE ~ dmagediag  # Preserve original values for other conditions
     ))
 
-table(aric_new$diab_new_v5) # 2110 with new DM 
+table(aric_new$diab_new_v5) # 2118 with new DM 
 
 newdm_v5_rows <- which(aric_new$diab_new_v5==1)
 newdm_v5_ids <-aric_new$study_id[newdm_v5_rows]
@@ -482,25 +476,66 @@ newdm_v6_rows <- which(aric_new$diab_new_v6==1)
 newdm_v6_ids <-aric_new$study_id[newdm_v6_rows]
 
 
+
 #### extract all new DM cases into a new datasets, all new cases should be included in future visits too! 
 
-combined_ids <- Reduce(union, list(newdm_v2_ids, newdm_v3_ids,newdm_v4_ids,newdm_v5_ids,newdm_v6_ids)) 
+## check ids from two sets of v3 ids with new dm 
+intersect(selected_ids_v3, newdm_v3_ids)
+newdm_v3_ids_c <- unique(c(selected_ids_v3, newdm_v3_ids))
 
-aric_new_dm <- aric_new[aric_new$study_id %in% combined_ids, ]
+## create a dataset with new dm cases from the visit at which the the patient was first diagnosed. 
+newdm_v2 <- aric_new %>%
+  dplyr::filter(visit == 2 & study_id %in% newdm_v2_ids)
+
+
+newdm_v3 <- aric_new %>%
+  dplyr::filter(visit == 3 & study_id %in% newdm_v3_ids_c)%>%
+  dplyr::filter(!study_id %in% newdm_v2_ids)
+
+id_s3 <-c(newdm_v2_ids,newdm_v3_ids_c) #ids from previous visits should be removed from next visits
+
+newdm_v4 <- aric_new %>%
+  dplyr::filter(visit == 4 & study_id %in% newdm_v4_ids)%>%
+  dplyr::filter(!study_id %in% id_s3)
+
+id_s4 <-c(id_s3,newdm_v4_ids)
+
+newdm_v5 <- aric_new %>%
+  dplyr::filter(visit == 5 & study_id %in% newdm_v5_ids)%>%
+  dplyr::filter(!study_id %in% id_s4)
+
+newdm_v5 <- distinct(newdm_v5) #three duplicates removed. 
+
+id_s5 <-c(id_s4,newdm_v5_ids)
+
+newdm_v6 <- aric_new %>%
+  dplyr::filter(visit == 6 & study_id %in% newdm_v6_ids)%>%
+  dplyr::filter(!study_id %in% id_s5)
+
+id_s6 <-c(id_s5,newdm_v6_ids)
+
+dat_newdm <- bind_rows(newdm_v2,newdm_v3,newdm_v4,newdm_v5,newdm_v6) #n=3587 new dm cases, use this for analysis, it contains just the visits at which new dm is identified. 
+
+combined_ids <- Reduce(union, list(newdm_v2_ids, newdm_v3_ids_c,newdm_v4_ids,newdm_v5_ids,newdm_v6_ids)) #n=3587 new dm cases 
+
+aric_new_dm <- aric_new[aric_new$study_id %in% combined_ids, ]#this contains all visits for new DM cases 
 
 sapply(aric_new_dm, class)
+
+
 
 #### From V2 to V6, calculate "dmduration" by subtracting "dmagediag" from "age" at the visit 
 
 library(tidyr)
 
-aric <- aric_new_dm %>%
+aric_new_dm_all_visits <- aric_new_dm %>%
   group_by(study_id) %>%
   fill(dmagediag,female,race,edu1,edu2,year_enrolled, .direction = "downup") %>%
   ungroup()%>% 
   mutate(dmduration=age-dmagediag) # 3.18.24, need to keep only one record/participant
 
-saveRDS(aric,paste0(path_endotypes_folder,"/working/cleaned/aric.RDS"))
+saveRDS(aric_new_dm_all_visits,paste0(path_endotypes_folder,"/working/cleaned/aric_new_dm_all_visits.RDS"))
 
+saveRDS(dat_newdm,paste0(path_endotypes_folder,"/working/cleaned/aric_new_dm.RDS"))
 
 

@@ -19,8 +19,6 @@ summary(z510rev3)
 table(z510rev3$fasting)
 summary(z510rev3$glucose) 
 
-
-names(z510rev3)
 source("preprocessing/bhs_adult.R")
 bhs<-z510rev3 %>% 
   mutate(glucosef = case_when(
