@@ -4,7 +4,7 @@ source(url("https://raw.githubusercontent.com/jvargh7/functions/main/preprocessi
 
 library(haven)
 
-#Vist 1 - Visit6 
+#Year0-30
 
 ls_y0 <- list.files(paste0(path_cardia_folder,"/Y00/DATA"))
 ls_y2 <- list.files(paste0(path_cardia_folder,"/Y02/DATA"))

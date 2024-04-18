@@ -1,11 +1,15 @@
 # the purpose of this file is to prepare dataset for ML in python 
 # created in March 2024 by ZL 
+# This file is later modified to create HOMA2 from fasting insulin and glucose(taged "2") by ZL in March 2024
+# In April 2024, new cohort: ARIC, MESA, and CARIA are added. HOMA2 will also be created for them 
 
 # K means with five cohorts (LA, JHS, DPP, ACCORD, DDPOS)
 library(dplyr)
 library(tidyr)
-# load dtidyr# load datasets
-# variables (age(this should be dmagediag), BMI, HbA1c, LDL cholesterol, HDL cholesterol, triglycerides, 
+
+### load datasets
+# VARIABES [our approach]: 
+## age(this should be dmagediag), BMI, HbA1c, LDL cholesterol, HDL cholesterol, triglycerides, 
 ## systolic and diastolic blood pressure, and TGL:HDL ratio)
 
 jhs<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/jhs.RDS")) %>% 
