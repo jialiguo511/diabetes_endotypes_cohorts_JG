@@ -36,12 +36,12 @@ e1_dat <- e1_temp %>%
     select(-sbp1,-sbp2,-sbp3,-dbp1,-dbp2,-dbp3)
 
   
-
+view(e2_d)
 #### Exam 2 
 
 data_path_e2 <-  paste0(path_mesa_folder,"/Primary/Exam2/Data")
 e2_temp1 <- data_extract("MESA","mesae2dres06222012",data_path_e2) 
-e2_temp2 <- data_extract("MESA","mesaexam2famhxq_drepos_20220304",data_path_e2) 
+e2_temp2 <- data_extract("MESA","mesaexam2dm_drepos_20220301",data_path_e2) 
 e2_temp <- merge(e2_temp1, e2_temp2, by = "study_id", all = TRUE)
 
 
@@ -58,7 +58,6 @@ e2_dat <- e2_temp %>%
   ungroup()%>% 
   mutate(weight = weight*0.4536)%>% 
   select(-sbp1,-sbp2,-sbp3,-dbp1,-dbp2,-dbp3)
-
 
 
 #### Exam 3
@@ -83,12 +82,8 @@ e3_dat <- e3_temp %>%
 
 #### Exam 4
 
-
 data_path_e4 <-  paste0(path_mesa_folder,"/Primary/Exam4/Data")
 e4_temp <- data_extract("MESA","mesae4dres06222012",data_path_e4) 
-summary(e4_temp)
-
-
 
 ### Exam 4 Issues ### 
 # weight in lb, convert to Kg
@@ -113,16 +108,16 @@ e5_temp <- data_extract("MESA","mesae5_drepos_20210920",data_path_e5)
 ### Exam 5 Issues ### 
 # weight in lb, convert to Kg
 # Serum Hemoglobin A1c, hba1c, check unit --> checked unit, most likely % 
-# insulin "INSULIN5", fasting or not, unknown, unit needs to convert 
+# insulin "INSULIN5", fasting or not, unknown, unit needs to convert --> much higher than insulin measured in Exam1 
 # check "CEPGFR5C", also in e1 and e4 to see if values make sense. 
 # checked egfr, looks okay 
 e5_dat <- e5_temp %>% 
   rename(hba1c= hba1c_unk )%>% 
+  rename(insulinr= ins_r )%>% 
   rowwise() %>%
   mutate(sbp=mean(c(sbp1,sbp2,sbp3), na.rm = TRUE),
          dbp=mean(c(dbp1,dbp2,dbp3), na.rm = TRUE))%>% 
   ungroup()%>% 
   mutate(weight = weight*0.4536)%>% 
   select(-sbp1,-sbp2,-sbp3,-dbp1,-dbp2,-dbp3)
-
 

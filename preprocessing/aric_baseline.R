@@ -53,7 +53,7 @@ v1_new<- v1_all %>%
     drk_cur=="0"~0,
     TRUE~ NA_real_
   )) %>% 
-  select(-insulin_pmoll,-fast_8,-fast_12,-glucose_value,-med_chol_2nd_4w,
+  select(-insulin_pmoll,-insulin_uuml,-fast_8,-fast_12,-glucose_value,-med_chol_2nd_4w,
          -med_chol_2w,-sr_bp_2w,-med_bp_2w,-sbp1,-sbp2,-sbp3,-dbp1,-dbp2,-dbp3)
 
 #V2
