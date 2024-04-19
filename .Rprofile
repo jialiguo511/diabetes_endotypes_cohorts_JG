@@ -4,6 +4,10 @@ source("functions/data_extract.R")
 library(tidyverse)
 
 # Read about how .Rprofile is useful
+if(Sys.info()["user"] == "JVARGH7"){
+  path_endotypes_folder <- "C:/Cloud/Emory University/li, zhongyu - Diabetes Endotypes Project (JV and ZL)"
+}
+
 if(Sys.info()["user"] == "zhongyuli"){
   path_endotypes_folder <- "/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/Diabetes Endotypes Project (JV and ZL)"
 }
