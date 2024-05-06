@@ -21,7 +21,7 @@ e1_temp <- data_extract("MESA","mesae1dres06192012",data_path_e1)
 # creatin1, check if serum, likely, checked, yes, most likely serum
 # MISSING: HbA1c 
 ## CODING: most 1 = yes, 0 = no, and 9 = unknown 
-# Checked EGFR, looks normal, unit is likly mL/min/1.73 m² 
+# Checked EGFR, looks normal, unit is likely mL/min/1.73 m² 
 
 
 e1_temp$egfr
@@ -36,7 +36,6 @@ e1_dat <- e1_temp %>%
     select(-sbp1,-sbp2,-sbp3,-dbp1,-dbp2,-dbp3)
 
   
-view(e2_d)
 #### Exam 2 
 
 data_path_e2 <-  paste0(path_mesa_folder,"/Primary/Exam2/Data")

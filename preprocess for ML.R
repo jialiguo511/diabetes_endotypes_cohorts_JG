@@ -9,10 +9,10 @@ library(tidyr)
 
 ### load datasets
 # VARIABES [our approach]: 
-## age(this should be dmagediag), BMI, HbA1c, LDL cholesterol, HDL cholesterol, triglycerides, 
+## age (this should be dmagediag), BMI, HbA1c, LDL cholesterol, HDL cholesterol, triglycerides, 
 ## systolic and diastolic blood pressure, and TGL:HDL ratio)
 
-## JHS 
+## JHS [need to check inclusion of HbA1c as a DX rule]
 #some duplicates in ids, values appear to differ, reason unknown, created new id and renamed to study_id. 
 jhs<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/jhs.RDS")) %>% 
   dplyr::mutate(ratio_th=tgl/hdlc,
@@ -26,7 +26,7 @@ jhs_newdm <- jhs[jhs$dmduration%in% c(0, 1), ]
 jhs_newdm$study = "jhs"
 
 
-## Look Ahead 
+## Look Ahead [okay]
 la<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/look_ahead.RDS")) %>% 
   dplyr::mutate(ratio_th=tgl/hdlc)%>% 
   dplyr::select(bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,dmduration) #no fasting insulin
@@ -34,18 +34,19 @@ la<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/look_ahead.RDS")) %>%
 la_newdm <- la[la$dmduration%in% c(0, 1), ] #N=877
 la_newdm$study = "la"
 
-## ACCORD
+## ACCORD [okay]
 accord<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/accord.RDS")) %>% 
   dplyr::mutate(ratio_th=tgl/hdlc,
                 bmi = weight/((height/100)^2)
                 )%>% 
   dplyr::select(bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,dmduration) # no fasting insulin
 
-
 accord_newdm <-accord[accord$dmduration%in% c(0, 1), ] #N=601 
 accord_newdm$study = "accord"
 
 ## DPP 
+dpp<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/dpp.RDS"))
+names(dpp)
 dpp<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/dpp.RDS"))%>% 
   dplyr::mutate(ratio_th=tgl/hdlc,
                 glucosef2=glucosef*0.0555,

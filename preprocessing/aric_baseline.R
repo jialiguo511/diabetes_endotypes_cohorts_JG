@@ -306,12 +306,12 @@ aric_new<-aric_analysis%>%
     TRUE~0)
   )
 
-table(aric_new$diab_v1)
+#table(aric_new$diab_v1)
 
 
 # Identify participants with baseline diabetes
 baseline_ids_row <- which(aric_new$visit == 1 & aric_new$diab_v1 == 1)
-baseline_ids <-aric_new$study_id[baseline_ids_row]
+baseline_ids <-aric_new$study_id[baseline_ids_row] # n = 1838 with baseline DM
 
 
 # Mark all occurrences of these participants in all visits
@@ -335,14 +335,13 @@ selected_ids_v2 # no participant in V2 meets the criteria
 
 rows_with_correct_age_diff_v3 <- which(aric_new$age_diff >= 0 & aric_new$age_diff <= 1 & aric_new$visit == 3)
 selected_ids_v3 <- aric_new$study_id[rows_with_correct_age_diff_v3]
-selected_ids_v3# 194 participant in V3 meet the criteria
+summary(selected_ids_v3)# 194 participant in V3 meet the criteria
 
 
 
 #### Now, new DM in V2 
 #Need to modify:1)dmagediag = age if new DM; 2)create a diab_new_vx variable
 
-names(v2_new)
 
 aric_new <-aric_new%>% 
   mutate(
@@ -384,7 +383,7 @@ aric_new<-aric_new%>%
       diab_med_2w=="N"~0,
       TRUE ~ NA_real_),
     diab_new_v3 = case_when(
-      (visit==3)&(diab_126==1|diab_doc==1|diab_140==1|diab_med_2w==1)&baseline_diabetes==0 ~ 1,
+      (visit==3)&(diab_126==1|diab_doc==1|diab_140==1)&baseline_diabetes==0 ~ 1,
       visit!=3~NA_real_,
       TRUE~0),
     dmagediag = case_when(
@@ -412,7 +411,7 @@ aric_new<-aric_new%>%
       diab_med_any=="N"~0,
       TRUE ~ NA_real_),
     diab_new_v4 = case_when(
-      (visit==4)&(diab_126==1|diab_doc==1|diab_140==1|diab_med_2w==1|diab_med_any==1|diab_trt==1)&baseline_diabetes==0 ~ 1,
+      (visit==4)&(diab_126==1|diab_doc==1|diab_140==1|(glucosef >= 126 & !is.na(glucosef))|(glucose2h >= 200 & !is.na(glucose2h)))&baseline_diabetes==0 ~ 1,
       visit!=4~NA_real_,
       TRUE~0),
     dmagediag = case_when(
@@ -420,9 +419,10 @@ aric_new<-aric_new%>%
       visit == 4 & diab_new_v4 != 1 ~ NA_real_, 
       TRUE ~ dmagediag  # Preserve original values for other conditions
     ))
-  
 
-table(aric_new$diab_new_v4) # 1033 with new DM 
+summary(v4_new)
+
+table(aric_new$diab_new_v4) # 1581 with new DM 
 
 newdm_v4_rows <- which(aric_new$diab_new_v4==1)
 newdm_v4_ids <-aric_new$study_id[newdm_v4_rows]
@@ -431,7 +431,7 @@ newdm_v4_ids <-aric_new$study_id[newdm_v4_rows]
 #### Now, new DM in V5 
 #Need to modify:1)dmagediag = age if new DM; 2)create a diab_new_vx variable 
 
-
+summary(v5_new)
 aric_new<-aric_new%>% 
   mutate(diab_a1c65= case_when(
     diab_a1c65 == "1"|diab_a1c65 =="T"~1,
@@ -442,7 +442,7 @@ aric_new<-aric_new%>%
       diab_med_4w=="0"~0,
       TRUE ~ NA_real_),
     diab_new_v5 = case_when(
-      (visit==5)&(diab_126==1|diab_a1c65==1|diab_140==1|diab_med_4w==1|diab_med_afu==1|diab_doc==1)&baseline_diabetes==0 ~ 1,
+      (visit==5)&(diab_126==1|diab_a1c65==1|diab_140==1|diab_doc==1|(glucosef >= 126 & !is.na(glucosef))|(hba1c >= 6.5 & !is.na(hba1c)))&baseline_diabetes==0 ~ 1,
       visit!=5~NA_real_,
       TRUE~0),
     dmagediag = case_when(
@@ -451,17 +451,17 @@ aric_new<-aric_new%>%
       TRUE ~ dmagediag  # Preserve original values for other conditions
     ))
 
-table(aric_new$diab_new_v5) # 2118 with new DM 
+table(aric_new$diab_new_v5) # 1897 with new DM 
 
 newdm_v5_rows <- which(aric_new$diab_new_v5==1)
 newdm_v5_ids <-aric_new$study_id[newdm_v5_rows]
 
 #### Now, new DM in V6 
 #Need to modify:1)dmagediag = age if new DM; 2)create a diab_new_vx variable 
-
+summary(v6_new)
 aric_new<-aric_new%>% 
   mutate(diab_new_v6 = case_when(
-      (visit==6)&(diab_126==1|diab_a1c65==1|diab_140==1|diab_med_4w==1|diab_med_afu==1)&baseline_diabetes==0 ~ 1,
+      (visit==6)&(diab_126==1|diab_a1c65==1|diab_140==1|(glucosef >= 126 & !is.na(glucosef)))&baseline_diabetes==0 ~ 1,
       visit!=6~NA_real_,
       TRUE~0),
     dmagediag = case_when(
@@ -470,7 +470,7 @@ aric_new<-aric_new%>%
       TRUE ~ dmagediag  # Preserve original values for other conditions
     ))
 
-table(aric_new$diab_new_v6) # 1313 with new DM 
+table(aric_new$diab_new_v6) # 1300 with new DM 
 
 newdm_v6_rows <- which(aric_new$diab_new_v6==1)
 newdm_v6_ids <-aric_new$study_id[newdm_v6_rows]
@@ -514,14 +514,11 @@ newdm_v6 <- aric_new %>%
 
 id_s6 <-c(id_s5,newdm_v6_ids)
 
-dat_newdm <- bind_rows(newdm_v2,newdm_v3,newdm_v4,newdm_v5,newdm_v6) #n=3587 new dm cases, use this for analysis, it contains just the visits at which new dm is identified. 
+dat_newdm <- bind_rows(newdm_v2,newdm_v3,newdm_v4,newdm_v5,newdm_v6) #n=3802 new dm cases, use this for analysis, it contains just the visits at which new dm is identified. 
 
-combined_ids <- Reduce(union, list(newdm_v2_ids, newdm_v3_ids_c,newdm_v4_ids,newdm_v5_ids,newdm_v6_ids)) #n=3587 new dm cases 
+combined_ids <- Reduce(union, list(newdm_v2_ids, newdm_v3_ids_c,newdm_v4_ids,newdm_v5_ids,newdm_v6_ids)) #n=3802 new dm cases 
 
 aric_new_dm <- aric_new[aric_new$study_id %in% combined_ids, ]#this contains all visits for new DM cases 
-
-sapply(aric_new_dm, class)
-
 
 
 #### From V2 to V6, calculate "dmduration" by subtracting "dmagediag" from "age" at the visit 
