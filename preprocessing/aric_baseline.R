@@ -383,7 +383,7 @@ aric_new<-aric_new%>%
       diab_med_2w=="N"~0,
       TRUE ~ NA_real_),
     diab_new_v3 = case_when(
-      (visit==3)&(diab_126==1|diab_doc==1|diab_140==1)&baseline_diabetes==0 ~ 1,
+      (visit==3)&(diab_126==1|diab_doc==1)&baseline_diabetes==0 ~ 1,
       visit!=3~NA_real_,
       TRUE~0),
     dmagediag = case_when(
@@ -411,7 +411,7 @@ aric_new<-aric_new%>%
       diab_med_any=="N"~0,
       TRUE ~ NA_real_),
     diab_new_v4 = case_when(
-      (visit==4)&(diab_126==1|diab_doc==1|diab_140==1|(glucosef >= 126 & !is.na(glucosef))|(glucose2h >= 200 & !is.na(glucose2h)))&baseline_diabetes==0 ~ 1,
+      (visit==4)&(diab_126==1|diab_doc==1|(glucosef >= 126 & !is.na(glucosef))|(glucose2h >= 200 & !is.na(glucose2h)))&baseline_diabetes==0 ~ 1,
       visit!=4~NA_real_,
       TRUE~0),
     dmagediag = case_when(
@@ -442,7 +442,7 @@ aric_new<-aric_new%>%
       diab_med_4w=="0"~0,
       TRUE ~ NA_real_),
     diab_new_v5 = case_when(
-      (visit==5)&(diab_126==1|diab_a1c65==1|diab_140==1|diab_doc==1|(glucosef >= 126 & !is.na(glucosef))|(hba1c >= 6.5 & !is.na(hba1c)))&baseline_diabetes==0 ~ 1,
+      (visit==5)&(diab_126==1|diab_a1c65==1|diab_doc==1|(glucosef >= 126 & !is.na(glucosef))|(hba1c >= 6.5 & !is.na(hba1c)))&baseline_diabetes==0 ~ 1,
       visit!=5~NA_real_,
       TRUE~0),
     dmagediag = case_when(
@@ -461,7 +461,7 @@ newdm_v5_ids <-aric_new$study_id[newdm_v5_rows]
 summary(v6_new)
 aric_new<-aric_new%>% 
   mutate(diab_new_v6 = case_when(
-      (visit==6)&(diab_126==1|diab_a1c65==1|diab_140==1|(glucosef >= 126 & !is.na(glucosef)))&baseline_diabetes==0 ~ 1,
+      (visit==6)&(diab_126==1|diab_a1c65==1|(glucosef >= 126 & !is.na(glucosef)))&baseline_diabetes==0 ~ 1,
       visit!=6~NA_real_,
       TRUE~0),
     dmagediag = case_when(

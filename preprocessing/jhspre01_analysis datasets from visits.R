@@ -47,7 +47,7 @@ jhs_analysis <- bind_rows(
                                 # Need to make sure that the below condition makes sense
                                 # dmagediag might be missing because they forgot
                                 # diabetes == 1 usually for someone with glucosef >= 126
-                                (diabetes == 0 | is.na(dmagediag)) & glucosef >= 126 ~ 0,
+                                (diabetes == 0 | is.na(dmagediag)) & (glucosef >= 126 | hba1c >=6.5) ~ 0,
                                 TRUE ~ NA_real_
                                 ),
          race_eth = "NH Black",

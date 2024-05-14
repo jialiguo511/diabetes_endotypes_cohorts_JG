@@ -19,9 +19,7 @@ confirmed_dm <- events %>%
 
 anthro_vars <- c("sbp","dbp","weight","height","wc","hc","triceps","iliac","abdominal","medial","bmi","preg")
 lab_vars <- c("hba1c","insulinf","glucosef","glucose2h","vldlc","tgl","hdlc","ldlc",
-              "serumcreatinine"
-              # "totalc","ast","alt"
-              )
+              "serumcreatinine", "urinecreatinine","ast","alt")
 
 
 lab_matched <- map_dfr(lab_vars,
