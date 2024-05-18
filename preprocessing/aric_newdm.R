@@ -531,7 +531,8 @@ aric_new_dm_all_visits <- aric_new_dm %>%
   ungroup()%>% 
   mutate(dmduration=age-dmagediag) # 3.18.24, need to keep only one record/participant
 
-saveRDS(aric_new_dm_all_visits,paste0(path_endotypes_folder,"/working/cleaned/aric_new_dm_all_visits.RDS"))
+#un-comment when all visits are needed
+#saveRDS(aric_new_dm_all_visits,paste0(path_endotypes_folder,"/working/cleaned/aric_new_dm_all_visits.RDS"))
 
 saveRDS(dat_newdm,paste0(path_endotypes_folder,"/working/cleaned/aric_new_dm.RDS"))
 

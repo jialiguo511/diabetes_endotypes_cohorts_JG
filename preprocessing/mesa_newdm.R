@@ -66,9 +66,10 @@ newdm_dat <- bind_rows(newdm_e2,newdm_e3,newdm_e4,newdm_e5) #exam1 is the baseli
 ## merge all exams 
 all_dat <- bind_rows(e1_dat,e2_dat,e3_dat,e4_dat,e5_dat)
 
-saveRDS(newdm_dat,paste0(path_endotypes_folder,"/working/cleaned/MESA_newdm.RDS"))
+saveRDS(newdm_dat,paste0(path_endotypes_folder,"/working/cleaned/mesa_newdm.RDS"))
 
-saveRDS(all_dat,paste0(path_endotypes_folder,"/working/cleaned/MESA_all.RDS"))
+#un-commment when all vists are needed
+# saveRDS(all_dat,paste0(path_endotypes_folder,"/working/cleaned/MESA_all.RDS"))
 
 
 

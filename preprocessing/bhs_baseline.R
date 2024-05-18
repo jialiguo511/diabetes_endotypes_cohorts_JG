@@ -31,7 +31,7 @@ bhs<-z510rev3 %>%
       TRUE ~ 0 
     ))%>% select(-glucose,-fasting)
 
-saveRDS(bhs,paste0(path_endotypes_folder,"/working/cleaned/bhs.RDS"))
+saveRDS(bhs,paste0(path_endotypes_folder,"/working/cleaned/bhs_baseline.RDS"))
 
   
   

@@ -37,7 +37,7 @@ jhs<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/jhs.RDS")) %>%
 jhs_newdm <- jhs[jhs$dmduration%in% c(0, 1), ] 
 jhs_newdm$study = "jhs" # n = 1174
 
-summary(jhs)
+summary(jhs_newdm)
 ## Look Ahead [okay]
 
 la<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/look_ahead.RDS")) %>% 

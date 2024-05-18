@@ -1,7 +1,7 @@
 #The purpose of this file is to merge all nine exams for CARDIA 
 
 rm(list=ls()); gc(); source(".Rprofile")
-source("preprocessing/cardia_y0_y25.R")
+source("preprocessing/cardia_y0_y30.R")
 
 ## merge all nine exams 
 
@@ -146,8 +146,6 @@ dat_all_temp<- dat_all %>%
 dat_sub <- dat_all_temp %>%
   dplyr::filter(age_diff <= 1) # n = 483 
 
-table(dat_sub$year)
-table(dat_newdm$year)
 
 
 id_dmage <- dat_sub$study_id
@@ -179,9 +177,10 @@ for (col in overlapping_cols) {
 
 
 
-saveRDS(merged_data,paste0(path_endotypes_folder,"/working/cleaned/CARDIA_newdm.RDS"))
+saveRDS(merged_data,paste0(path_endotypes_folder,"/working/cleaned/cardia_newdm.RDS"))
 
-saveRDS(dat_all,paste0(path_endotypes_folder,"/working/cleaned/CARDIA_all.RDS"))
+#un-comment if all visits needed
+#saveRDS(dat_all,paste0(path_endotypes_folder,"/working/cleaned/cardia_all.RDS"))
 
 
 

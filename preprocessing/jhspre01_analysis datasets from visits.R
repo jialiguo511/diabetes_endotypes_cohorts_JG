@@ -31,6 +31,7 @@ data_path3 <-  paste0(path_endotypes_folder,"/working/jhs/Data/Visit3")
 #convert_formats(data_path3,
 #                file_name = "pfhb.sas7bdat",dest_type = "csv")
 
+#study_name = "JHS"
 analysis1 <- data_extract(study_name,vl_column2,data_path_analysisV) 
 analysis2 <- data_extract(study_name,vl_column4,data_path_analysisV) 
 analysis3 <- data_extract(study_name,vl_column6,data_path_analysisV) 
@@ -38,6 +39,7 @@ analysis3 <- data_extract(study_name,vl_column6,data_path_analysisV)
 pfha <- data_extract(study_name,vl_column1,data_path1) 
 hhxa <- data_extract(study_name,vl_column3,data_path2) 
 phfb <- data_extract(study_name,vl_column5,data_path3) 
+table(analysis3$diabetes)
 
 jhs_analysis <- bind_rows(
   left_join(analysis1,pfha,by="study_id") %>% mutate(visit = 1),
@@ -50,9 +52,12 @@ jhs_analysis <- bind_rows(
                                 (diabetes == 0 | is.na(dmagediag)) & (glucosef >= 126 | hba1c >=6.5) ~ 0,
                                 TRUE ~ NA_real_
                                 ),
+         dmagediag = case_when(dmduration == 0 ~ age, # Zhongyu added here
+                               TRUE ~ dmagediag),
          race_eth = "NH Black",
          female = case_when(female == "Female" ~ 1,
                             female == "Male" ~ 0,
                             TRUE ~ NA_real_))
+
 
 rm(analysis1,analysis2,analysis3,pfha,hhxa,phfb)
