@@ -3,6 +3,8 @@
 # This file is later modified to adjust units for glucose and insulin required in HOMA2 from fasting insulin and glucose (taged "2") by ZL in March 2024
 # In April 2024, new cohort: ARIC, MESA, and CARIA are added. HOMA2 will also be created for them 
 # In May 2024, we have decided to add more variables to build the prediction model
+# in May 2024, we have decided to use the five-variable and the nine-variable methods to run K means and logistic regression for the analysis.
+
 
 # K means with eight cohorts (LA, JHS, DPP, ACCORD, DDPOS, ARIC, CARDIA, MESA)
 library(dplyr)
@@ -13,7 +15,7 @@ library(tidyr)
 ## age (this should be dmagediag), BMI, HbA1c, LDL cholesterol, HDL cholesterol, triglycerides, 
 ## systolic and diastolic blood pressure, and TGL:HDL ratio)
 
-# ADDED variables [for EHR prediction model]: 
+# ADDED variables [for EHR prediction model, NOT NEEDED! but included in the dataset as of May 2024]: 
 ## JHS: serumcreatinine, urinealbumin, urinecreatinine, egfr,totalc
 ## Look Ahead: serumcreatinine, urinealbumin, urinecreatinine,uacr,egfr
 ## ACCORD: serumcreatinine, urinealbumin, urinecreatinine, uacr, egfr, alt,totalc
@@ -86,7 +88,7 @@ dppos$study = "dppos" # n = 907
 
 ## ARIC [okay]
 # in this cohort new dm case data, baseline dm is not included. 
-aric<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/aric_new_dm.RDS"))%>% 
+aric<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/aric_newdm.RDS"))%>% 
   dplyr::mutate(ratio_th=tgl/hdlc,
                 glucosef2=glucosef*0.0555,
                 insulinf2=insulinf*6,
@@ -98,7 +100,7 @@ aric$study = "aric" # n = 3802
 
 
 ## CARDIA 
-cardia <-readRDS(paste0(path_endotypes_folder,"/working/cleaned/CARDIA_newdm.RDS"))%>% 
+cardia <-readRDS(paste0(path_endotypes_folder,"/working/cleaned/cardia_newdm.RDS"))%>% 
   #dplyr::filter(year!=0)%>% 
   dplyr::mutate(ratio_th=tgl/hdlc,
                 glucosef2=glucosef*0.0555,
@@ -114,7 +116,7 @@ cardia <-readRDS(paste0(path_endotypes_folder,"/working/cleaned/CARDIA_newdm.RDS
 cardia$study = "cardia" #n=828
 
 ## MESA 
-mesa<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/MESA_newdm.RDS"))%>% 
+mesa<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/mesa_newdm.RDS"))%>% 
   dplyr::mutate(ratio_th=tgl/hdlc,
                 glucosef2=glucosef*0.0555,
                 insulinf2=insulinr*6)%>% 
@@ -136,25 +138,25 @@ data_8c_sum <- data_8c %>%
 data_8c_sum # note that no cohort has all variables
 
 library(readr)
-write_csv(data_8c_sum, paste0(path_endotypes_folder,"/results/kmeans/count_sum_8c_5.12.24.csv"))
+write_csv(data_8c_sum, paste0(path_endotypes_folder,"/results/kmeans/count_sum_8c_5.18.24.csv"))
 
 
 
 data_8c_mean <- data_8c %>%
-  group_by(study) %>%  # Assuming 'study' is the column by which you want to group the data
+  group_by(study) %>%  
   summarise(across(everything(), mean, na.rm = TRUE), .groups = "drop")
 # urine albumin is mg/L in ARIC (conversion = /10) [completed on 5.6.24]
 # uarc in LA is in wrong unit, correct by x1000 [completed on 5.6.24]
 
 # for nine variable method(Method 4)
 var_sel <- c("bmi","hba1c","ldlc","hdlc","tgl","sbp","dbp","ratio_th","dmagediag")
-data_8c_nona <- data_8c[complete.cases(data_8c[,var_sel]),] # 5306 no NA new dm cases 
+data_8c_nona <- data_8c[complete.cases(data_8c[,var_sel]),] # 6104 no NA new DM cases 
 data_8c_nona <- data_8c_nona[c("study_id", setdiff(names(data_8c_nona), "study_id"))] # rearrange the columns 
 
 # for homa2 comparison, five variable method (Method 3A and 3B)
 var_sel2 <- c("bmi","hba1c","glucosef2","insulinf2","dmagediag")
 data_homa2 <-data_8c[complete.cases(data_8c[,var_sel2]),]
-data_homa2 <- data_homa2[c("study_id", setdiff(names(data_homa2), "study_id"))] #3241 
+data_homa2 <- data_homa2[c("study_id", setdiff(names(data_homa2), "study_id"))] #3818 no NA for five variable methods  
 
 
 # export to pyhton 
