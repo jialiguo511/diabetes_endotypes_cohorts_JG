@@ -56,6 +56,8 @@ v1_new<- v1_all %>%
   select(-insulin_pmoll,-insulin_uuml,-fast_8,-fast_12,-glucose_value,-med_chol_2nd_4w,
          -med_chol_2w,-sr_bp_2w,-med_bp_2w,-sbp1,-sbp2,-sbp3,-dbp1,-dbp2,-dbp3)
 
+v1_new_fill <- v1_new %>% select(study_id, female, race)
+
 #V2
 
 v2_all<- derive2_10 %>%
@@ -151,6 +153,10 @@ v3_new <- v3_all %>%
   select(-glucose_value,-fast_8,-fast_12,-med_chol_2nd_4w,
          -med_chol_2w,-sr_bp_2w,-med_bp_2w,-sbp1,-sbp2,-sbp3,-dbp1,-dbp2,-dbp3)
 
+# add gender and race from v1 to v3 
+v3_new <- v3_new %>%
+  left_join(v1_new_fill, by = "study_id")
+
 
 #V4 
 v4_all<- derive47 %>%
@@ -240,6 +246,10 @@ v5_new<- v5_all%>%
          -insulin_uuml)
 
 v5_new$smk_cur<-as.character(v5_new$smk_cur)
+
+# add gender and race variables from v1 
+v5_new <- v5_new %>%
+  left_join(v1_new_fill, by = "study_id")
 
 #V6 
 
@@ -534,6 +544,6 @@ aric_new_dm_all_visits <- aric_new_dm %>%
 #un-comment when all visits are needed
 #saveRDS(aric_new_dm_all_visits,paste0(path_endotypes_folder,"/working/cleaned/aric_new_dm_all_visits.RDS"))
 
-saveRDS(dat_newdm,paste0(path_endotypes_folder,"/working/cleaned/aric_new_dm.RDS"))
+saveRDS(dat_newdm,paste0(path_endotypes_folder,"/working/cleaned/aric_newdm.RDS"))
 
 

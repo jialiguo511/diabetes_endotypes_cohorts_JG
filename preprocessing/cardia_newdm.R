@@ -19,6 +19,8 @@ dat_all <- bind_rows(dat_y0, dat_y2, dat_y5, dat_y7, dat_y10, dat_y15, dat_y20, 
 
 head(dat_all)
 
+colnames(dat_all)
+
 
 ############# To identify new diabetes ######### 
 names(dat_all)

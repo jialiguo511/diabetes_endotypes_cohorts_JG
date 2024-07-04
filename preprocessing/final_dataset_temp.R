@@ -1,11 +1,14 @@
-# the purpose of this file is to prepare dataset for ML in python 
+# the purpose of this file is to prepare a final dataset for ML in python 
 # created in March 2024 by ZL 
 # This file is later modified to adjust units for glucose and insulin required in HOMA2 from fasting insulin and glucose (taged "2") by ZL in March 2024
 # In April 2024, new cohort: ARIC, MESA, and CARIA are added. HOMA2 will also be created for them 
 # In May 2024, we have decided to add more variables to build the prediction model
 # in May 2024, we have decided to use the five-variable and the nine-variable methods to run K means and logistic regression for the analysis.
 
-
+###### 
+# In June 2024, renamed with _temp, so that it is clear that this is for temporary/intermediate final dataset only. 
+# In July 2024, extracted gender and race. created a new variable named "race_rev" to code African American and White
+#####
 # K means with eight cohorts (LA, JHS, DPP, ACCORD, DDPOS, ARIC, CARDIA, MESA)
 library(dplyr)
 library(tidyr)
@@ -27,20 +30,23 @@ library(tidyr)
 
 ## JHS [okay]
 #some duplicates in ids, values appear to differ, reason unknown, created new id and renamed to study_id. 
+
+
 jhs<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/jhs.RDS")) %>% 
   dplyr::mutate(ratio_th=tgl/hdlc,
                 glucosef2=glucosef*0.0555,
-                insulinf2=insulinf*6)%>% 
+                insulinf2=insulinf*6,
+                race_rev = "AA")%>% 
+  rename(race = race_eth)%>% 
                 #new_id = row_number())%>% 
   #rename(study_id = new_id)%>% 
   dplyr::select(bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,dmduration,glucosef2,insulinf2,
-                serumcreatinine, urinealbumin, urinecreatinine, egfr, totalc) 
+                serumcreatinine, urinealbumin, urinecreatinine, egfr, totalc,female,race,race_rev) 
 
 jhs_newdm <- jhs[jhs$dmduration%in% c(0, 1), ] 
 jhs_newdm$study = "jhs" # n = 1174
 
-summary(jhs_newdm)
-## Look Ahead [okay]
+## Look Ahead [okay,no fasting insulin & glucose]
 
 la<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/look_ahead.RDS")) %>% 
   dplyr::mutate(ratio_th=tgl/hdlc, 
@@ -51,7 +57,7 @@ la<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/look_ahead.RDS")) %>%
 la_newdm <- la[la$dmduration%in% c(0, 1), ] 
 la_newdm$study = "la" #N=877
 
-## ACCORD [okay]
+## ACCORD [okay,no fasting insulin&glucose]
 accord<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/accord.RDS")) %>% 
   dplyr::mutate(ratio_th=tgl/hdlc,
                 bmi = weight/((height/100)^2)
@@ -67,23 +73,38 @@ accord_newdm$study = "accord" #N=601
 dpp<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/dpp.RDS"))%>% 
   dplyr::mutate(ratio_th=tgl/hdlc,
                 glucosef2=glucosef*0.0555,
-                insulinf2=insulinf*6)%>% 
+                insulinf2=insulinf*6,
+                race_rev = case_when(
+                  race_eth == "NH White" ~ "White",
+                  race_eth == "NH Black" ~ "AA",
+                  race_eth %in% c("Hispanic", "NH Other") ~ "Other",
+                  TRUE ~ NA_character_  
+                ))%>% 
+  rename(race = race_eth)%>% 
   dplyr::select(bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
-                serumcreatinine, urinecreatinine) 
+                serumcreatinine, urinecreatinine,female,race,race_rev) 
 
 dpp$study = "dpp" #n=802 
+
 
 ## DPPOS 
 dppos<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/dppos.RDS"))%>% 
   dplyr::mutate(ratio_th=tgl/hdlc,
                 glucosef2=glucosef*0.0555,
-                insulinf2=insulinf*6
-                )%>% 
+                insulinf2=insulinf*6,
+                race_rev = case_when(
+                  race_eth == "NH White" ~ "White",
+                  race_eth == "NH Black" ~ "AA",
+                  race_eth %in% c("Hispanic", "NH Other") ~ "Other",
+                  TRUE ~ NA_character_  
+                ))%>% 
+  rename(race = race_eth)%>% 
   dplyr::select(bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
-                serumcreatinine, ast, alt,totalc)
+                serumcreatinine, ast, alt,totalc,female,race,race_rev)
 
 dppos$study = "dppos" # n = 907
 
+table(dppos$race_eth)
 #### In these three cohorts, loaded data are new DM cases only, therefore age = dmagediag if dmagediag not already created 
 
 ## ARIC [okay]
@@ -92,9 +113,25 @@ aric<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/aric_newdm.RDS"))%>
   dplyr::mutate(ratio_th=tgl/hdlc,
                 glucosef2=glucosef*0.0555,
                 insulinf2=insulinf*6,
-                urinealbumin = urinealbumin/10)%>% 
+                urinealbumin = urinealbumin/10,
+                race_rev = case_when(
+                  race == "W" ~ "White",
+                  race == "B" ~ "AA",
+                  TRUE ~ NA_character_  
+                ),
+                female = case_when(
+                  female == "M" ~ 0,  
+                  female == "F" ~ 1,  
+                  TRUE ~ NA_integer_
+                ),
+                  race = case_when(
+                    race == "W" ~ "NH White",
+                    race == "B" ~ "NH Black",
+                    TRUE ~ NA_character_  
+                  ),
+                )%>% 
   dplyr::select(bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
-                serumcreatinine,urinealbumin,totalc) 
+                serumcreatinine,urinealbumin,totalc,female,race,race_rev) # NOTE: white or AA only, no hispanic or other groups. 
 
 aric$study = "aric" # n = 3802
 
@@ -108,126 +145,90 @@ cardia <-readRDS(paste0(path_endotypes_folder,"/working/cleaned/cardia_newdm.RDS
                 dmagediag = case_when(
                   abs(dmagediag-age)<=1 ~dmagediag,
                   TRUE ~age
-                ))%>% 
+                ),
+                female = case_when(
+                  female == 1 ~ 0,  
+                  female == 2 ~ 1,  
+                  TRUE ~ NA_integer_
+                ),
+                race_rev = case_when(
+                  race == 4 ~ "AA",
+                  race == 5 ~ "White",
+                  TRUE ~ NA_character_  
+                ),
+                race = case_when(
+                  race == 4 ~ "NH Black",
+                  race == 5 ~ "NH White",
+                  TRUE ~ NA_character_), 
+                )%>% 
   dplyr::select(bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
-                serumcreatinine, urinealbumin, uacr, egfr,totalc)
+                serumcreatinine, urinealbumin, uacr, egfr,totalc,female,race,race_rev)
 
-
+table(cardia$race)
 cardia$study = "cardia" #n=828
 
 ## MESA 
+
 mesa<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/mesa_newdm.RDS"))%>% 
   dplyr::mutate(ratio_th=tgl/hdlc,
                 glucosef2=glucosef*0.0555,
-                insulinf2=insulinr*6)%>% 
+                insulinf2=insulinr*6,
+                female = 1 - female,
+                race_rev = case_when(
+                  race == 1 ~ "White",
+                  race == 3 ~ "AA",
+                  race == 2 | 4 ~ "Other",
+                  TRUE ~ NA_character_  
+                ),
+                race = case_when(
+                  race == 1 ~ "NH White",
+                  race == 3 ~ "NH Black",
+                  race == 2 ~ "Other",
+                  race == 4 ~ "Hispanic",
+                  TRUE ~ NA_character_  
+                ))%>% 
     rename(dmagediag=age)%>% 
   dplyr::select(bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
-                urinealbumin, urinecreatinine, uacr,serumcreatinine, egfr,totalc) 
+                urinealbumin, urinecreatinine, uacr,serumcreatinine, egfr,totalc,female,race,race_rev) 
 
 mesa$study = "mesa" #n=901
+
 
 #merge data and remove all NAs, imputation could be used in sensitivity analysis to increase sample size
 data_8c<-bind_rows(jhs_newdm,la_newdm,accord_newdm,dpp,dppos,aric,cardia,mesa)%>% 
   select(-study_id,-dmduration)%>% 
   mutate(study_id=row_number()) # 9892 new DM cases 
 
+data_6c<-bind_rows(jhs_newdm,dpp,dppos,aric,cardia,mesa)%>% 
+  select(-study_id,-dmduration)%>% 
+  mutate(study_id=row_number()) # 8414 new DM cases
+
 data_8c_sum <- data_8c %>% 
   group_by(study)%>%
   summarise(across(everything(), ~ sum(!is.na(.)), .names = "n_{.col}"))
 
-data_8c_sum # note that no cohort has all variables
-
-library(readr)
-write_csv(data_8c_sum, paste0(path_endotypes_folder,"/results/kmeans/count_sum_8c_5.18.24.csv"))
-
-
-
-data_8c_mean <- data_8c %>%
-  group_by(study) %>%  
-  summarise(across(everything(), mean, na.rm = TRUE), .groups = "drop")
-# urine albumin is mg/L in ARIC (conversion = /10) [completed on 5.6.24]
-# uarc in LA is in wrong unit, correct by x1000 [completed on 5.6.24]
-
-# for nine variable method(Method 4)
-var_sel <- c("bmi","hba1c","ldlc","hdlc","tgl","sbp","dbp","ratio_th","dmagediag")
-data_8c_nona <- data_8c[complete.cases(data_8c[,var_sel]),] # 6104 no NA new DM cases 
-data_8c_nona <- data_8c_nona[c("study_id", setdiff(names(data_8c_nona), "study_id"))] # rearrange the columns 
-
-# for homa2 comparison, five variable method (Method 3A and 3B)
-var_sel2 <- c("bmi","hba1c","glucosef2","insulinf2","dmagediag")
-data_homa2 <-data_8c[complete.cases(data_8c[,var_sel2]),]
-data_homa2 <- data_homa2[c("study_id", setdiff(names(data_homa2), "study_id"))] #3818 no NA for five variable methods  
-
-
-# export to pyhton 
-data_array <- as.matrix(data_8c_nona)
-write.csv(data_array, paste0(path_endotypes_folder,"/working/processed/data_8c.csv"), row.names = FALSE)
-
-# the HOMA2 is calculated using the excel calculator released by University of Oxford.Some observations will be removed due to extreme values out of the range. 
-data_array_homa2 <- as.matrix(data_homa2)
-
-#NOTE!!the data_array_home2.csv does not contain the HOME2IR and HOME2B when generated from R. You need to use the HOME2 calculator and paste these values to the file. 
-write.csv(data_array_homa2, paste0(path_endotypes_folder,"/working/processed/data_6c_homa2.csv"), row.names = FALSE)
-
-# Merge two datasets to generate a final data. 
-
-#################################################################################################################################
-# NOTE:Before merge, make sure that HOME2 values are added to csv file! 
-
-# Load the datasets
-data_4m <- read.csv(paste0(path_endotypes_folder,"/working/processed/data_8c.csv"))
-data_3m <- read.csv(paste0(path_endotypes_folder,"/working/processed/data_6c_homa2.csv")) 
-
-# Add indicator columns
-data_3m$method3 <- 1  
-data_4m$method4 <- 1  
-
-names(data_8c)
-
-# Merge dataset using left_join
-var_sel3 <- c("bmi","hba1c","ldlc","hdlc","tgl","sbp","dbp","ratio_th","dmagediag","glucosef2","insulinf2","study","serumcreatinine",
-              "urinealbumin","urinecreatinine","egfr","totalc", "alt","ast")
-merged <- full_join(data_4m, data_3m, by = "study_id", suffix = c("_A", "_B"))
-
-choose_value <- function(a, b) {
-  if (!is.na(a)) {
-    return(a)  # If dataset_A has a non-missing value, use it
-  } else {
-    return(b)  # Otherwise, use dataset_B's value
-  }
-}
-
-# Reconcile each variable in the list
-for (var in var_sel3) {
-  merged <- merged %>%
-    mutate(
-      !!var := mapply(choose_value, .data[[paste0(var, "_A")]], .data[[paste0(var, "_B")]])
-    )
-}
-
-# Drop the intermediate columns (those with suffixes "_A" and "_B")
-final_dataset <- merged %>%
-  dplyr::select(-ends_with("_A"), -ends_with("_B")) %>%
-  dplyr::select("study_id", everything())
-
-
-# Fill missing indicator values with 0
-final_dataset$method3[is.na(final_dataset $method3)] <- 0
-final_dataset$method4[is.na(final_dataset $method4)] <- 0
-
-# reorder
-final_dataset <- final_dataset%>%
-  select(-c(study,method3, method4), study,method3, method4)  # Reorder with 'method3' and 'method4' last
-
-# just to compare counts with previous results
-sum_test <- final_dataset %>% 
-  dplyr::filter(method3==1) %>% 
+data_6c_sum <- data_6c %>% 
   group_by(study)%>%
   summarise(across(everything(), ~ sum(!is.na(.)), .names = "n_{.col}"))
 
 
-# Save the merged dataset to a CSV
-write_csv(final_dataset, paste0(path_endotypes_folder,"/working/processed/final_dataset.csv"))
+library(readr)
+write_csv(data_8c_sum, paste0(path_endotypes_folder,"/results/updates/count_sum_8c.csv"))
+write_csv(data_6c_sum, paste0(path_endotypes_folder,"/results/updates/count_sum_6c.csv"))
 
 
+### for all eight cohorts ### 
+data_8c_mean <- data_8c %>%
+  group_by(study) %>%  
+  summarise(across(everything(), mean, na.rm = TRUE), .groups = "drop")
+# urine albumin is mg/L in ARIC (conversion = /10) [completed on 5.6.24]
+# uarc in LA is in wrong unit, corre›ct by x1000 [completed on 5.6.24]
 
+### output a temporary merged dataset for further processing 
+write.csv(data_8c, paste0(path_endotypes_folder,"/working/processed/final_data_temp_8c.csv"), row.names = FALSE)
+
+### output a merged dataset for six cohort dataset for HOMA2 to be added 
+write.csv(data_6c, paste0(path_endotypes_folder,"/working/processed/final_data_temp_6c.csv"), row.names = FALSE)
+
+
+1506+2276

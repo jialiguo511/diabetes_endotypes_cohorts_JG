@@ -23,12 +23,15 @@ for (vl in vl_column) {
 
 summary(y0_merged)
 
+
+
 ##Y0 issues ## 
 # insulin, unit need to re-code,unknown status, fasting or not? create a random insulin if not fasting 
 # glucose, unknown status: fasting or random? check the fasting variable. create a random glucose if not fasting
 # creatinine, unknown source, serum or urine? likely serum. 
 # albumin, unknown source, serum or urine? likely serum. 
 # age, race, and sex, need to compare with y2. compare EXAMAGE in Y0 and Y2 to check if they are the same. only need to keep one after merge. 
+## use "female" for gender, use "race_ver_y2" for race if different from "race". 
 # MISSING: HbA1c, weight, and height
 
 
@@ -54,15 +57,17 @@ dat_y0 <- y0_merged %>%
       TRUE~NA_real_),
     serumcreatinine = creatinine_unkn,
     serumalbumin = albumin_unkn,
+    race = if_else(race != race_ver_y2, race_ver_y2, race)
     )%>% 
   rowwise() %>%
   mutate(sbp=mean(c(sbp1,sbp2,sbp3), na.rm = TRUE),
          dbp=mean(c(dbp1,dbp2,dbp3), na.rm = TRUE))%>% 
   ungroup()%>% 
   select(-sex_ver_y2, -age_tel, -age_ver, -insulin_uuml,-creatinine_unkn,-albumin_unkn,-glucose_mg100,-fasting_min,-fasting, -sbp1,-sbp2,-sbp3,
-         -dbp1,-dbp2,-dbp3)
+         -dbp1,-dbp2,-dbp3,-race_ver_y2)
 
 summary(dat_y0)
+dat_y0_fill <- dat_y0 %>% select(study_id, female, race)
 
 ### YEAR2 
 data_path_y2 <-  paste0(path_cardia_folder,"/Y02/DATA/csv")
@@ -101,8 +106,8 @@ dat_y2<-y2_merged%>%
   select(-sbp1,-sbp2,-sbp3,
          -dbp1,-dbp2,-dbp3)
 
-
-
+dat_y2 <- dat_y2 %>%
+  left_join(dat_y0_fill, by = "study_id")
 
 ### YEAR5 
 data_path_y5 <-  paste0(path_cardia_folder,"/Y05/DATA/csv")
@@ -137,7 +142,8 @@ dat_y5<-y5_merged%>%
     select(-sbp1,-sbp2,-sbp3,
                   -dbp1,-dbp2,-dbp3,
            -urinecreatinine_d1,-urinecreatinine_d2,-urinecreatinine_d3) 
-names(dat_y5)
+dat_y5 <- dat_y5 %>%
+  left_join(dat_y0_fill, by = "study_id")
 
 ### YEAR7
 data_path_y7 <-  paste0(path_cardia_folder,"/Y07/DATA/csv")
@@ -154,7 +160,6 @@ for (vl in vl_column) {
     y7_merged <- merge(y7_merged, new_data, by = "study_id", all = TRUE)
   }}
 
-summary(y7_merged)
 
 ## Y7 issues
 # weight is in lb, need to convert to kg
@@ -190,6 +195,9 @@ dat_y7<-y7_merged%>%
          -insulin_uuml,-glucose_ug,
          -fasting_min,-fasting)
 
+
+dat_y7 <- dat_y7 %>%
+  left_join(dat_y0_fill, by = "study_id")
 
 ### YEAR10
 data_path_y10 <-  paste0(path_cardia_folder,"/Y10/DATA/csv")
@@ -254,7 +262,8 @@ dat_y10 <- y10_merged %>%
     -insulin_2h_uuml,-insulin_2h_y10r,-insulinf_y10r,-glucosef_y10r,-glucose2h_y10r)
 
 
-names(dat_y10)
+dat_y10 <- dat_y10 %>%
+  left_join(dat_y0_fill, by = "study_id")
 
 ### YEAR15
 
@@ -290,7 +299,8 @@ dat_y15<-y15_merged%>%
   select(-sbp1,-sbp2,-sbp3,
          -dbp1,-dbp2,-dbp3)
 
-names(dat_y15)
+dat_y15 <- dat_y15 %>%
+  left_join(dat_y0_fill, by = "study_id")
 
 ### YEAR20
 
@@ -331,11 +341,11 @@ dat_y20<-y20_merged%>%
   select(-sbp1,-sbp2,-sbp3,
          -dbp1,-dbp2,-dbp3,
          -egfr_rev,-insulinf_cali,-serumcreatinine_cali)
-summary(dat_y20)
+
+dat_y20 <- dat_y20 %>%
+  left_join(dat_y0_fill, by = "study_id")
 
 ### YEAR25
-
-
 data_path_y25 <-  paste0(path_cardia_folder,"/Y25/DATA/csv")
 
 vl_column <-c("haf08","haf11","haref","haf20","haf02","hahba1c","hains","haglu","halip","hachem","hamicro")
@@ -380,7 +390,8 @@ dat_y25<-y25_merged%>%
          -dbp1,-dbp2,-dbp3,
          -insulinf_y25_hm,-glucosef_delay)
 
-names(dat_y25)
+dat_y25 <- dat_y25 %>%
+  left_join(dat_y0_fill, by = "study_id")
 
 ### YEAR30
 
@@ -422,6 +433,7 @@ dat_y30<-y30_merged%>%
          -dbp1,-dbp2,-dbp3,
          -glucosef_delay)
 
-names(dat_y30)
+dat_y30 <- dat_y30 %>%
+  left_join(dat_y0_fill, by = "study_id")
 
 
