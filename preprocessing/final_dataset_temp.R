@@ -197,11 +197,13 @@ mesa$study = "mesa" #n=901
 #merge data and remove all NAs, imputation could be used in sensitivity analysis to increase sample size
 data_8c<-bind_rows(jhs_newdm,la_newdm,accord_newdm,dpp,dppos,aric,cardia,mesa)%>% 
   select(-study_id,-dmduration)%>% 
-  mutate(study_id=row_number()) # 9892 new DM cases 
+  mutate(study_id=row_number())%>%
+  select(last_col(),everything()) # 9892 new DM cases 
 
 data_6c<-bind_rows(jhs_newdm,dpp,dppos,aric,cardia,mesa)%>% 
   select(-study_id,-dmduration)%>% 
-  mutate(study_id=row_number()) # 8414 new DM cases
+  mutate(study_id=row_number()) %>%
+  select(last_col(),everything())# 8414 new DM cases
 
 data_8c_sum <- data_8c %>% 
   group_by(study)%>%
@@ -230,5 +232,3 @@ write.csv(data_8c, paste0(path_endotypes_folder,"/working/processed/final_data_t
 ### output a merged dataset for six cohort dataset for HOMA2 to be added 
 write.csv(data_6c, paste0(path_endotypes_folder,"/working/processed/final_data_temp_6c.csv"), row.names = FALSE)
 
-
-1506+2276

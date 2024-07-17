@@ -5,7 +5,14 @@
 
 data_6c <- read.csv(paste0(path_endotypes_folder,"/working/processed/final_data_temp_6c.csv")) #8414 new DM cases 
 
-# for nine variable method(Method 4)
+# for imputation purpose 
+var_sel_mi <- c("hba1c","dmagediag","bmi") #4862 
+data_6c_mi<- data_6c[complete.cases(data_6c[,var_sel_mi]),] 
+
+write.csv(data_6c_mi, paste0(path_endotypes_folder,"/working/processed/final_dataset_6c_mi.csv"), row.names = FALSE)
+
+
+# for nine variable method (Method 4)
 var_sel <- c("bmi","hba1c","ldlc","hdlc","tgl","sbp","dbp","ratio_th","dmagediag")
 data_9v_nona <- data_6c[complete.cases(data_6c[,var_sel]),] # 6104 no NA new DM cases 
 data_9v_nona <- data_9v_nona[c("study_id", setdiff(names(data_9v_nona), "study_id"))] # rearrange the columns 
@@ -21,11 +28,7 @@ var_sel3 <- c("bmi","hba1c","ldlc","hdlc","tgl","sbp","dbp","ratio_th","dmagedia
 data_6c_cc <- data_6c[complete.cases(data_6c[,var_sel3]),] # 3782 no NA new DM cases for both 5var and 9 vrar
 data_6c_cc <- data_6c_cc[c("study_id", setdiff(names(data_6c_cc), "study_id"))] # rearrange the columns 
 
-# output a complate dataset for six cohorts to be used in both 5var and 9var methods. HOMA2 still need to be added manually. 
+# output a complete dataset for six cohorts to be used in both 5var and 9var methods. HOMA2 still need to be added manually. 
 write.csv(data_6c_cc, paste0(path_endotypes_folder,"/working/processed/final_dataset_6c_cc.csv"), row.names = FALSE)
 sd(data_6c_cc$dmagediag,na.rm = TRUE)
 
-
-2276/3782
-
-1721/3782
