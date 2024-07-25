@@ -1,12 +1,10 @@
 # The purpose of this file is to run one vs all logistic regression on the same dataset
 # NOTE: This script uses Statsmodels library to run the logistic regression
 # NOTE: This script also uses standard units for the variables
-# NOTE: This script uses the 0.5 threshold to predict the class labels
-# NOTE: This script runs SIDD vs non_SIDD
-# NOTE: This script runs logistic regression on the imputed dataset based on the KNN method
+# NOTE: This script uses Youdan's J index to calculate the optimal threshold
 # first run the k means clustering to create the TRUE labels
 
-filename = 'kmeans_5var_mi_knn.py'
+filename = 'dec_an01_kmeans_5var.py'
 with open(filename) as file:
     exec(file.read())
 
@@ -61,10 +59,19 @@ logit_model_full = sm.Logit(y_train, X_train_const)
 result_full = logit_model_full.fit()
 print(result_full.summary())
 
+# Calculate optimal cutoff using Youden's J index
+y_train_pred_proba = result_full.predict(X_train_const)
+fpr, tpr, thresholds = roc_curve(y_train, y_train_pred_proba)
+J_index = tpr - fpr
+optimal_idx = np.argmax(J_index)
+optimal_threshold = thresholds[optimal_idx]
 
-# Predict the class labels on the test set using the 0.5 threshold
+print(f"Optimal cutoff based on Youden's J index: {optimal_threshold:.4f}")
+print(f"Maximum Youden's J index: {J_index[optimal_idx]:.4f}")
+
+# Predict the class labels on the test set using the optimal threshold
 y_test_pred_proba = result_full.predict(X_test_const)
-y_test_pred = (y_test_pred_proba >= 0.5).astype(int)
+y_test_pred = (y_test_pred_proba >= optimal_threshold).astype(int)
 
 
 # Generate the classification report for the test set with class labels
@@ -130,7 +137,8 @@ for key, value in summary_report_lr.items():
         print(f'{key}: {value}')
 
 # Get the estimated coefficients with confidence intervals and p-values
-summary = result.summary()
+        
+summary = result_full.summary()
 coef_table = summary.tables[1]
 coef_df = pd.DataFrame(coef_table.data[1:], columns=coef_table.data[0])
 coef_df.columns = ['Variable', 'Coefficient', 'Standard Error', 'z-value', 'p-value', 'Lower CI (95%)', 'Upper CI (95%)']
@@ -148,10 +156,10 @@ print("Estimated Coefficients with Confidence Intervals and p-values:")
 print(coef_df)
 # Save the estimated coefficients with confidence intervals and p-values to a CSV file
 path_folder = '/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/Diabetes Endotypes Project (JV and ZL)'
-coef_df.to_csv(path_folder + '/working/processed/sidd_estimated_coefficients_with_ci_unscaled_mi_knn.csv', index=False)
+coef_df.to_csv(path_folder + '/working/processed/dec_an08_sidd_estimated_coefficients_with_ci_unscaled_j_index.csv', index=False)
 
 # now get the covariance matrix
-cov_matrix = result.cov_params()
+cov_matrix = result_full.cov_params()
 # check the covariance matrix
 print("Covariance Matrix:")
 print(cov_matrix)
@@ -159,4 +167,4 @@ print(cov_matrix)
 cov_matrix.index = ['Intercept'] + list(X.columns)
 cov_matrix.columns = ['Intercept'] + list(X.columns)
 # save the covariance matrix
-cov_matrix.to_csv(path_folder + '/working/processed/sidd_covariance_matrix_statsmodels_unscaled_mi_knn.csv')
+cov_matrix.to_csv(path_folder + '/working/processed/dec_an08_sidd_covariance_matrix_statsmodels_unscaled_j_index.csv')

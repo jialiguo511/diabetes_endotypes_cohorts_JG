@@ -3,9 +3,10 @@
 # NOTE: This script also uses standard units for the variables
 # NOTE: This script uses the 0.5 threshold to predict the class labels
 # NOTE: This script runs SIDD vs non_SIDD
+# NOTE: This script runs logistic regression on the imputed dataset based on the KNN method
 # first run the k means clustering to create the TRUE labels
 
-filename = 'kmeans_5var.py'
+filename = 'dec_an02_kmeans_5var_mi_knn.py'
 with open(filename) as file:
     exec(file.read())
 
@@ -129,7 +130,7 @@ for key, value in summary_report_lr.items():
         print(f'{key}: {value}')
 
 # Get the estimated coefficients with confidence intervals and p-values
-summary = result.summary()
+summary = result_full.summary()
 coef_table = summary.tables[1]
 coef_df = pd.DataFrame(coef_table.data[1:], columns=coef_table.data[0])
 coef_df.columns = ['Variable', 'Coefficient', 'Standard Error', 'z-value', 'p-value', 'Lower CI (95%)', 'Upper CI (95%)']
@@ -147,10 +148,10 @@ print("Estimated Coefficients with Confidence Intervals and p-values:")
 print(coef_df)
 # Save the estimated coefficients with confidence intervals and p-values to a CSV file
 path_folder = '/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/Diabetes Endotypes Project (JV and ZL)'
-coef_df.to_csv(path_folder + '/working/processed/sidd_estimated_coefficients_with_ci_unscaled.csv', index=False)
+coef_df.to_csv(path_folder + '/working/processed/dec_an09_sidd_estimated_coefficients_with_ci_unscaled_mi_knn.csv', index=False)
 
 # now get the covariance matrix
-cov_matrix = result.cov_params()
+cov_matrix = result_full.cov_params()
 # check the covariance matrix
 print("Covariance Matrix:")
 print(cov_matrix)
@@ -158,4 +159,4 @@ print(cov_matrix)
 cov_matrix.index = ['Intercept'] + list(X.columns)
 cov_matrix.columns = ['Intercept'] + list(X.columns)
 # save the covariance matrix
-cov_matrix.to_csv(path_folder + '/working/processed/sidd_covariance_matrix_statsmodels_unscaled.csv')
+cov_matrix.to_csv(path_folder + '/working/processed/dec_an09_sidd_covariance_matrix_statsmodels_unscaled_mi_knn.csv')

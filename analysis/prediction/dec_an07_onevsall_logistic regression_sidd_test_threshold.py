@@ -4,7 +4,7 @@
 # NOTE: This script is to test different thresholds to predict the class labels
 # first run the k means clustering to create the TRUE labels
 
-filename = 'kmeans_5var.py'
+filename = 'dec_an01_kmeans_5var.py'
 with open(filename) as file:
     exec(file.read())
 
@@ -33,7 +33,7 @@ X_test_const = sm.add_constant(X_test)
 
 # StratifiedKFold ensures each fold is representative of the whole
 kf = StratifiedKFold(n_splits=5, random_state=57, shuffle=True)
-thresholds = np.arange(0.1, 0.8, 0.05)
+thresholds = np.arange(0.1, 0.8, 0.01)
 threshold_f1_scores = {}
 threshold_auc_scores = {}
 
@@ -75,9 +75,9 @@ best_auc_score = threshold_auc_scores[best_threshold]
 # Report results
 print("Threshold performance:")
 for t in thresholds:
-    print(f"Threshold: {t:.2f}, Avg F1-Score: {threshold_f1_scores[t]:.4f}, Avg AUC: {threshold_auc_scores[t]:.4f}")
+    print(f"Threshold: {t:.2f}, Avg F1-Score: {threshold_f1_scores[t]:.6f}, Avg AUC: {threshold_auc_scores[t]:.4f}")
 
-print(f"\nBest Threshold: {best_threshold:.2f}, Best Avg F1-Score: {best_f1_score:.4f}, Best Avg AUC: {best_auc_score:.4f}")
+print(f"\nBest Threshold: {best_threshold:.2f}, Best Avg F1-Score: {best_f1_score:.6f}, Best Avg AUC: {best_auc_score:.4f}")
 
 # Final evaluation on the test set
 result_full = sm.Logit(y_train, X_train_const).fit(disp=0)
@@ -88,8 +88,55 @@ print(classification_report(y_test, y_test_pred, target_names=['NON-SIDD', 'SIDD
 print("Confusion Matrix with Best Threshold:")
 print(confusion_matrix(y_test, y_test_pred))
 
-# Additional metrics calculation
+
+# Define the function calculate_metrics
+def calculate_metrics(conf_matrix):
+    TN, FP, FN, TP = conf_matrix.ravel()
+    sensitivity = TP / (TP + FN) if TP + FN != 0 else 0
+    specificity = TN / (TN + FP) if TN + FP != 0 else 0
+    PPV = TP / (TP + FP) if TP + FP != 0 else 0
+    NPV = TN / (TN + FN) if TN + FN != 0 else 0
+    return {
+        'Sensitivity': sensitivity,
+        'Specificity': specificity,
+        'PPV': PPV,
+        'NPV': NPV
+    }
+
+# Calculate metrics at the best threshold
 metrics_at_best_threshold = calculate_metrics(confusion_matrix(y_test, y_test_pred))
 print("\nMetrics at Best Threshold:")
 for metric, value in metrics_at_best_threshold.items():
     print(f'{metric}: {value:.4f}')
+
+# Get the estimated coefficients with confidence intervals and p-values
+summary = result_full.summary()
+coef_table = summary.tables[1]
+coef_df = pd.DataFrame(coef_table.data[1:], columns=coef_table.data[0])
+coef_df.columns = ['Variable', 'Coefficient', 'Standard Error', 'z-value', 'p-value', 'Lower CI (95%)', 'Upper CI (95%)']
+coef_df['Variable'] = ['Intercept'] + list(X.columns)
+coef_df['Variable'] = coef_df['Variable'].str.capitalize()
+coef_df['Coefficient'] = coef_df['Coefficient'].astype(float)
+coef_df['Standard Error'] = coef_df['Standard Error'].astype(float)
+coef_df['z-value'] = coef_df['z-value'].astype(float)
+coef_df['p-value'] = coef_df['p-value'].astype(float)
+coef_df['Lower CI (95%)'] = coef_df['Lower CI (95%)'].astype(float)
+coef_df['Upper CI (95%)'] = coef_df['Upper CI (95%)'].astype(float)
+
+# Print the estimated coefficients with confidence intervals and p-values
+print("Estimated Coefficients with Confidence Intervals and p-values:")
+print(coef_df)
+# Save the estimated coefficients with confidence intervals and p-values to a CSV file
+path_folder = '/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/Diabetes Endotypes Project (JV and ZL)'
+coef_df.to_csv(path_folder + '/working/processed/dec_an07_sidd_estimated_coefficients_with_ci_unscaled_0.45.csv', index=False)
+
+# now get the covariance matrix
+cov_matrix = result_full.cov_params()
+# check the covariance matrix
+print("Covariance Matrix:")
+print(cov_matrix)
+# rename the index and columns
+cov_matrix.index = ['Intercept'] + list(X.columns)
+cov_matrix.columns = ['Intercept'] + list(X.columns)
+# save the covariance matrix
+cov_matrix.to_csv(path_folder + '/working/processed/dec_an07_sidd_covariance_matrix_statsmodels_unscaled_0.45.csv')
