@@ -83,3 +83,5 @@ dppos <- left_join(lab_matched,
                                agegroup == 6 ~ 62 + diagDays/365,
                                agegroup == 7 ~ 67 + diagDays/365)) 
 saveRDS(dppos,paste0(path_endotypes_folder,"/working/cleaned/dppos.RDS"))
+
+dppos <- readRDS(paste0(path_endotypes_folder,"/working/cleaned/dppos.RDS"))
