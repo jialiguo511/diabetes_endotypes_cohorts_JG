@@ -126,7 +126,7 @@ metrics_df = pd.DataFrame(metrics_list)
 
 # Save the DataFrame to a CSV file
 path_folder = '/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/Diabetes Endotypes Project (JV and ZL)'
-metrics_df.to_csv(path_folder + '/working/processed/dec_an04b_random_forest_performance_metrics.csv', index=False)
+metrics_df.to_csv(path_folder + '/working/processed/dec_an07b_random_forest_performance_metrics.csv', index=False)
 
 # Plot ROC curve for Random Forest Classification
 plt.figure(figsize=(10, 6))
