@@ -1,10 +1,10 @@
-# The purpose of this file is to run one vs all logistic regression on the same dataset
+# The purpose of this file is to run one vs all logistic regression on the imputed dataset with KNN imputation
 # NOTE: This script uses Statsmodels library to run the logistic regression
 # NOTE: This script also uses standard units for the variables
 # NOTE: This script uses Youdan's J index to calculate the optimal threshold
 # first run the k means clustering to create the TRUE labels
 
-filename = 'dec_an01_kmeans_5var.py'
+filename = 'dec_an02_kmeans_5var_mi_knn.py'
 with open(filename) as file:
     exec(file.read())
 
@@ -156,7 +156,7 @@ print("Estimated Coefficients with Confidence Intervals and p-values:")
 print(coef_df)
 # Save the estimated coefficients with confidence intervals and p-values to a CSV file
 path_folder = '/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/Diabetes Endotypes Project (JV and ZL)'
-coef_df.to_csv(path_folder + '/working/processed/dec_an08_sidd_estimated_coefficients_with_ci_unscaled_j_index.csv', index=False)
+coef_df.to_csv(path_folder + '/working/processed/dec_an10_mi_knn_sidd_estimated_coefficients_with_ci_unscaled_j_index.csv', index=False)
 
 # now get the covariance matrix
 cov_matrix = result_full.cov_params()
@@ -167,4 +167,4 @@ print(cov_matrix)
 cov_matrix.index = ['Intercept'] + list(X.columns)
 cov_matrix.columns = ['Intercept'] + list(X.columns)
 # save the covariance matrix
-cov_matrix.to_csv(path_folder + '/working/processed/dec_an08_sidd_covariance_matrix_statsmodels_unscaled_j_index.csv')
+cov_matrix.to_csv(path_folder + '/working/processed/dec_an10_mi_knn_sidd_covariance_matrix_statsmodels_unscaled_j_index.csv')

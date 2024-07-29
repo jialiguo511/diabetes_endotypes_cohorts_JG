@@ -1,5 +1,6 @@
 # The purpose of this python file is to run k means on five variables: age of diagnosis, bmi, HbA1c, fasting insulin, and fasting glucose
 # This scripts will run kmeans clustering on the dataset with imputed missing values using KNN imputation.
+# KNN imputation is conducted in a separate script. 
 # load libraries
 import pandas as pd 
 import numpy as np
@@ -35,7 +36,7 @@ path = '/Users/zhongyuli/Desktop/python/cluster analysis/dataset/final_dataset_6
 analytic_dataset = pd.read_csv(path) 
 
 #select variables 
-selected_variables = ['bmi', 'hba1c', 'dmagediag','homa2b','homa2ir','tgl','ldlc','ratio_th','sbp','dbp','hdlc','study','race','female']
+selected_variables = ['study_id','bmi', 'hba1c', 'dmagediag','homa2b','homa2ir','tgl','ldlc','ratio_th','sbp','dbp','hdlc','study','race','female']
 
 #drop missing values in the selected variables
 analytic_dataset = analytic_dataset[selected_variables]
@@ -44,6 +45,7 @@ analytic_dataset = analytic_dataset.dropna()
 #check the data
 analytic_dataset.head()
 
+study_id = analytic_dataset['study_id']
 study = analytic_dataset['study']
 race = analytic_dataset['race']
 female = analytic_dataset['female']
@@ -88,6 +90,7 @@ analytic_dataset_cluster['cluster'] = analytic_dataset_cluster['cluster'].replac
 analytic_dataset_cluster['cluster'].value_counts()
 
 # add study, race, and female back to the dataset
+analytic_dataset_cluster['study_id'] = study_id
 analytic_dataset_cluster['study'] = study
 analytic_dataset_cluster['race'] = race
 analytic_dataset_cluster['female'] = female
@@ -118,5 +121,12 @@ plt.xticks(rotation=45)
 plt.show()
 
 analytic_dataset_cluster.head()
+#check saple size in each cluster and total sample size
 
 
+
+analytic_dataset_cluster['cluster'].value_counts()
+
+# save the dataset to shared folder
+#path_folder = '/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/Diabetes Endotypes Project (JV and ZL)'
+#analytic_dataset_cluster.to_csv(path_folder + '/working/processed/dec_an02_kmeans_5var_mi_knn_cluster.csv', index=True)

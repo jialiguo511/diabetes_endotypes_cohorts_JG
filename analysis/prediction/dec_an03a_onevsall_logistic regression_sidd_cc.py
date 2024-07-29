@@ -1,4 +1,4 @@
-# The purpose of this file is to run one vs all logistic regression on the same dataset
+# The purpose of this file is to run one vs all logistic regression 
 # NOTE: This script uses Statsmodels library to run the logistic regression
 # NOTE: This script also uses standard units for the variables
 # NOTE: This script uses the 0.5 threshold to predict the class labels

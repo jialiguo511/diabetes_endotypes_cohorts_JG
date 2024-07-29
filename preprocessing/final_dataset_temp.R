@@ -229,6 +229,6 @@ data_8c_mean <- data_8c %>%
 ### output a temporary merged dataset for further processing 
 write.csv(data_8c, paste0(path_endotypes_folder,"/working/processed/final_data_temp_8c.csv"), row.names = FALSE)
 
-### output a merged dataset for six cohort dataset for HOMA2 to be added 
+### output a merged dataset for six cohort dataset for HOMA2 to be added. This dataset contains missing data at key variables. 
 write.csv(data_6c, paste0(path_endotypes_folder,"/working/processed/final_data_temp_6c.csv"), row.names = FALSE)
 
