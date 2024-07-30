@@ -1,5 +1,3 @@
-# The purpose of this file is to run sensitivity analysis on the k mean cluster (five var)
-# first run the k means clustering to create the TRUE labels
 import pandas as pd
 import numpy as np
 from sklearn.cluster import KMeans
@@ -35,6 +33,7 @@ results = []
 for study_site in study_sites:
     # Exclude the current study site from the dataset
     excluded_dataset = analytic_dataset[analytic_dataset['study'] != study_site]
+    excluded_sample_size = len(analytic_dataset[analytic_dataset['study'] == study_site])
     
     # Standardize the excluded dataset
     excluded_cluster_v5 = scaler.fit_transform(excluded_dataset[var_5])
@@ -54,11 +53,16 @@ for study_site in study_sites:
     kappa = cohen_kappa_score(original_labels_excluded, excluded_labels)
 
     # Append the results
-    results.append({'Study Site Removed': study_site, 'ARI': ARI, 'Cohen\'s Kappa': kappa})
+    results.append({'Study Site Removed': study_site, 'Sample Size': excluded_sample_size, 'ARI': ARI, 'Cohen\'s Kappa': kappa})
 
 # Convert results to DataFrame
 results_df = pd.DataFrame(results)
-print(results_df)
 
+# Define the desired order
+results_df['Study Site Removed'] = pd.Categorical(results_df['Study Site Removed'])
+results_df = results_df.sort_values('Study Site Removed')
+
+# Print the results
+print(results_df)
 # Save results to a CSV file
 results_df.to_csv('/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/Diabetes Endotypes Project (JV and ZL)/working/processed/dec_an10_sensitivity_analysis_results.csv', index=False)
