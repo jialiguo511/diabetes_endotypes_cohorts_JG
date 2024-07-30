@@ -20,14 +20,14 @@ import statsmodels.api as sm
 from sklearn.model_selection import train_test_split, StratifiedKFold
 from sklearn.metrics import f1_score, roc_auc_score, classification_report, confusion_matrix
 
-# Load and prepare your dataset
-method_mod = analytic_dataset_cluster.copy()
-method_mod['cluster'] = method_mod['cluster'].replace({'MARD': 'NON-MOD', 'SIRD': 'NON-MOD', 'SIDD': 'NON-MOD'})
+# Combine three groups (SIRD, MOD, and SIDD) into a new group named "NON-MARD"
+method_mard = analytic_dataset_cluster.copy()
+method_mard['cluster'] = method_mard['cluster'].replace({'MOD': 'NON-MARD', 'SIRD': 'NON-MARD', 'SIDD': 'NON-MARD'})
 
 # Select the variables
 var_9 = ['bmi', 'hba1c', 'dmagediag', 'tgl', 'ldlc', 'ratio_th', 'sbp', 'dbp', 'hdlc']
-X = method_mod[var_9]
-y = method_mod['cluster'].map({'NON-MOD': 0, 'MOD': 1})
+X = method_mard[var_9]
+y = method_mard['cluster'].map({'NON-MARD': 0, 'MARD': 1})
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=57, stratify=y)
 X_train_const = sm.add_constant(X_train)
@@ -126,6 +126,6 @@ metrics_df = pd.DataFrame([metrics_at_best_threshold])
 
 # Save the DataFrame to a CSV file
 path_folder = '/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/Diabetes Endotypes Project (JV and ZL)'
-metrics_df.to_csv(path_folder + '/working/processed/dec_an04ca_sird_performance_metrics_training_cv.csv', index=False)
+metrics_df.to_csv(path_folder + '/working/processed/dec_an04ea_mard_performance_metrics_training_cv.csv', index=False)
 
 print("Metrics saved to CSV file successfully.")
