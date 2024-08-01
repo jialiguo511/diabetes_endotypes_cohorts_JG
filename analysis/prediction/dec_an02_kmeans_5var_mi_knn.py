@@ -130,3 +130,6 @@ analytic_dataset_cluster['cluster'].value_counts()
 # save the dataset to shared folder
 path_folder = '/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/Diabetes Endotypes Project (JV and ZL)'
 analytic_dataset_cluster.to_csv(path_folder + '/working/processed/dec_an02_kmeans_5var_mi_knn_cluster.csv', index=True)
+
+# elbow plot to determine the number of clusters
+

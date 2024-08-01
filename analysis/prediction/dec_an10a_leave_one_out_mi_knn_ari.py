@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import adjusted_rand_score, cohen_kappa_score
+from sklearn.metrics import adjusted_rand_score
 
 # Load the data
 path = '/Users/zhongyuli/Desktop/python/cluster analysis/dataset/final_dataset_6c_mi_imputed_homa2.csv'
@@ -49,11 +49,8 @@ for study_site in study_sites:
     # Calculate Adjusted Rand Index (ARI)
     ARI = adjusted_rand_score(original_labels_excluded, excluded_labels)
 
-    # Calculate Cohen's Kappa
-    kappa = cohen_kappa_score(original_labels_excluded, excluded_labels)
-
     # Append the results
-    results.append({'Study Site Removed': study_site, 'Sample Size': excluded_sample_size, 'ARI': ARI, 'Cohen\'s Kappa': kappa})
+    results.append({'Study Site Removed': study_site, 'Sample Size': excluded_sample_size, 'ARI': ARI})
 
 # Convert results to DataFrame
 results_df = pd.DataFrame(results)
@@ -65,4 +62,4 @@ results_df = results_df.sort_values('Study Site Removed')
 # Print the results
 print(results_df)
 # Save results to a CSV file
-results_df.to_csv('/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/Diabetes Endotypes Project (JV and ZL)/working/processed/dec_an10_sensitivity_analysis_results.csv', index=False)
+results_df.to_csv('/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/Diabetes Endotypes Project (JV and ZL)/working/processed/dec_an10a_sensitivity_analysis_results_ari.csv', index=False)
