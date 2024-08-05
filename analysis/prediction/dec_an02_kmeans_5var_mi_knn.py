@@ -77,6 +77,24 @@ kmeans = KMeans(
 var_5 = ['bmi', 'hba1c', 'dmagediag','homa2b','homa2ir']
 cluster_v5 = data_scaled[var_5]
 
+# Calculate WCSS for different number of clusters
+wcss = []
+for i in range(1, 11):
+    kmeans = KMeans(n_clusters=i, init='random', n_init=10, max_iter=300, random_state=57)
+    kmeans.fit(cluster_v5)
+    wcss.append(kmeans.inertia_)
+
+# Plot the elbow plot
+plt.figure(figsize=(10, 6))
+plt.plot(range(1, 11), wcss, marker='o', linestyle='--')
+plt.title('Elbow Method for Optimal Number of Clusters')
+plt.xlabel('Number of Clusters')
+plt.ylabel('WCSS')
+plt.xticks(range(1, 11))
+plt.grid(True)
+plt.show()
+
+
 kmeans = KMeans(init="random", n_clusters=4, n_init=10, max_iter=300, random_state=57)
 kmeans.fit(cluster_v5)
 

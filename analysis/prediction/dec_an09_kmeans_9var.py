@@ -30,7 +30,8 @@ from sklearn.preprocessing import StandardScaler
 # we will use the first 6 cohorts
 
 
-path = '/Users/zhongyuli/Desktop/python/cluster analysis/dataset/final_dataset_6c_cc_homa2.csv'
+#path = '/Users/zhongyuli/Desktop/python/cluster analysis/dataset/final_dataset_6c_cc_homa2.csv'
+path = '/Users/zhongyuli/Desktop/python/cluster analysis/dataset/final_dataset_6c_mi_imputed_homa2.csv'
 
 analytic_dataset = pd.read_csv(path) 
 
@@ -65,6 +66,8 @@ data_scaled = pd.DataFrame(data_scaled, columns=analytic_dataset.columns)
 
 data_scaled.head()
 
+
+
 # run kmeans and get cluster labels from the five variable method (method 3)
 kmeans = KMeans(
     init="random", n_clusters=4, n_init=10, max_iter=300, random_state=57
@@ -73,6 +76,26 @@ kmeans = KMeans(
 # select nine variables to cluster
 var_9 = ['bmi', 'hba1c', 'dmagediag','sbp','dbp','tgl','ldlc','ratio_th','hdlc']
 cluster_v9 = data_scaled[var_9]
+
+
+
+# Calculate WCSS for different number of clusters
+wcss = []
+for i in range(1, 11):
+    kmeans = KMeans(n_clusters=i, init='random', n_init=10, max_iter=300, random_state=57)
+    kmeans.fit(cluster_v9)
+    wcss.append(kmeans.inertia_)
+
+# Plot the elbow plot
+plt.figure(figsize=(10, 6))
+plt.plot(range(1, 11), wcss, marker='o', linestyle='--')
+plt.title('Elbow Method for Optimal Number of Clusters')
+plt.xlabel('Number of Clusters')
+plt.ylabel('WCSS')
+plt.xticks(range(1, 11))
+plt.grid(True)
+plt.show()
+
 
 kmeans = KMeans(init="random", n_clusters=4, n_init=10, max_iter=300, random_state=57)
 kmeans.fit(cluster_v9)
