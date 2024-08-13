@@ -13,9 +13,9 @@ p_vars = c("female")
 g_vars = c("race_rev","cluster")
 
 table_df = analytic_dataset_cluster %>% 
-  bind_rows(.,
-            {.} %>% 
-              mutate(cluster="Total")) %>% 
+  # bind_rows(.,
+  #           {.} %>% 
+  #             mutate(cluster="Total")) %>% 
   table1_summary(.,c_vars = c_vars,p_vars = p_vars,g_vars = g_vars,id_vars = "study")
 
 write_csv(table_df,"analysis/descriptives/decan_descriptives02_summary by cohort.csv")
