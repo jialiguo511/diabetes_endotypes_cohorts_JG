@@ -81,7 +81,7 @@ dpp<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/dpp.RDS"))%>%
                   TRUE ~ NA_character_  
                 ))%>% 
   rename(race = race_eth)%>% 
-  dplyr::select(bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
+  dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
                 serumcreatinine, urinecreatinine,female,race,race_rev) 
 
 dpp$study = "dpp" #n=802 
@@ -99,10 +99,14 @@ dppos<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/dppos.RDS"))%>%
                   TRUE ~ NA_character_  
                 ))%>% 
   rename(race = race_eth)%>% 
-  dplyr::select(bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
-                serumcreatinine, ast, alt,totalc,female,race,race_rev)
+  dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
+                serumcreatinine, ast, alt,totalc,female,race,race_rev) %>% 
+  dplyr::filter(!study_id %in% dpp$study_id)
 
 dppos$study = "dppos" # n = 907
+
+dpp$study_id <- NULL
+dppos$study_id <- NULL
 
 table(dppos$race_eth)
 #### In these three cohorts, loaded data are new DM cases only, therefore age = dmagediag if dmagediag not already created 
