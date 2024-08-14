@@ -29,7 +29,8 @@ lab_matched <- map_dfr(lab_vars,
                            rename_at(vars(one_of(v)),~"variable") %>% 
                            left_join(confirmed_dm,
                                      by = "study_id") %>% 
-                           dplyr::mutate(diffDays = round(diagDays - StudyDays)) %>% 
+                           # dplyr::mutate(diffDays = round(diagDays - StudyDays)) %>% 
+                           dplyr::mutate(diffDays = round(StudyDays - diagDays)) %>% 
                            dplyr::filter(!is.na(variable),diffDays %in% lab_cutoff) %>% 
                            group_by(study_id) %>% 
                            dplyr::filter(diffDays == min(diffDays)) %>% 
@@ -53,7 +54,8 @@ anthro_matched <- map_dfr(anthro_vars,
                            rename_at(vars(one_of(v)),~"variable") %>% 
                            left_join(confirmed_dm,
                                      by = "study_id") %>% 
-                           dplyr::mutate(diffDays = round(diagDays - StudyDays)) %>% 
+                           # dplyr::mutate(diffDays = round(diagDays - StudyDays)) %>% 
+                           dplyr::mutate(diffDays = round(StudyDays - diagDays)) %>% 
                            dplyr::filter(!is.na(variable),diffDays %in% lab_cutoff) %>% 
                            group_by(study_id) %>% 
                            dplyr::filter(diffDays == min(diffDays)) %>% 
