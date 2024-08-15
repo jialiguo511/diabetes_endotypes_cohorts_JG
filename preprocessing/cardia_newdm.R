@@ -27,7 +27,7 @@ names(dat_all)
 ### criteria and variables: dmagediag, diab_st, diab_ind, glucosef(>=126) OR hba1c(>=6.5)
 
 table(dat_all$diab_st) # not sure about its coding, not used. 
-table(dat_all$diab_ind) # assumed coding: 1 = no diabetes, 2 = diabetes, 8 = unknown (recode to NA)
+table(dat_all$diab_ind) # confirmed coding: 1 = no diabetes, 2 = diabetes, 8 = unknown (recode to NA)
 
 ### select new DM from each visit
 #### this method will include participants with the visit at which they are diagnosed and not any other visits 
@@ -36,11 +36,11 @@ table(dat_all$diab_ind) # assumed coding: 1 = no diabetes, 2 = diabetes, 8 = unk
 
 summary(dat_y0)
 newdm_y0 <- dat_y0%>% 
-  dplyr::filter(glucosef>=126&!is.na(glucosef)) #random glucose should NOT be used
+  dplyr::filter(glucosef>=126&!is.na(glucosef)) #random glucose should NOT be used; age of diagnosis all missing, not used 
 
 id_sel0 <- newdm_y0$study_id # n = 28 at baseline, add to this and use to remove unwanted visits from previous diagnosis, rename to year number after adding ids
 
-## Year 2, based on the diab_ind = 2 for now
+## Year 2, based on the diab_ind = 2 
 
 summary(dat_y2)
 table(dat_y2$diab_ind)

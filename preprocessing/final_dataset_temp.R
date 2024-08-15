@@ -3,7 +3,11 @@
 # This file is later modified to adjust units for glucose and insulin required in HOMA2 from fasting insulin and glucose (taged "2") by ZL in March 2024
 # In April 2024, new cohort: ARIC, MESA, and CARIA are added. HOMA2 will also be created for them 
 # In May 2024, we have decided to add more variables to build the prediction model
-# in May 2024, we have decided to use the five-variable and the nine-variable methods to run K means and logistic regression for the analysis.
+# In May 2024, we have decided to use the five-variable and the nine-variable methods to run K means and logistic regression for the analysis.
+# In August 2024, we have decided: 
+## 1) remove all DPP intervention arms; 
+## 2) clean data once more to ensure that all lab measures were collected with 12 month AFTER diagnosis (DPP, DPPOS and CARIDA); 
+###3) remove shared ARIC participants from JHS.
 
 ###### 
 # In June 2024, renamed with _temp, so that it is clear that this is for temporary/intermediate final dataset only. 
@@ -40,11 +44,12 @@ jhs<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/jhs.RDS")) %>%
   rename(race = race_eth)%>% 
                 #new_id = row_number())%>% 
   #rename(study_id = new_id)%>% 
+  dplyr::filter(aric == 0)%>% 
   dplyr::select(bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,dmduration,glucosef2,insulinf2,
                 serumcreatinine, urinealbumin, urinecreatinine, egfr, totalc,female,race,race_rev) 
 
 jhs_newdm <- jhs[jhs$dmduration%in% c(0, 1), ] 
-jhs_newdm$study = "jhs" # n = 1174
+jhs_newdm$study = "jhs" # n = 1174 (with ARIC shared); n = 728 without ARIC shared
 
 ## Look Ahead [okay,no fasting insulin & glucose]
 
@@ -81,10 +86,11 @@ dpp<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/dpp.RDS"))%>%
                   TRUE ~ NA_character_  
                 ))%>% 
   rename(race = race_eth)%>% 
+  dplyr::filter(treatment == "Placebo") %>% # remove all intervention arms [decision made on 8.14.24]
   dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
                 serumcreatinine, urinecreatinine,female,race,race_rev) 
 
-dpp$study = "dpp" #n=802 
+dpp$study = "dpp" #n=800 all intervention arms; n = 291 placebo only. 
 
 
 ## DPPOS 
@@ -100,10 +106,10 @@ dppos<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/dppos.RDS"))%>%
                 ))%>% 
   rename(race = race_eth)%>% 
   dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
-                serumcreatinine, ast, alt,totalc,female,race,race_rev) %>% 
+                serumcreatinine, ast, alt,totalc,female,race,race_rev,treatment) %>% 
   dplyr::filter(!study_id %in% dpp$study_id)
 
-dppos$study = "dppos" # n = 907
+dppos$study = "dppos" # n = 1077
 
 dpp$study_id <- NULL
 dppos$study_id <- NULL
