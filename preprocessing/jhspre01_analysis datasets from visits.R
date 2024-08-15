@@ -57,7 +57,8 @@ jhs_analysis <- bind_rows(
          race_eth = "NH Black",
          female = case_when(female == "Female" ~ 1,
                             female == "Male" ~ 0,
-                            TRUE ~ NA_real_))
+                            TRUE ~ NA_real_)) %>% 
+  dplyr::filter(aric == 0)
 
 
 rm(analysis1,analysis2,analysis3,pfha,hhxa,phfb)
