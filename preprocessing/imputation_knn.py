@@ -10,7 +10,7 @@ from sklearn.impute import KNNImputer
 # load the data
 
 # change the path to the location of the dataset. Zhongyu uses a MacBook so it cannot read (but can write into) the path from the OneDrive folder.
-path = '/Users/zhongyuli/Desktop/python/cluster analysis/dataset/final_dataset_6c_mi.csv'
+path = '/Users/zhongyuli/Desktop/python/cluster analysis/dataset/final_dataset_6c_clean_mi.csv'
 data_mi = pd.read_csv(path) 
 
 #select variables 
@@ -52,7 +52,7 @@ imputed_data_merged.describe()
 
 # save the imputed data
 path_folder = '/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/Diabetes Endotypes Project (JV and ZL)'
-imputed_data_merged.to_csv(path_folder + '/working/processed/final_dataset_6c_mi_imputed.csv', index=False)
+imputed_data_merged.to_csv(path_folder + '/working/processed/final_dataset_6c_clean_mi_imputed.csv', index=False)
 
 #### before running the kmeans clustering, we need to use the homa calculator to calculate the HOMA2IR and HOMA2B values and add to the imputed dataset. 
 

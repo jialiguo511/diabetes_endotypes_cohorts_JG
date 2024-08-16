@@ -5,9 +5,9 @@
 # In May 2024, we have decided to add more variables to build the prediction model
 # In May 2024, we have decided to use the five-variable and the nine-variable methods to run K means and logistic regression for the analysis.
 # In August 2024, we have decided: 
-## 1) remove all DPP intervention arms; 
-## 2) clean data once more to ensure that all lab measures were collected with 12 month AFTER diagnosis (DPP, DPPOS and CARIDA); 
-###3) remove shared ARIC participants from JHS.
+## 1) removed all DPP intervention arms; 
+## 2) cleaned data once more to ensure that all lab measures were collected with 12 month AFTER diagnosis (DPP, DPPOS and CARIDA); 
+## 3) removed shared ARIC participants from JHS.
 
 ###### 
 # In June 2024, renamed with _temp, so that it is clear that this is for temporary/intermediate final dataset only. 
@@ -48,7 +48,7 @@ jhs<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/jhs.RDS")) %>%
   dplyr::select(bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,dmduration,glucosef2,insulinf2,
                 serumcreatinine, urinealbumin, urinecreatinine, egfr, totalc,female,race,race_rev) 
 
-jhs_newdm <- jhs[jhs$dmduration%in% c(0, 1), ] 
+jhs_newdm <- jhs[jhs$dmduration%in% c(0, 1), ] # check THIS! 
 jhs_newdm$study = "jhs" # n = 1174 (with ARIC shared); n = 728 without ARIC shared
 
 ## Look Ahead [okay,no fasting insulin & glucose]
@@ -111,8 +111,8 @@ dppos<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/dppos.RDS"))%>%
 
 dppos$study = "dppos" # n = 1077
 
-dpp$study_id <- NULL
-dppos$study_id <- NULL
+#dpp$study_id <- NULL
+#dppos$study_id <- NULL
 
 table(dppos$race_eth)
 #### In these three cohorts, loaded data are new DM cases only, therefore age = dmagediag if dmagediag not already created 
@@ -175,7 +175,7 @@ cardia <-readRDS(paste0(path_endotypes_folder,"/working/cleaned/cardia_newdm.RDS
                 serumcreatinine, urinealbumin, uacr, egfr,totalc,female,race,race_rev)
 
 table(cardia$race)
-cardia$study = "cardia" #n=828
+cardia$study = "cardia" #n=692
 
 ## MESA 
 
@@ -205,28 +205,31 @@ mesa$study = "mesa" #n=901
 
 
 #merge data and remove all NAs, imputation could be used in sensitivity analysis to increase sample size
-data_8c<-bind_rows(jhs_newdm,la_newdm,accord_newdm,dpp,dppos,aric,cardia,mesa)%>% 
+
+# "_clean" is added to all final datasets to mark the version made in AUGUST 2024 # 
+
+data_8c_clean<-bind_rows(jhs_newdm,la_newdm,accord_newdm,dpp,dppos,aric,cardia,mesa)%>% 
   select(-study_id,-dmduration)%>% 
   mutate(study_id=row_number())%>%
   select(last_col(),everything()) # 9892 new DM cases 
 
-data_6c<-bind_rows(jhs_newdm,dpp,dppos,aric,cardia,mesa)%>% 
+data_6c_clean<-bind_rows(jhs_newdm,dpp,dppos,aric,cardia,mesa)%>% 
   select(-study_id,-dmduration)%>% 
   mutate(study_id=row_number()) %>%
   select(last_col(),everything())# 8414 new DM cases
 
-data_8c_sum <- data_8c %>% 
+data_8c_clean_sum <- data_8c_clean%>% 
   group_by(study)%>%
   summarise(across(everything(), ~ sum(!is.na(.)), .names = "n_{.col}"))
 
-data_6c_sum <- data_6c %>% 
+data_6c_clean_sum <- data_6c_clean %>% 
   group_by(study)%>%
   summarise(across(everything(), ~ sum(!is.na(.)), .names = "n_{.col}"))
 
 
 library(readr)
-write_csv(data_8c_sum, paste0(path_endotypes_folder,"/results/updates/count_sum_8c.csv"))
-write_csv(data_6c_sum, paste0(path_endotypes_folder,"/results/updates/count_sum_6c.csv"))
+write_csv(data_8c_clean_sum, paste0(path_endotypes_folder,"/results/updates/count_sum_8c_clean.csv"))
+write_csv(data_6c_clean_sum, paste0(path_endotypes_folder,"/results/updates/count_sum_6c_clean.csv"))
 
 
 ### for all eight cohorts ### 

@@ -2,14 +2,16 @@
 
 # read datasets 
 # As of June 2024, only six cohort dataset is used 
+# In August 2024, a "_clean" tag is added to all dataset to reflect revisions made in datasets, see "final_dataset_temp.R" for details. 
 
-data_6c <- read.csv(paste0(path_endotypes_folder,"/working/processed/final_data_temp_6c.csv")) #8414 new DM cases 
+
+data_6c_clean <- read.csv(paste0(path_endotypes_folder,"/working/processed/final_data_temp_6c_clean.csv")) #7491 new DM cases 
 
 # for imputation purpose 
-var_sel_mi <- c("hba1c","dmagediag","bmi") #4862 
-data_6c_mi<- data_6c[complete.cases(data_6c[,var_sel_mi]),] 
+var_sel_mi <- c("hba1c","dmagediag","bmi") #4862 ==> n = 4165
+data_6c_clean_mi<- data_6c_clean[complete.cases(data_6c_clean[,var_sel_mi]),] 
 
-write.csv(data_6c_mi, paste0(path_endotypes_folder,"/working/processed/final_dataset_6c_mi.csv"), row.names = FALSE)
+write.csv(data_6c_clean_mi, paste0(path_endotypes_folder,"/working/processed/final_dataset_6c_clean_mi.csv"), row.names = FALSE)
 
 
 # for nine variable method (Method 4)
