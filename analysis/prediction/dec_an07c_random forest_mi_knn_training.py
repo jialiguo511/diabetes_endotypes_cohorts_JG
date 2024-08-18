@@ -15,10 +15,9 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, label_binarize
 from sklearn.model_selection import StratifiedKFold, train_test_split
-from sklearn.metrics import classification_report, confusion_matrix, f1_score, roc_auc_score
-from sklearn.preprocessing import label_binarize
+from sklearn.metrics import classification_report, confusion_matrix, f1_score, roc_auc_score, roc_curve, auc
 
 # Select the variables for the model
 var_9 = ['bmi', 'hba1c', 'dmagediag', 'tgl', 'ldlc', 'ratio_th', 'sbp', 'dbp', 'hdlc']
@@ -144,9 +143,11 @@ for i, label in enumerate(labels):
 # Convert the list of dictionaries to a DataFrame
 metrics_df_cv = pd.DataFrame(metrics_list_cv)
 
+# Optional: Save to CSV
+metrics_df_cv.to_csv('random_forest_crossval_metrics.csv', index=False)
 # Save the DataFrame to a CSV file
 path_folder = '/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/Diabetes Endotypes Project (JV and ZL)'
-metrics_df_cv.to_csv(path_folder + '/working/processed/dec_an07c_random_forest_performance_metrics_training_5cv_rev.csv', index=False)
+metrics_df_cv.to_csv(path_folder + '/working/processed/dec_an07c_random_forest_performance_metrics_training_5cv.csv', index=False)
 
 # Plot ROC curve for Random Forest Classification
 plt.figure(figsize=(10, 6))

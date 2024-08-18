@@ -6,7 +6,7 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import cohen_kappa_score
 
 # Load the data
-path = '/Users/zhongyuli/Desktop/python/cluster analysis/dataset/final_dataset_6c_mi_imputed_homa2.csv'
+path = '/Users/zhongyuli/Desktop/python/cluster analysis/dataset/final_dataset_6c_clean_mi_imputed_homa2.csv'
 analytic_dataset = pd.read_csv(path)
 
 # Select variables
@@ -37,14 +37,15 @@ print(analytic_dataset.groupby('cluster')[var_5].mean())
 relabelled_original_labels = pd.Series(original_labels).map({
     0: "MOD",  
     1: "SIRD",  
-    2: "MARD",  
-    3: "SIDD"  
+    2: "SIDD",  
+    3: "MARD"  
 })
 # Print the relabeled clusters to verify
 print("Relabeled Original Labels:")
 print(relabelled_original_labels.value_counts())
 
 results = []
+
 # Step 1: Exclude study site "aric"
 study_site_1 = 'aric'
 excluded_dataset_1 = analytic_dataset[analytic_dataset['study'] != study_site_1]
@@ -56,16 +57,20 @@ excluded_labels_1 = kmeans_excluded_1.labels_
 excluded_dataset_1['cluster'] = excluded_labels_1
 # check the mean values of the variables in each cluster
 print(excluded_dataset_1.groupby('cluster')[var_5].mean())
+
 # relabel the excluded labels
 relabelled_excluded_labels_1 = pd.Series(excluded_labels_1).map({
-    0: "MOD",  
-    1: "SIDD",  
-    2: "SIRD",  
+    0: "SIRD",  
+    1: "MOD",  
+    2: "SIDD",  
     3: "MARD"  
 })
 # Print the relabeled clusters to verify
 print("Relabeled Excluded Labels:")
 print(relabelled_excluded_labels_1.value_counts())
+
+relabelled_original_labels = relabelled_original_labels.reset_index(drop=True)
+analytic_dataset = analytic_dataset.reset_index(drop=True)
 
 original_labels_excluded_1 = relabelled_original_labels[analytic_dataset['study'] != study_site_1]
 kappa_1 = cohen_kappa_score(original_labels_excluded_1, relabelled_excluded_labels_1)
@@ -86,8 +91,8 @@ print(excluded_dataset_2.groupby('cluster')[var_5].mean())
 # relabel the excluded labels
 relabelled_excluded_labels_2 = pd.Series(excluded_labels_2).map({
     0: "MOD",  
-    1: "SIRD",  
-    2: "MARD",  
+    1: "MARD",  
+    2: "SIRD",  
     3: "SIDD"  
 })
 # Print the relabeled clusters to verify
@@ -115,10 +120,10 @@ excluded_dataset_3['cluster'] = excluded_labels_3
 print(excluded_dataset_3.groupby('cluster')[var_5].mean())
 # relabel the excluded labels
 relabelled_excluded_labels_3 = pd.Series(excluded_labels_3).map({
-    0: "MARD",  
-    1: "SIDD",  
-    2: "MOD",  
-    3: "SIRD"  
+    0: "MOD",  
+    1: "SIRD",  
+    2: "MARD",  
+    3: "SIDD"  
 })
 # Print the relabeled clusters to verify
 print("Relabeled Excluded Labels:")
@@ -145,8 +150,8 @@ excluded_dataset_4['cluster'] = excluded_labels_4
 print(excluded_dataset_4.groupby('cluster')[var_5].mean())
 # relabel the excluded labels
 relabelled_excluded_labels_4 = pd.Series(excluded_labels_4).map({
-    0: "MOD",  
-    1: "SIDD",  
+    0: "SIDD",  
+    1: "MOD",  
     2: "MARD",  
     3: "SIRD"  
 })
@@ -173,8 +178,8 @@ excluded_dataset_5['cluster'] = excluded_labels_5
 print(excluded_dataset_5.groupby('cluster')[var_5].mean())
 # relabel the excluded labels
 relabelled_excluded_labels_5 = pd.Series(excluded_labels_5).map({
-    0: "SIDD",  
-    1: "MARD",  
+    0: "MARD",  
+    1: "SIDD",  
     2: "MOD",  
     3: "SIRD"  
 })
@@ -201,15 +206,14 @@ excluded_dataset_6['cluster'] = excluded_labels_6
 print(excluded_dataset_6.groupby('cluster')[var_5].mean())
 # relabel the excluded labels
 relabelled_excluded_labels_6 = pd.Series(excluded_labels_6).map({
-    0: "MOD",  
+    0: "SIRD",  
     1: "MARD",  
-    2: "SIDD",  
-    3: "SIRD"  
+    2: "MOD",  
+    3: "SIDD"  
 })
 # Print the relabeled clusters to verify
 print("Relabeled Excluded Labels:")
 print(relabelled_excluded_labels_6.value_counts())
-
 
 
 original_labels_excluded_6 = relabelled_original_labels[analytic_dataset['study'] != study_site_6]
@@ -227,4 +231,4 @@ results_df = results_df.sort_values('Study Site Removed')
 print(results_df)
 
 # Save results to a CSV file
-results_df.to_csv('/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/Diabetes Endotypes Project (JV and ZL)/working/processed/dec_an10b_sensitivity_analysis_results_cohen.csv', index=False)
+results_df.to_csv('/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/Diabetes Endotypes Project (JV and ZL)/working/processed/dec_an10b_sensitivity_analysis_results_cohen_clean.csv', index=False)

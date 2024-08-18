@@ -3,7 +3,7 @@
 # NOTE: This script uses SCALED data UNLIKE all vs one logistic regression model due to convergence issues
 # first run the k means clustering to create the TRUE labels
 
-filename = 'dec_an02_kmeans_5var_mi_knn.py'
+filename = 'dec_an02_kmeans_5var_mi_knn_clean.py'
 with open(filename) as file:
     exec(file.read())
 
@@ -178,7 +178,7 @@ metrics_df_cv = pd.DataFrame(metrics_list_cv)
 
 # Save the DataFrame to a CSV file
 path_folder = '/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/Diabetes Endotypes Project (JV and ZL)'
-metrics_df_cv.to_csv(path_folder + '/working/processed/dec_an06c_multinomial_performance_metrics_training_cv.csv', index=False)
+metrics_df_cv.to_csv(path_folder + '/working/processed/dec_an06c_multinomial_performance_metrics_training_cv_clean.csv', index=False)
 
 # Plot ROC curve for Multinomial Logistic Regression
 plt.figure(figsize=(10, 6))
