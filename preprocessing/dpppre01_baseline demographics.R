@@ -14,3 +14,5 @@ demographic <- data_extract(study_name,vl_column,data_path,df_name = "basedata")
                               race_eth == 3 ~ "Hispanic",
                               race_eth == 4 ~ "NH Other",
                               TRUE ~ NA_character_))
+
+saveRDS(demographic,paste0(path_endotypes_folder,"/working/interim/dpppre01_demographic.RDS"))

@@ -33,5 +33,6 @@ anthro <- bind_rows(data_extract(study_name,vl_column1,data_path),
             by = "study_id")  %>% 
   mutate(bmi = weight/(height/100)^2)
 
+saveRDS(anthro,paste0(path_endotypes_folder,"/working/interim/dpppre04_anthro.RDS"))
 
   

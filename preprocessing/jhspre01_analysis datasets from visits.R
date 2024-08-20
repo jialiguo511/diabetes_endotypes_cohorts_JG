@@ -60,5 +60,6 @@ jhs_analysis <- bind_rows(
                             TRUE ~ NA_real_)) %>% 
   dplyr::filter(aric == 0)
 
+saveRDS(jhs_analysis,paste0(path_endotypes_folder,"/working/interim/jhspre01_jhs_analysis.RDS"))
 
 rm(analysis1,analysis2,analysis3,pfha,hhxa,phfb)

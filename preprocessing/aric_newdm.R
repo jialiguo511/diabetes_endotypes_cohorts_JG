@@ -297,7 +297,7 @@ v6_new<-v6_all%>%
 # join six visit, long format 
 
 aric_analysis<- bind_rows(v1_new,v2_new,v3_new,v4_new,v5_new,v6_new) 
-
+saveRDS(aric_analysis,paste0(path_endotypes_folder,"/working/interim/aric_analysis.RDS"))
 
 ############ create diabetes variables ################ 
 

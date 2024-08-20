@@ -72,6 +72,9 @@ anthro <- bind_rows(bridge,
   left_join(s03 %>% dplyr::select(study_id,height),
             by = "study_id")  %>% 
   mutate(bmi = weight/(height/100)^2)
+
+saveRDS(anthro,paste0(path_endotypes_folder,"/working/interim/dospre04_anthro.RDS"))
+
   
 rm(bridge,phase1,phase2)
 

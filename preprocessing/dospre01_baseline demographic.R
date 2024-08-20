@@ -26,4 +26,6 @@ demographic <- bind_rows(bridge %>% mutate(release = "BRIDGE"),
                               TRUE ~ NA_character_))
 
 
+saveRDS(demographic,paste0(path_endotypes_folder,"/working/interim/dospre01_demographic.RDS"))
+
 rm(bridge,phase1,phase2)

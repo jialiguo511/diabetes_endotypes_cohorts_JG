@@ -11,3 +11,4 @@ lab <- data_extract(study_name,vl_column,data_path,df_name = "lab") %>%
                              TRUE ~ NA_real_
   ),
   semi = quarter/2)
+saveRDS(lab,paste0(path_endotypes_folder,"/working/interim/dpppre02_labs.RDS"))

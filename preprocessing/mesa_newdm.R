@@ -12,6 +12,13 @@ e3_dat$exam = 3
 e4_dat$exam = 4 
 e5_dat$exam = 5 
 
+bind_rows(e1_dat,
+          e2_dat,
+          e3_dat,
+          e4_dat,
+          e5_dat) %>% 
+  saveRDS(.,paste0(path_endotypes_folder,"/working/interim/mesa_dat_all.RDS"))
+
 ############# To identify new diabetes ######### 
 
 ### EXAM1 

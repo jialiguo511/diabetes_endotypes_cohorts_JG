@@ -436,4 +436,3 @@ dat_y30<-y30_merged%>%
 dat_y30 <- dat_y30 %>%
   left_join(dat_y0_fill, by = "study_id")
 
-

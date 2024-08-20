@@ -45,4 +45,7 @@ lab <- bind_rows(bridge %>% mutate(release = "BRIDGE"),
                          phase1 %>% mutate(release = "PHASE 1"),
                          phase2 %>% mutate(release = "PHASE 2"))
 
+saveRDS(lab,paste0(path_endotypes_folder,"/working/interim/dospre02_labs.RDS"))
+
+
 rm(bridge,phase1,phase2)
