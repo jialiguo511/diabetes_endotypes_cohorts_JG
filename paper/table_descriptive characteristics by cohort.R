@@ -23,4 +23,4 @@ table_df <- read_csv("analysis/descriptives/decan_descriptives02_summary by coho
   pivot_wider(names_from=study,values_from=output) %>% 
   dplyr::select(variable,group,aric,cardia,dpp,dppos,jhs,mesa)
 
-write_csv(table_df,"paper/table_descriptive characteristics by cohort.csv")  
+write_csv(table_df,"paper/table_descriptive characteristics by cohort_clean.csv")  

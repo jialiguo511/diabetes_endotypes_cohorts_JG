@@ -9,4 +9,4 @@ table_df <- read_csv("analysis/descriptives/decan_descriptives02_summary by coho
   dplyr::select(study,variable,value) %>% 
   pivot_wider(names_from=variable,values_from=value)
 
-write_csv(table_df,"paper/table_data availability for analytic sample.csv")
+write_csv(table_df,"paper/table_data availability for analytic sample_clean.csv")

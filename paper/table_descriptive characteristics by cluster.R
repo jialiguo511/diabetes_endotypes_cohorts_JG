@@ -23,4 +23,4 @@ table_df <- read_csv("analysis/descriptives/decan_descriptives01_pooled analytic
   pivot_wider(names_from=cluster,values_from=output) %>% 
   dplyr::select(variable,group,Total,SIDD,SIRD,MOD,MARD)
 
-write_csv(table_df,"paper/table_descriptive characteristics by cluster.csv")  
+write_csv(table_df,"paper/table_descriptive characteristics by cluster_clean.csv")  

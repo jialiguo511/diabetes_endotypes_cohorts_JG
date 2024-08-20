@@ -5,7 +5,7 @@
 # NOTE: This script produces perforamce matrix at best threshold using training data 
 # first run the k means clustering to create the TRUE labels
 
-filename = 'dec_an02_kmeans_5var_mi_knn.py'
+filename = 'dec_an02_kmeans_5var_mi_knn_clean.py'
 with open(filename) as file:
     exec(file.read())
 
@@ -126,6 +126,6 @@ metrics_df = pd.DataFrame([metrics_at_best_threshold])
 
 # Save the DataFrame to a CSV file
 path_folder = '/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/Diabetes Endotypes Project (JV and ZL)'
-metrics_df.to_csv(path_folder + '/working/processed/dec_an04da_mod_performance_metrics_training_cv.csv', index=False)
+metrics_df.to_csv(path_folder + '/working/processed/dec_an04da_mod_performance_metrics_training_cv_clean.csv', index=False)
 
 print("Metrics saved to CSV file successfully.")

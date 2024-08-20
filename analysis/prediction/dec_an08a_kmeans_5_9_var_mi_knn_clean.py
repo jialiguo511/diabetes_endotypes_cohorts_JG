@@ -159,4 +159,4 @@ print(contingency_table)
 
 # Save the contingency table to a CSV file
 path_folder = '/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/Diabetes Endotypes Project (JV and ZL)'
-contingency_table.to_csv(path_folder + '/working/processed/dec_an08_contingency_table_clusters_clean.csv')
+contingency_table.to_csv(path_folder + '/working/processed/dec_an08a_contingency_table_clusters_clean.csv')

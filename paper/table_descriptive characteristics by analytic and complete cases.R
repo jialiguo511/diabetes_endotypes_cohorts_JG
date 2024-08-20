@@ -23,4 +23,4 @@ table_df <- read_csv("analysis/descriptives/decan_descriptives03_comparison of a
   pivot_wider(names_from=dataset,values_from=output) %>% 
   dplyr::select(variable,group,newly_diagnosed,excluded_diagnosed,analytic,complete)
 
-write_csv(table_df,"paper/table_descriptive characteristics by analytic and complete cases.csv")  
+write_csv(table_df,"paper/table_descriptive characteristics by analytic and complete cases_clean.csv")  

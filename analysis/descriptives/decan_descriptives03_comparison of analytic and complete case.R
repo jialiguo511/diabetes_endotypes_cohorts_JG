@@ -5,7 +5,10 @@ rm(analytic_dataset_after_imputation,analytic_dataset_before_imputation,dec_an02
 
 source("C:/code/external/functions/nhst/table1_summary.R")
 
-newly_diagnosed <- read_csv(paste0(path_endotypes_folder,"/working/processed/final_data_temp_6c_homa2.csv"))
+# Zhongyu's Macbook
+source(url("https://raw.githubusercontent.com/jvargh7/functions/main/nhst/table1_summary.R"))
+
+newly_diagnosed <- read_csv(paste0(path_endotypes_folder,"/working/processed/final_data_temp_6c_clean_homa2.csv"))
 
 excluded_diagnosed = newly_diagnosed %>% 
   anti_join(analytic_dataset_cluster,

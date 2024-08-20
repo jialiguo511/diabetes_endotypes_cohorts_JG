@@ -4,6 +4,9 @@ source("analysis/decan_analytic sample.R")
 
 source("C:/code/external/functions/nhst/table1_summary.R")
 
+# Zhongyu's Macbook
+source(url("https://raw.githubusercontent.com/jvargh7/functions/main/nhst/table1_summary.R"))
+
 names(analytic_dataset_cluster)
 
 c_vars = c("dmagediag","bmi","hba1c","glucosef2","insulinf2","homa2b","homa2ir","ldlc","hdlc","tgl","sbp","dbp","ratio_th",

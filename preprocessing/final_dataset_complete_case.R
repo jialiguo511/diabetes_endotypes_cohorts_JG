@@ -32,5 +32,5 @@ data_6c_cc_clean <- data_6c_cc_clean[c("study_id", setdiff(names(data_6c_cc_clea
 
 # output a complete dataset for six cohorts to be used in both 5var and 9var methods. HOMA2 still need to be added manually. 
 write.csv(data_6c_cc_clean, paste0(path_endotypes_folder,"/working/processed/final_dataset_6c_cc_clean.csv"), row.names = FALSE)
-sd(data_6c_cc_clean$dmagediag,na.rm = TRUE)
+sd(data_6c_cc_clean$dmagediag,na.rm = TRUE) ## after HOMA2 is added, the final sample size = 4148, after excluding out of range fasting insulin and glucose values. 
 
