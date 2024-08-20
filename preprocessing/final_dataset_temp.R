@@ -45,7 +45,7 @@ jhs<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/jhs.RDS")) %>%
                 #new_id = row_number())%>% 
   #rename(study_id = new_id)%>% 
   dplyr::filter(aric == 0)%>% 
-  dplyr::select(bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,dmduration,glucosef2,insulinf2,
+  dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,dmduration,glucosef2,insulinf2,
                 serumcreatinine, urinealbumin, urinecreatinine, egfr, totalc,female,race,race_rev) 
 
 jhs_newdm <- jhs[jhs$dmduration%in% c(0, 1), ] # check THIS! 
@@ -56,7 +56,7 @@ jhs_newdm$study = "jhs" # n = 1174 (with ARIC shared); n = 728 without ARIC shar
 la<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/look_ahead.RDS")) %>% 
   dplyr::mutate(ratio_th=tgl/hdlc, 
                 uacr= uacr*1000)%>% 
-  dplyr::select(bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,dmduration,
+  dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,dmduration,
                 serumcreatinine, urinealbumin, urinecreatinine,uacr,egfr) #no fasting insulin
 
 la_newdm <- la[la$dmduration%in% c(0, 1), ] 
@@ -67,7 +67,7 @@ accord<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/accord.RDS")) %>%
   dplyr::mutate(ratio_th=tgl/hdlc,
                 bmi = weight/((height/100)^2)
                 )%>% 
-  dplyr::select(bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,dmduration,
+  dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,dmduration,
                 serumcreatinine, urinealbumin, urinecreatinine, uacr, egfr, alt,totalc) # no fasting insulin
 
 accord_newdm <-accord[accord$dmduration%in% c(0, 1), ] 
@@ -114,7 +114,7 @@ dppos$study = "dppos" # n = 1077
 #dpp$study_id <- NULL
 #dppos$study_id <- NULL
 
-table(dppos$race_eth)
+table(dppos$race)
 #### In these three cohorts, loaded data are new DM cases only, therefore age = dmagediag if dmagediag not already created 
 
 ## ARIC [okay]
@@ -140,7 +140,7 @@ aric<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/aric_newdm.RDS"))%>
                     TRUE ~ NA_character_  
                   ),
                 )%>% 
-  dplyr::select(bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
+  dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
                 serumcreatinine,urinealbumin,totalc,female,race,race_rev) # NOTE: white or AA only, no hispanic or other groups. 
 
 aric$study = "aric" # n = 3802
@@ -171,7 +171,7 @@ cardia <-readRDS(paste0(path_endotypes_folder,"/working/cleaned/cardia_newdm.RDS
                   race == 5 ~ "NH White",
                   TRUE ~ NA_character_), 
                 )%>% 
-  dplyr::select(bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
+  dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
                 serumcreatinine, urinealbumin, uacr, egfr,totalc,female,race,race_rev)
 
 table(cardia$race)
@@ -198,7 +198,7 @@ mesa<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/mesa_newdm.RDS"))%>
                   TRUE ~ NA_character_  
                 ))%>% 
     rename(dmagediag=age)%>% 
-  dplyr::select(bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
+  dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
                 urinealbumin, urinecreatinine, uacr,serumcreatinine, egfr,totalc,female,race,race_rev) 
 
 mesa$study = "mesa" #n=901
@@ -208,7 +208,7 @@ mesa$study = "mesa" #n=901
 
 # "_clean" is added to all final datasets to mark the version made in AUGUST 2024 # 
 
-data_8c_clean<-bind_rows(jhs_newdm,la_newdm,accord_newdm,dpp,dppos,aric,cardia,mesa)%>% 
+data_8c_clean<- bind_rows(jhs_newdm,la_newdm,accord_newdm,dpp,dppos,aric,cardia,mesa)%>% 
   select(-study_id,-dmduration)%>% 
   mutate(study_id=row_number())%>%
   select(last_col(),everything()) # 9892 new DM cases 
@@ -245,3 +245,8 @@ write.csv(data_8c, paste0(path_endotypes_folder,"/working/processed/final_data_t
 ### output a merged dataset for six cohort dataset for HOMA2 to be added. This dataset contains missing data at key variables. 
 write.csv(data_6c, paste0(path_endotypes_folder,"/working/processed/final_data_temp_6c.csv"), row.names = FALSE)
 
+plyr::rbind.fill(jhs_newdm,la_newdm,accord_newdm,dpp,dppos,aric,cardia,mesa) %>% 
+  rename(original_study_id = study_id)%>% 
+  mutate(study_id=row_number())%>%
+  select(last_col(),everything()) %>%  # 9892 new DM cases %>% 
+ saveRDS(.,paste0(path_endotypes_folder,"/working/processed/final_dataset_temp.RDS"))
