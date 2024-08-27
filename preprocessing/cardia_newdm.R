@@ -71,7 +71,7 @@ newdm_y7 <- dat_y7 %>%
   dplyr::filter(((dmagediag - age) >= 0 & (dmagediag - age) <= 1) | (glucosef >= 126 & !is.na(glucosef))) %>%
   dplyr::filter(!study_id %in% id_sel5)
 
-id_sel7<-c(id_sel5,newdm_y7$study_id) #n=158 new DM after year 7; after correction for AFTER diagnosis lab measurements n = 31 
+id_sel7<-c(id_sel5,newdm_y7$study_id) #n=152 new DM after year 7; after correction for AFTER diagnosis lab measurements n = 31 
 
 
 ## Year 10
@@ -82,7 +82,7 @@ newdm_y10 <- dat_y10 %>%
   dplyr::filter(((dmagediag - age) >= 0 & (dmagediag - age) <= 1) | (glucosef >= 126 & !is.na(glucosef))) %>%
   dplyr::filter(!study_id %in% id_sel7)
 
-id_sel10<-c(id_sel7,newdm_y10$study_id) #n=208 new DM after year 10; after correction for AFTER diagnosis lab measurements n = 47
+id_sel10<-c(id_sel7,newdm_y10$study_id) #n=199 new DM after year 10; after correction for AFTER diagnosis lab measurements n = 47
 
 
 ## Year 15 
@@ -93,7 +93,7 @@ newdm_y15 <- dat_y15 %>%
   dplyr::filter(((dmagediag - age) >= 0 & (dmagediag - age) <= 1) | (glucosef >= 126 & !is.na(glucosef))) %>%
   dplyr::filter(!study_id %in% id_sel10)
 
-id_sel15<-c(id_sel10,newdm_y15$study_id) #n=256 new DM after year 15; after correction for AFTER diagnosis lab measurements n = 45
+id_sel15<-c(id_sel10,newdm_y15$study_id) #n=244 new DM after year 15; after correction for AFTER diagnosis lab measurements n = 45
 
 #ISSUE: some participants have (abs(age - dmagediag) <=1) > 1. We will deal with this in the merged dataset
 
@@ -104,7 +104,7 @@ newdm_y20 <- dat_y20 %>%
   dplyr::filter(((dmagediag - age) >= 0 & (dmagediag - age) <= 1) | (glucosef >= 126 & !is.na(glucosef)) |(hba1c >=6.5 & !is.na(hba1c))) %>% 
   dplyr::filter(!study_id %in% id_sel15)
 
-id_sel20<-c(id_sel15,newdm_y20$study_id) #n=409 new DM after year 20;after correction for AFTER diagnosis lab measurements n = 150
+id_sel20<-c(id_sel15,newdm_y20$study_id) #n=394 new DM after year 20;after correction for AFTER diagnosis lab measurements n = 150
 
 
 ## YEAR 25
@@ -115,7 +115,7 @@ newdm_y25 <- dat_y25 %>%
   dplyr::filter(((dmagediag - age) >= 0 & (dmagediag - age) <= 1) | (glucosef >= 126 & !is.na(glucosef)) |(hba1c >= 6.5 & !is.na(hba1c))) %>% 
   dplyr::filter(!study_id %in% id_sel20)
 
-id_sel25<-c(id_sel20,newdm_y25$study_id) #n=562 new DM after year 25;after correction for AFTER diagnosis lab measurements n = 151
+id_sel25<-c(id_sel20,newdm_y25$study_id) #n=545 new DM after year 25;after correction for AFTER diagnosis lab measurements n = 151
 
 
 ## YEAR 30 
@@ -126,7 +126,7 @@ newdm_y30 <- dat_y30 %>%
   dplyr::filter(((dmagediag - age) >= 0 & (dmagediag - age) <= 1) | (glucosef >= 126 & !is.na(glucosef)) |(hba1c >= 6.5 & !is.na(6.5))) %>% 
   dplyr::filter(!study_id %in% id_sel25)
 
-id_sel30<-c(id_sel25,newdm_y30$study_id) #n=690 new DM after year 20;after correction for AFTER diagnosis lab measurements n = 121
+id_sel30<-c(id_sel25,newdm_y30$study_id) #n=666 new DM after year 20;after correction for AFTER diagnosis lab measurements n = 121
 
 
 # MODIFICATIONS merged data:

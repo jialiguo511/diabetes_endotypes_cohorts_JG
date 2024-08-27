@@ -353,7 +353,7 @@ summary(selected_ids_v3)# 194 participant in V3 meet the criteria
 #Need to modify:1)dmagediag = age if new DM; 2)create a diab_new_vx variable
 
 
-aric_new <-aric_new%>% 
+aric_new <-aric_new %>% 
   mutate(
     diab_doc = case_when(
       diab_doc=="Y"~1,
