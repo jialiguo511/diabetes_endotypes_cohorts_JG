@@ -240,10 +240,10 @@ data_8c_mean <- data_8c %>%
 # uarc in LA is in wrong unit, corre›ct by x1000 [completed on 5.6.24]
 
 ### output a temporary merged dataset for further processing 
-write.csv(data_8c, paste0(path_endotypes_folder,"/working/processed/final_data_temp_8c.csv"), row.names = FALSE)
+write.csv(data_8c_clean, paste0(path_endotypes_folder,"/working/processed/final_data_temp_8c_clean.csv"), row.names = FALSE)
 
 ### output a merged dataset for six cohort dataset for HOMA2 to be added. This dataset contains missing data at key variables. 
-write.csv(data_6c, paste0(path_endotypes_folder,"/working/processed/final_data_temp_6c.csv"), row.names = FALSE)
+write.csv(data_6c_clean, paste0(path_endotypes_folder,"/working/processed/final_data_temp_6c_clean.csv"), row.names = FALSE)
 
 plyr::rbind.fill(jhs_newdm,la_newdm,accord_newdm,dpp,dppos,aric,cardia,mesa) %>% 
   rename(original_study_id = study_id)%>% 

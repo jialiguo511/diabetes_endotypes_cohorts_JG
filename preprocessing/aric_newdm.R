@@ -330,6 +330,11 @@ table(aric_new$baseline_diabetes)
 
 # Identify participants with first age of DX (dmagediag variable in V3 only)
 
+aric_new <- aric_new %>%
+  group_by(study_id) %>%
+  mutate(dmagediag = ifelse(visit %in% c(1, 2) & is.na(dmagediag), dmagediag[visit == 3], dmagediag)) %>%
+  ungroup()
+
 aric_new$age_diff <-aric_new$age-aric_new$dmagediag 
 
 table(aric_new$age_diff >= 0 & aric_new$age_diff <= 1)
@@ -337,17 +342,23 @@ table(aric_new$age_diff >= 0 & aric_new$age_diff <= 1)
 rows_with_correct_age_diff_v1 <- which(aric_new$age_diff >= 0 & aric_new$age_diff <= 1 & aric_new$visit == 1)
 
 selected_ids_v1 <- aric_new$study_id[rows_with_correct_age_diff_v1]
-selected_ids_v1 # no participant in V1 meets the criteria
+selected_ids_v1 # N = 147 participants in V1 meets the criteria
 
 rows_with_correct_age_diff_v2 <- which(aric_new$age_diff >= 0 & aric_new$age_diff <= 1 & aric_new$visit == 2)
 selected_ids_v2 <- aric_new$study_id[rows_with_correct_age_diff_v2]
-selected_ids_v2 # no participant in V2 meets the criteria
+selected_ids_v2 # 188 participant in V2 meets the criteria
 
 rows_with_correct_age_diff_v3 <- which(aric_new$age_diff >= 0 & aric_new$age_diff <= 1 & aric_new$visit == 3)
 selected_ids_v3 <- aric_new$study_id[rows_with_correct_age_diff_v3]
 summary(selected_ids_v3)# 194 participant in V3 meet the criteria
 
 
+
+#### for participants not in seleted_ids_v1 but in baseline_ids, they should be removed 
+
+baseline_ids <- setdiff(baseline_ids, selected_ids_v1)
+
+#### for participants in the selected_ids_v1, they should be kept in the final dataset 
 
 #### Now, new DM in V2 
 #Need to modify:1)dmagediag = age if new DM; 2)create a diab_new_vx variable
@@ -489,20 +500,30 @@ newdm_v6_ids <-aric_new$study_id[newdm_v6_rows]
 
 #### extract all new DM cases into a new datasets, all new cases should be included in future visits too! 
 
-## check ids from two sets of v3 ids with new dm 
+## check ids from two sets of v2 and v3 ids with new dm 
+
+
+intersect(selected_ids_v2, newdm_v2_ids)
+newdm_v2_ids_c <- unique(c(selected_ids_v2, newdm_v2_ids))
+
 intersect(selected_ids_v3, newdm_v3_ids)
 newdm_v3_ids_c <- unique(c(selected_ids_v3, newdm_v3_ids))
 
 ## create a dataset with new dm cases from the visit at which the the patient was first diagnosed. 
-newdm_v2 <- aric_new %>%
-  dplyr::filter(visit == 2 & study_id %in% newdm_v2_ids)
+newdm_v1 <- aric_new %>% 
+  dplyr::filter(visit == 1 & study_id %in% selected_ids_v1)
 
+newdm_v2 <- aric_new %>%
+  dplyr::filter(visit == 2 & study_id %in% newdm_v2_ids_c) %>% 
+  dplyr::filter(!study_id %in% selected_ids_v1)
+
+id_s2 <- c(newdm_v2_ids_c,selected_ids_v1)
 
 newdm_v3 <- aric_new %>%
   dplyr::filter(visit == 3 & study_id %in% newdm_v3_ids_c)%>%
-  dplyr::filter(!study_id %in% newdm_v2_ids)
+  dplyr::filter(!study_id %in% id_s2)
 
-id_s3 <-c(newdm_v2_ids,newdm_v3_ids_c) #ids from previous visits should be removed from next visits
+id_s3 <-c(id_s2,newdm_v3_ids_c) #ids from previous visits should be removed from next visits
 
 newdm_v4 <- aric_new %>%
   dplyr::filter(visit == 4 & study_id %in% newdm_v4_ids)%>%
@@ -524,9 +545,9 @@ newdm_v6 <- aric_new %>%
 
 id_s6 <-c(id_s5,newdm_v6_ids)
 
-dat_newdm <- bind_rows(newdm_v2,newdm_v3,newdm_v4,newdm_v5,newdm_v6) #n=3802 new dm cases, use this for analysis, it contains just the visits at which new dm is identified. 
+dat_newdm <- bind_rows(newdm_v1,newdm_v2,newdm_v3,newdm_v4,newdm_v5,newdm_v6) #n=3802 --> 4060 new dm cases, use this for analysis, it contains just the visits at which new dm is identified. 
 
-combined_ids <- Reduce(union, list(newdm_v2_ids, newdm_v3_ids_c,newdm_v4_ids,newdm_v5_ids,newdm_v6_ids)) #n=3802 new dm cases 
+combined_ids <- Reduce(union, list(selected_ids_v1, newdm_v2_ids_c, newdm_v3_ids_c,newdm_v4_ids,newdm_v5_ids,newdm_v6_ids)) #n=3802 --> 4060 new dm cases 
 
 aric_new_dm <- aric_new[aric_new$study_id %in% combined_ids, ]#this contains all visits for new DM cases 
 
