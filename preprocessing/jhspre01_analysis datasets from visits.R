@@ -44,21 +44,7 @@ table(analysis3$diabetes)
 jhs_analysis <- bind_rows(
   left_join(analysis1,pfha,by="study_id") %>% mutate(visit = 1),
   left_join(analysis2,hhxa,by="study_id") %>% mutate(visit = 2),
-  left_join(analysis3,phfb,by="study_id") %>% mutate(visit = 3)) %>% 
-  mutate(dmduration = case_when(diabetes == 1 & !is.na(dmagediag) ~ age - dmagediag,
-                                # Need to make sure that the below condition makes sense
-                                # dmagediag might be missing because they forgot
-                                # diabetes == 1 usually for someone with glucosef >= 126
-                                (diabetes == 0 | is.na(dmagediag)) & (glucosef >= 126 | hba1c >=6.5) ~ 0,
-                                TRUE ~ NA_real_
-                                ),
-         dmagediag = case_when(dmduration == 0 ~ age, # Zhongyu added here
-                               TRUE ~ dmagediag),
-         race_eth = "NH Black",
-         female = case_when(female == "Female" ~ 1,
-                            female == "Male" ~ 0,
-                            TRUE ~ NA_real_)) %>% 
-  dplyr::filter(aric == 0)
+  left_join(analysis3,phfb,by="study_id") %>% mutate(visit = 3))
 
 saveRDS(jhs_analysis,paste0(path_endotypes_folder,"/working/interim/jhspre01_jhs_analysis.RDS"))
 
