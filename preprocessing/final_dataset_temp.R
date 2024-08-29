@@ -106,7 +106,7 @@ dppos<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/dppos.RDS"))%>%
                 ))%>% 
   rename(race = race_eth)%>% 
   dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
-                serumcreatinine, ast, alt,totalc,female,race,race_rev,treatment) %>% 
+                serumcreatinine, ast, alt,totalc,female,race,race_rev) %>% 
   dplyr::filter(!study_id %in% dpp$study_id)
 
 dppos$study = "dppos" # n = 1077
@@ -233,7 +233,7 @@ write_csv(data_6c_clean_sum, paste0(path_endotypes_folder,"/results/updates/coun
 
 
 ### for all eight cohorts ### 
-data_8c_mean <- data_8c %>%
+data_8c_clean_mean <- data_8c_clean %>%
   group_by(study) %>%  
   summarise(across(everything(), mean, na.rm = TRUE), .groups = "drop")
 # urine albumin is mg/L in ARIC (conversion = /10) [completed on 5.6.24]
