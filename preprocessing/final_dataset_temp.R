@@ -143,7 +143,7 @@ aric<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/aric_newdm.RDS"))%>
   dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
                 serumcreatinine,urinealbumin,totalc,female,race,race_rev) # NOTE: white or AA only, no hispanic or other groups. 
 
-aric$study = "aric" # n = 3802
+aric$study = "aric" # n = 4060
 
 
 ## CARDIA 

@@ -294,6 +294,7 @@ v6_new<-v6_all%>%
          -glucosef_si,-glucose_value)
 
 
+
 # join six visit, long format 
 
 aric_analysis<- bind_rows(v1_new,v2_new,v3_new,v4_new,v5_new,v6_new) 
