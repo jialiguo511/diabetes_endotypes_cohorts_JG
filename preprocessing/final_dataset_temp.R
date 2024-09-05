@@ -51,6 +51,11 @@ jhs<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/jhs.RDS")) %>%
 jhs_newdm <- jhs[jhs$dmduration%in% c(0, 1), ] # check THIS! 
 jhs_newdm$study = "jhs" # n = 1174 (with ARIC shared); n = 728 without ARIC shared
 
+jhs_newdm_nodup <- jhs_newdm %>% 
+  group_by(study_id) %>% 
+  dplyr::filter(dmagediag == min(dmagediag))%>% 
+  ungroup()
+
 ## Look Ahead [okay,no fasting insulin & glucose]
 
 la<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/look_ahead.RDS")) %>% 
