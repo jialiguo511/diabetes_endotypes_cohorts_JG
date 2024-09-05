@@ -22,10 +22,10 @@ step0 <- readRDS(paste0(path_endotypes_folder,"/working/interim/aric_analysis.RD
                                                       TRUE ~ NA_real_))) %>% 
   arrange(study_id,visit) %>% 
   group_by(study_id) %>% 
-  mutate(dmagediag_V3 = min(dmagediag,na.rm=TRUE)) %>% 
+  mutate(dmagediag_V3 = min(dmagediag,na.rm=TRUE))  %>% 
+  ungroup() %>% 
   mutate(dmagediag_V3 = case_when(dmagediag_V3 == Inf ~ NA_real_,
                                   TRUE ~ dmagediag_V3)) %>% 
-  ungroup() %>% 
   mutate(
     
     # VISIT 1
