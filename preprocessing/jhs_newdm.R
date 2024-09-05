@@ -52,13 +52,13 @@ step2 <- step0 %>%
                                   # !is.na(dmagediag_ever) & (age - dmagediag_ever) >=2 ~ 0, --> not required
                                   !is.na(dmagediag_ever) & (age - dmagediag_ever)%in% c(0,1) ~ 1,
                                   (dmmedsoral == 1 | dmmedsins == 1 | dmmeds == 1 | diabetes == 1) ~ 1,
-                                  (glucosef >= 126 | hba1c >=6.5) ~ 0,
+                                  (glucosef >= 126 | hba1c >=6.5) ~ 1,
                                    TRUE ~ 0),
          visit2_newdm = case_when(visit!=2~NA_real_,
                                   !is.na(dmagediag_ever) & (age - dmagediag_ever) >=2 ~ 0,
                                   !is.na(dmagediag_ever) & (age - dmagediag_ever)%in% c(0,1) ~ 1,
                                   (dmmedsoral == 1 | dmmedsins == 1 | dmmeds == 1 | diabetes == 1) ~ 1,
-                                  (glucosef >= 126 | hba1c >=6.5) ~ 0,
+                                  (glucosef >= 126 | hba1c >=6.5) ~ 1,
                                   TRUE~0),
          
          visit3_newdm = case_when(visit!=3~NA_real_,
@@ -67,7 +67,7 @@ step2 <- step0 %>%
                                   !is.na(dmagediag_ever) & (age - dmagediag_ever) >=2 ~ 0, 
                                   !is.na(dmagediag_ever) & (age - dmagediag_ever)%in% c(0,1) ~ 1,
                                   (dmmedsoral == 1 | dmmedsins == 1 | dmmeds == 1 | diabetes == 1) ~ 1,
-                                  (glucosef >= 126 | hba1c >=6.5) ~ 0,
+                                  (glucosef >= 126 | hba1c >=6.5) ~ 1,
                                   TRUE~0)
   ) %>% 
   # dplyr::filter(!is.na(age)) %>% 
