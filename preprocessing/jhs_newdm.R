@@ -45,6 +45,8 @@ step1 <- step0 %>%
                                  TRUE ~ 0)) %>% 
   dplyr::filter(baseline_dm == 1) 
 
+saveRDS(step1,paste0(path_endotypes_folder,"/working/interim/jhs_baseline_dm.RDS"))
+
 
 step2 <- step0 %>% 
   dplyr::filter(!study_id %in% step1$study_id) %>% 

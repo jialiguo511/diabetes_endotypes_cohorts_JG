@@ -94,6 +94,8 @@ step1 <- step0 %>%
   dplyr::filter(baseline_dm == 1)
 
 
+saveRDS(step1,paste0(path_endotypes_folder,"/working/interim/aric_baseline_dm.RDS"))
+
 step2 <- step0 %>% 
   dplyr::filter(!study_id %in% step1$study_id) %>% 
   mutate(visit1_newdm = case_when(visit > 1 ~ NA_real_,
