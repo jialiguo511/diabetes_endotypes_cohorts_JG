@@ -113,6 +113,11 @@ dpp_newdm <- full_join(lab_matched,
                                agegroup == 4 ~ 52 + diagDays/365,
                                agegroup == 5 ~ 57 + diagDays/365,
                                agegroup == 6 ~ 62 + diagDays/365,
-                               agegroup == 7 ~ 67 + diagDays/365))
+                               agegroup == 7 ~ 67 + diagDays/365)) %>% 
+  distinct(study_id,diagDays,.keep_all=TRUE)
+
+confirmed_dm %>% 
+  anti_join(dpp_newdm,
+            by="study_id") %>% View() #2 cases
   
 saveRDS(dpp_newdm,paste0(path_endotypes_folder,"/working/cleaned/dpp_newdm.RDS"))
