@@ -120,3 +120,20 @@ e5_dat <- e5_temp %>%
   mutate(weight = weight*0.4536)%>% 
   select(-sbp1,-sbp2,-sbp3,-dbp1,-dbp2,-dbp3)
 
+
+### combine all exams
+
+e1_dat$exam = 1 
+e2_dat$exam = 2 
+e3_dat$exam = 3 
+e4_dat$exam = 4 
+e5_dat$exam = 5 
+
+bind_rows(e1_dat,
+          e2_dat,
+          e3_dat,
+          e4_dat,
+          e5_dat) %>% 
+  saveRDS(.,paste0(path_endotypes_folder,"/working/interim/mesa_dat_all.RDS"))
+
+

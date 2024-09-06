@@ -436,3 +436,20 @@ dat_y30<-y30_merged%>%
 dat_y30 <- dat_y30 %>%
   left_join(dat_y0_fill, by = "study_id")
 
+## merge all nine exams 
+
+dat_y0$year = 0 
+dat_y2$year = 2 
+dat_y5$year = 5 
+dat_y7$year = 7 
+dat_y10$year = 10 
+dat_y15$year = 15 
+dat_y20$year = 20 
+dat_y25$year = 25
+dat_y30$year = 30 
+
+dat_all <- bind_rows(dat_y0, dat_y2, dat_y5, dat_y7, dat_y10, dat_y15, dat_y20, dat_y25, dat_y30)
+
+saveRDS(dat_all,paste0(path_endotypes_folder,"/working/interim/cardia_dat_all.RDS"))
+
+
