@@ -15,11 +15,10 @@
 ## 4) meeting lab cutoffs --> new_dm = 1 
 
 
-
 step0 <- readRDS(paste0(path_endotypes_folder,"/working/interim/aric_analysis.RDS")) %>%
-  mutate(across(contains("evr"),function(x) case_when(x=="N" ~ 0,
-                                                      x == "Y" ~ 1,
-                                                      TRUE ~ NA_real_))) %>% 
+  # mutate(across(contains("evr"),function(x) case_when(x=="N" ~ 0,
+  #                                                     x == "Y" ~ 1,
+  #                                                     TRUE ~ NA_real_))) %>% 
   arrange(study_id,visit) %>% 
   group_by(study_id) %>% 
   mutate(dmagediag_V3 = min(dmagediag,na.rm=TRUE))  %>% 
@@ -79,8 +78,9 @@ step0 <- readRDS(paste0(path_endotypes_folder,"/working/interim/aric_analysis.RD
     
     
     )
-  
-  
+
+# Check this to see how diab_evr is created...  
+with(step0[step0$visit == 1,],table(diab_evr,diab_126_fast,diab_ind,useNA="always"))
 
 step1 <- step0 %>% 
   dplyr::filter(visit == 1) %>% 
