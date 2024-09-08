@@ -1,9 +1,5 @@
 #The purpose of this file is to merge all five exams for MESA 
 
-
-
-
-
 ############# To identify new diabetes ######### 
 
 ### EXAM1 
@@ -18,7 +14,7 @@ newdm_e1 <- e1_dat %>%
   
 id_sel1 <- newdm_e1$study_id# n = 655 at E1. Add to this and use to remove unwanted visits from previous diagnosis, rename to year number after adding ids
 
-
+s
 ### EXAM2 
 
 newdm_e2 <- e2_dat %>%

@@ -33,7 +33,7 @@ step1 <- step0 %>%
                                  # Don't remove this
                                  # Else they will be excluded based on diab_evr if their incidence was 1 year before...
                                  !is.na(dmagediag_ever) & (age - dmagediag_ever) %in% c(0,1) ~ 0,
-                                 (dia_ada == 3 | dia_sr == 1)  ~ 1, #dia_ada = 3 [treated diabetes]; dia_ada = 2 [untreated DM ]
+                                 (dia_ada == 3 | dia_sr == 1| dia_med_ins_oh == 1|dia_med_kc ==1 |dia_med_ins ==1| !is.na(dia_med_type)|!is.na(dia_med_ins_1st))  ~ 1, #dia_ada = 3 [treated diabetes]; dia_ada = 2 [untreated DM ]
                                  TRUE ~ 0)) %>% 
   dplyr::filter(baseline_dm == 1 | dia_type_e1 == 1) # type I diabetes should also be removed. 
 

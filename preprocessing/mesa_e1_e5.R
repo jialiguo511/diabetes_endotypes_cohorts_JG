@@ -35,6 +35,9 @@ e1_dat <- e1_temp %>%
   mutate(weight = weight*0.4536)%>% 
     select(-sbp1,-sbp2,-sbp3,-dbp1,-dbp2,-dbp3)
 
+hist(e1_dat$dia_med_age_st) 
+summary(e1_dat$dia_med_age_unk) # not usable 
+table(e1_dat$dia_med_ins_oh)
   
 #### Exam 2 
 
