@@ -16,10 +16,7 @@ source("preprocessing/cardia_y0_y30.R")
 ## 3) self reported DM = 1 --> new_dm =1 
 ## 4) meeting lab cutoffs --> new_dm = 1 
 
-# run this after connection is fixed. 
-#step0 <- readRDS(paste0(path_endotypes_folder,"/working/interim/cardia_dat_all.RDS"))
-
-step0 <- dat_all %>% 
+step0 <- readRDS(paste0(path_endotypes_folder,"/working/interim/cardia_dat_all.RDS"))%>% 
   arrange(study_id,year)%>% 
   group_by(study_id)%>% 
   mutate(dmagediag_ever = min(dmagediag,na.rm=TRUE)) %>% 
