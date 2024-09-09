@@ -96,7 +96,9 @@ step2<- step0 %>%
          ) %>%
   distinct(study_id,year,bmi,.keep_all =TRUE) %>% 
   group_by(study_id) %>% 
-  mutate(across(matches("(year[0-30]_newdm)"),function(x) zoo::na.locf(x,na.rm=FALSE))) %>% 
+  # Regular expressions are always limited to [0-9] as a range. For double digit, we need to include a + or a {2}
+  # See https://cheatography.com/davechild/cheat-sheets/regular-expressions/
+  mutate(across(matches("(year[0-9]+_newdm)"),function(x) zoo::na.locf(x,na.rm=FALSE))) %>% 
   dplyr::filter(!is.na(age)) %>% 
   mutate(earliest_age = min(age,na.rm=TRUE)) %>% 
   # mutate(across(matches("(diab_new_v)"),function(x) zoo::na.locf(x,fromLast = TRUE,na.rm=FALSE))) %>% 
