@@ -140,7 +140,7 @@ cardia_newdm <-readRDS(paste0(path_endotypes_folder,"/working/cleaned/cardia_new
                   race == 4 ~ "NH Black",
                   race == 5 ~ "NH White",
                   TRUE ~ NA_character_), 
-                med_col_use = case_when(
+                med_chol_use = case_when(
                   med_chol_now == 2 ~ 1,
                   TRUE ~ 0), 
                 med_bp_use = case_when (
@@ -148,7 +148,7 @@ cardia_newdm <-readRDS(paste0(path_endotypes_folder,"/working/cleaned/cardia_new
                   TRUE ~ 0)
                 )%>% 
   dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,age,dmagediag,dmduration,glucosef2,insulinf2,
-                serumcreatinine, urinealbumin, uacr, egfr,totalc,female,race,race_rev,med_col_use,med_bp_use)
+                serumcreatinine, urinealbumin, uacr, egfr,totalc,female,race,race_rev,med_chol_use,med_bp_use)
 
 summary(cardia_newdm$dmduration)
 
@@ -247,8 +247,8 @@ write.csv(data_8c_clean, paste0(path_endotypes_folder,"/working/processed/final_
 write.csv(data_6c_clean, paste0(path_endotypes_folder,"/working/processed/final_data_temp_6c_clean.csv"), row.names = FALSE)
 
 
-
-plyr::rbind.fill(jhs_newdm,la_newdm,accord_newdm,dpp_newdm,dos_newdm,aric_newdm,cardia_newdm,mesa_newdm) %>% 
+# la_newdm,accord_newdm,
+plyr::rbind.fill(jhs_newdm,dpp_newdm,dos_newdm,aric_newdm,cardia_newdm,mesa_newdm) %>% 
   rename(original_study_id = study_id)%>% 
   mutate(study_id=row_number())%>%
   select(last_col(),everything()) %>%  # 9892 new DM cases %>% 
