@@ -9,11 +9,14 @@
 ## 2) cleaned data once more to ensure that all lab measures were collected with 12 month AFTER diagnosis (DPP, DPPOS and CARIDA); 
 ## 3) removed shared ARIC participants from JHS.
 
+# In September 2024, we implemented a new workflow to capture new DM cases from six cohorts. 
+
 ###### 
 # In June 2024, renamed with _temp, so that it is clear that this is for temporary/intermediate final dataset only. 
 # In July 2024, extracted gender and race. created a new variable named "race_rev" to code African American and White
 #####
 # K means with eight cohorts (LA, JHS, DPP, ACCORD, DDPOS, ARIC, CARDIA, MESA)
+# the final analysis uses only six cohorts with fasting glucose and insulin (JHS, DPP, DDPOS, ARIC, CARDIA, MESA). 
 library(dplyr)
 library(tidyr)
 
@@ -32,55 +35,24 @@ library(tidyr)
 ## CARDIA: serumcreatinine, urinealbumin, uacr, egfr, totalc
 ## MESA: urinealbumin, urinecreatinine, uacr,serumcreatinine, egfr,totalc
 
-## JHS [okay]
-#some duplicates in ids, values appear to differ, reason unknown, created new id and renamed to study_id. 
-
-
-jhs<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/jhs.RDS")) %>% 
+## JHS
+jhs_newdm<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/jhs_newdm.RDS"))%>% 
   dplyr::mutate(ratio_th=tgl/hdlc,
                 glucosef2=glucosef*0.0555,
                 insulinf2=insulinf*6,
-                race_rev = "AA")%>% 
+                race_rev = "AA",
+                dmduration = age - dmagediag)%>% 
   rename(race = race_eth)%>% 
-                #new_id = row_number())%>% 
-  #rename(study_id = new_id)%>% 
   dplyr::filter(aric == 0)%>% 
   dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,dmduration,glucosef2,insulinf2,
                 serumcreatinine, urinealbumin, urinecreatinine, egfr, totalc,female,race,race_rev) 
 
-jhs_newdm <- jhs[jhs$dmduration%in% c(0, 1), ] # check THIS! 
-jhs_newdm$study = "jhs" # n = 1174 (with ARIC shared); n = 728 without ARIC shared
+jhs_newdm <- jhs_newdm[jhs_newdm$dmduration%in% c(0, 1), ]
+jhs_newdm$study = "jhs" # n = 268 
 
-jhs_newdm_nodup <- jhs_newdm %>% 
-  group_by(study_id) %>% 
-  dplyr::filter(dmagediag == min(dmagediag))%>% 
-  ungroup()
-
-## Look Ahead [okay,no fasting insulin & glucose]
-
-la<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/look_ahead.RDS")) %>% 
-  dplyr::mutate(ratio_th=tgl/hdlc, 
-                uacr= uacr*1000)%>% 
-  dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,dmduration,
-                serumcreatinine, urinealbumin, urinecreatinine,uacr,egfr) #no fasting insulin
-
-la_newdm <- la[la$dmduration%in% c(0, 1), ] 
-la_newdm$study = "la" #N=877
-
-## ACCORD [okay,no fasting insulin&glucose]
-accord<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/accord.RDS")) %>% 
-  dplyr::mutate(ratio_th=tgl/hdlc,
-                bmi = weight/((height/100)^2)
-                )%>% 
-  dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,dmduration,
-                serumcreatinine, urinealbumin, urinecreatinine, uacr, egfr, alt,totalc) # no fasting insulin
-
-accord_newdm <-accord[accord$dmduration%in% c(0, 1), ] 
-accord_newdm$study = "accord" #N=601 
 
 ## DPP 
-
-dpp<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/dpp.RDS"))%>% 
+dpp_newdm<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/dpp_newdm.RDS"))%>% 
   dplyr::mutate(ratio_th=tgl/hdlc,
                 glucosef2=glucosef*0.0555,
                 insulinf2=insulinf*6,
@@ -93,13 +65,13 @@ dpp<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/dpp.RDS"))%>%
   rename(race = race_eth)%>% 
   dplyr::filter(treatment == "Placebo") %>% # remove all intervention arms [decision made on 8.14.24]
   dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
-                serumcreatinine, urinecreatinine,female,race,race_rev) 
+                serumcreatinine,female,race,race_rev) 
 
-dpp$study = "dpp" #n=800 all intervention arms; n = 291 placebo only. 
+dpp_newdm$study = "dpp" # n = 291 placebo only. 
 
 
 ## DPPOS 
-dppos<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/dppos.RDS"))%>% 
+dos_newdm<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/dos_newdm.RDS"))%>% 
   dplyr::mutate(ratio_th=tgl/hdlc,
                 glucosef2=glucosef*0.0555,
                 insulinf2=insulinf*6,
@@ -111,20 +83,13 @@ dppos<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/dppos.RDS"))%>%
                 ))%>% 
   rename(race = race_eth)%>% 
   dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
-                serumcreatinine, ast, alt,totalc,female,race,race_rev) %>% 
-  dplyr::filter(!study_id %in% dpp$study_id)
+                serumcreatinine, ast, alt,female,race,race_rev) %>% 
+  dplyr::filter(!study_id %in% dpp_newdm$study_id)
 
-dppos$study = "dppos" # n = 1077
+dos_newdm$study = "dppos" # n = 1100
 
-#dpp$study_id <- NULL
-#dppos$study_id <- NULL
-
-table(dppos$race)
-#### In these three cohorts, loaded data are new DM cases only, therefore age = dmagediag if dmagediag not already created 
-
-## ARIC [okay]
-# in this cohort new dm case data, baseline dm is not included. 
-aric<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/aric_newdm.RDS"))%>% 
+## ARIC 
+aric_newdm<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/aric_newdm.RDS"))%>% 
   dplyr::mutate(ratio_th=tgl/hdlc,
                 glucosef2=glucosef*0.0555,
                 insulinf2=insulinf*6,
@@ -144,23 +109,23 @@ aric<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/aric_newdm.RDS"))%>
                     race == "B" ~ "NH Black",
                     TRUE ~ NA_character_  
                   ),
+                dmduration = age - dmagediag,
+                study_id = as.numeric(gsub("[^0-9]", "", study_id))
                 )%>% 
-  dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
-                serumcreatinine,urinealbumin,totalc,female,race,race_rev) # NOTE: white or AA only, no hispanic or other groups. 
+  dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,dmduration,glucosef2,insulinf2,
+                serumcreatinine,urinealbumin,totalc,female,race,race_rev,med_chol_use,med_bp_use) # NOTE: white or AA only, no hispanic or other groups. 
 
-aric$study = "aric" # n = 4060
+aric_newdm <- aric_newdm[aric_newdm$dmduration%in% c(0, 1), ]
+aric_newdm$study = "aric" # n = 4352 
 
 
 ## CARDIA 
-cardia <-readRDS(paste0(path_endotypes_folder,"/working/cleaned/cardia_newdm.RDS"))%>% 
+cardia_newdm <-readRDS(paste0(path_endotypes_folder,"/working/cleaned/cardia_newdm.RDS"))%>% 
   #dplyr::filter(year!=0)%>% 
   dplyr::mutate(ratio_th=tgl/hdlc,
                 glucosef2=glucosef*0.0555,
                 insulinf2=insulinf*6,
-                dmagediag = case_when(
-                  abs(dmagediag-age)<=1 ~dmagediag,
-                  TRUE ~age
-                ),
+                dmduration = age - dmagediag,
                 female = case_when(
                   female == 1 ~ 0,  
                   female == 2 ~ 1,  
@@ -175,19 +140,28 @@ cardia <-readRDS(paste0(path_endotypes_folder,"/working/cleaned/cardia_newdm.RDS
                   race == 4 ~ "NH Black",
                   race == 5 ~ "NH White",
                   TRUE ~ NA_character_), 
+                med_col_use = case_when(
+                  med_chol_now == 2 ~ 1,
+                  TRUE ~ 0), 
+                med_bp_use = case_when (
+                  (med_hbp_ever == 2 | med_hbp_now ==2) ~1,
+                  TRUE ~ 0)
                 )%>% 
-  dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
-                serumcreatinine, urinealbumin, uacr, egfr,totalc,female,race,race_rev)
+  dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,age,dmagediag,dmduration,glucosef2,insulinf2,
+                serumcreatinine, urinealbumin, uacr, egfr,totalc,female,race,race_rev,med_col_use,med_bp_use)
 
-table(cardia$race)
-cardia$study = "cardia" #n=692
+summary(cardia_newdm$dmduration)
+
+cardia_newdm <- cardia_newdm[cardia_newdm$dmduration%in% c(0, 1), ]
+cardia_newdm$study = "cardia" #n=726
 
 ## MESA 
 
-mesa<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/mesa_newdm.RDS"))%>% 
+mesa_newdm<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/mesa_newdm.RDS"))%>% 
   dplyr::mutate(ratio_th=tgl/hdlc,
                 glucosef2=glucosef*0.0555,
                 insulinf2=insulinr*6,
+                dmduration = age - dmagediag,
                 female = 1 - female,
                 race_rev = case_when(
                   race == 1 ~ "White",
@@ -202,26 +176,48 @@ mesa<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/mesa_newdm.RDS"))%>
                   race == 4 ~ "Hispanic",
                   TRUE ~ NA_character_  
                 ))%>% 
-    rename(dmagediag=age)%>% 
-  dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,glucosef2,insulinf2,
+  dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,dmduration,glucosef2,insulinf2,
                 urinealbumin, urinecreatinine, uacr,serumcreatinine, egfr,totalc,female,race,race_rev) 
 
-mesa$study = "mesa" #n=901
+mesa_newdm <- mesa_newdm[mesa_newdm$dmduration%in% c(0, 1), ]
+mesa_newdm$study = "mesa" #n=1554 
+
+## Look Ahead [okay,no fasting insulin & glucose]
+
+la<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/look_ahead.RDS")) %>% 
+  dplyr::mutate(ratio_th=tgl/hdlc, 
+                uacr= uacr*1000)%>% 
+  dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,dmduration,
+                serumcreatinine, urinealbumin, urinecreatinine,uacr,egfr) #no fasting insulin
+
+la_newdm <- la[la$dmduration%in% c(0, 1), ] 
+la_newdm$study = "la" #N=877
+
+## ACCORD [okay,no fasting insulin&glucose]
+accord<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/accord.RDS")) %>% 
+  dplyr::mutate(ratio_th=tgl/hdlc,
+                bmi = weight/((height/100)^2)
+  )%>% 
+  dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,dmduration,
+                serumcreatinine, urinealbumin, urinecreatinine, uacr, egfr, alt,totalc) # no fasting insulin
+
+accord_newdm <-accord[accord$dmduration%in% c(0, 1), ] 
+accord_newdm$study = "accord" #N=601 
 
 
 #merge data and remove all NAs, imputation could be used in sensitivity analysis to increase sample size
 
 # "_clean" is added to all final datasets to mark the version made in AUGUST 2024 # 
 
-data_8c_clean<- bind_rows(jhs_newdm,la_newdm,accord_newdm,dpp,dppos,aric,cardia,mesa)%>% 
+data_8c_clean<- bind_rows(jhs_newdm,la_newdm,accord_newdm,dpp_newdm,dos_newdm,aric_newdm,cardia_newdm,mesa_newdm)%>% 
   select(-study_id,-dmduration)%>% 
   mutate(study_id=row_number())%>%
-  select(last_col(),everything()) # 9892 new DM cases 
+  select(last_col(),everything()) # 9769 new DM cases 
 
-data_6c_clean<-bind_rows(jhs_newdm,dpp,dppos,aric,cardia,mesa)%>% 
+data_6c_clean<-bind_rows(jhs_newdm,dpp_newdm,dos_newdm,aric_newdm,cardia_newdm,mesa_newdm)%>% 
   select(-study_id,-dmduration)%>% 
   mutate(study_id=row_number()) %>%
-  select(last_col(),everything())# 8414 new DM cases
+  select(last_col(),everything())# 8291 new DM cases
 
 data_8c_clean_sum <- data_8c_clean%>% 
   group_by(study)%>%
@@ -250,8 +246,10 @@ write.csv(data_8c_clean, paste0(path_endotypes_folder,"/working/processed/final_
 ### output a merged dataset for six cohort dataset for HOMA2 to be added. This dataset contains missing data at key variables. 
 write.csv(data_6c_clean, paste0(path_endotypes_folder,"/working/processed/final_data_temp_6c_clean.csv"), row.names = FALSE)
 
-plyr::rbind.fill(jhs_newdm,la_newdm,accord_newdm,dpp,dppos,aric,cardia,mesa) %>% 
+
+
+plyr::rbind.fill(jhs_newdm,la_newdm,accord_newdm,dpp_newdm,dos_newdm,aric_newdm,cardia_newdm,mesa_newdm) %>% 
   rename(original_study_id = study_id)%>% 
   mutate(study_id=row_number())%>%
   select(last_col(),everything()) %>%  # 9892 new DM cases %>% 
- saveRDS(.,paste0(path_endotypes_folder,"/working/processed/final_dataset_temp.RDS"))
+ saveRDS(.,paste0(path_endotypes_folder,"/working/cleaned/final_dataset_temp.RDS")) # this is the same dataset as the final_data_temp_8c_clean.csv

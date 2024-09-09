@@ -3,12 +3,12 @@
 # read datasets 
 # As of June 2024, only six cohort dataset is used 
 # In August 2024, a "_clean" tag is added to all dataset to reflect revisions made in datasets, see "final_dataset_temp.R" for details. 
+# In September 2024, new workflow is implemented to select new DMs. 
 
-
-data_6c_clean <- read.csv(paste0(path_endotypes_folder,"/working/processed/final_data_temp_6c_clean.csv")) #7491 new DM cases 
+data_6c_clean <- read.csv(paste0(path_endotypes_folder,"/working/processed/final_data_temp_6c_clean.csv")) #8291 new DM cases 
 
 # for imputation purpose 
-var_sel_mi <- c("hba1c","dmagediag","bmi") #4862 ==> n = 4165
+var_sel_mi <- c("hba1c","dmagediag","bmi") #4862 ==> n = 3676
 data_6c_clean_mi<- data_6c_clean[complete.cases(data_6c_clean[,var_sel_mi]),] 
 
 write.csv(data_6c_clean_mi, paste0(path_endotypes_folder,"/working/processed/final_dataset_6c_clean_mi.csv"), row.names = FALSE)
@@ -16,7 +16,7 @@ write.csv(data_6c_clean_mi, paste0(path_endotypes_folder,"/working/processed/fin
 
 # for nine variable method (Method 4)
 var_sel <- c("bmi","hba1c","ldlc","hdlc","tgl","sbp","dbp","ratio_th","dmagediag")
-data_9v_nona <- data_6c_clean[complete.cases(data_6c_clean[,var_sel]),] # 3,979 no NA new DM cases 
+data_9v_nona <- data_6c_clean[complete.cases(data_6c_clean[,var_sel]),] # 3,579 no NA new DM cases 
 data_9v_nona <- data_9v_nona[c("study_id", setdiff(names(data_9v_nona), "study_id"))] # rearrange the columns 
 
 # for homa2 comparison, five variable method (Method 3A and 3B)

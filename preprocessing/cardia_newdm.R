@@ -120,7 +120,7 @@ cardia_newdm <- step2 %>%
                                 TRUE ~ age))
   
 cardia_newdm %>% 
-  dplyr::filter((age-dmagediag) <= 1) %>% 
+  dplyr::filter((age-dmagediag) <= 1 & (age-dmagediag) >=0) %>% 
   nrow()
 cardia_newdm %>% 
   dplyr::filter((age-dmagediag) > 1) %>% 
