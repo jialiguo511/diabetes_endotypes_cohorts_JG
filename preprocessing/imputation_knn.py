@@ -14,7 +14,7 @@ path = '/Users/zhongyuli/Desktop/python/cluster analysis/dataset/final_dataset_6
 data_mi = pd.read_csv(path) 
 
 #select variables 
-selected_variables = ['study_id','bmi', 'hba1c', 'dmagediag','insulinf2','glucosef2','tgl','ldlc','ratio_th','sbp','dbp','hdlc','study','race','female']
+selected_variables = ['study_id','bmi', 'hba1c', 'dmagediag','insulinf2','glucosef2','tgl','ldlc','ratio_th','sbp','dbp','hdlc','study','race','female','med_chol_use','med_bp_use']
 
 #drop missing values in the selected variables
 data_mi = data_mi[selected_variables]
