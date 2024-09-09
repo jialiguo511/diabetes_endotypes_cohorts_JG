@@ -10,7 +10,7 @@
 ## 3) removed shared ARIC participants from JHS.
 
 # In September 2024, we implemented a new workflow to capture new DM cases from six cohorts. 
-
+rm(list=ls()); gc(); source(".Rprofile")
 ###### 
 # In June 2024, renamed with _temp, so that it is clear that this is for temporary/intermediate final dataset only. 
 # In July 2024, extracted gender and race. created a new variable named "race_rev" to code African American and White
@@ -153,7 +153,7 @@ cardia_newdm <-readRDS(paste0(path_endotypes_folder,"/working/cleaned/cardia_new
 summary(cardia_newdm$dmduration)
 
 cardia_newdm <- cardia_newdm[cardia_newdm$dmduration%in% c(0, 1), ]
-cardia_newdm$study = "cardia" #n=726
+cardia_newdm$study = "cardia" #n=623
 
 ## MESA 
 
@@ -175,12 +175,19 @@ mesa_newdm<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/mesa_newdm.RD
                   race == 2 ~ "Other",
                   race == 4 ~ "Hispanic",
                   TRUE ~ NA_character_  
-                ))%>% 
+                ),
+                med_chol_use = case_when (
+                  med_lipid == 1 ~1,
+                  TRUE ~0),
+                med_bp_use = case_when(
+                  med_bp == 1 ~1, 
+                  TRUE ~ 0)
+                )%>% 
   dplyr::select(study_id,bmi,hba1c,ldlc,hdlc,tgl,sbp,dbp,ratio_th,dmagediag,dmduration,glucosef2,insulinf2,
-                urinealbumin, urinecreatinine, uacr,serumcreatinine, egfr,totalc,female,race,race_rev) 
+                urinealbumin, urinecreatinine, uacr,serumcreatinine, egfr,totalc,female,race,race_rev,med_chol_use,med_bp_use) 
 
 mesa_newdm <- mesa_newdm[mesa_newdm$dmduration%in% c(0, 1), ]
-mesa_newdm$study = "mesa" #n=1554 
+mesa_newdm$study = "mesa" #n=989 
 
 ## Look Ahead [okay,no fasting insulin & glucose]
 
@@ -212,12 +219,12 @@ accord_newdm$study = "accord" #N=601
 data_8c_clean<- bind_rows(jhs_newdm,la_newdm,accord_newdm,dpp_newdm,dos_newdm,aric_newdm,cardia_newdm,mesa_newdm)%>% 
   select(-study_id,-dmduration)%>% 
   mutate(study_id=row_number())%>%
-  select(last_col(),everything()) # 9769 new DM cases 
+  select(last_col(),everything()) # 9101 new DM cases 
 
 data_6c_clean<-bind_rows(jhs_newdm,dpp_newdm,dos_newdm,aric_newdm,cardia_newdm,mesa_newdm)%>% 
   select(-study_id,-dmduration)%>% 
   mutate(study_id=row_number()) %>%
-  select(last_col(),everything())# 8291 new DM cases
+  select(last_col(),everything())# 7623 new DM cases
 
 data_8c_clean_sum <- data_8c_clean%>% 
   group_by(study)%>%
@@ -251,5 +258,5 @@ write.csv(data_6c_clean, paste0(path_endotypes_folder,"/working/processed/final_
 plyr::rbind.fill(jhs_newdm,dpp_newdm,dos_newdm,aric_newdm,cardia_newdm,mesa_newdm) %>% 
   rename(original_study_id = study_id)%>% 
   mutate(study_id=row_number())%>%
-  select(last_col(),everything()) %>%  # 9892 new DM cases %>% 
+  select(last_col(),everything()) %>%  # 9101 new DM cases %>% 
  saveRDS(.,paste0(path_endotypes_folder,"/working/cleaned/final_dataset_temp.RDS")) # this is the same dataset as the final_data_temp_8c_clean.csv
