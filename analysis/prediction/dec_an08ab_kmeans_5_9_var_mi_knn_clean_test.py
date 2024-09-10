@@ -35,6 +35,10 @@ path = '/Users/zhongyuli/Desktop/python/cluster analysis/dataset/final_dataset_6
 
 analytic_dataset = pd.read_csv(path) 
 
+#subset the data to include particpants with med_chol_use == 1 only 
+analytic_dataset = analytic_dataset[analytic_dataset['med_chol_use'] == 1]
+
+
 #select variables 
 selected_variables = ['study_id','bmi', 'hba1c', 'dmagediag','homa2b','homa2ir','tgl','ldlc','ratio_th','sbp','dbp','hdlc','study','race','female']
 
@@ -134,8 +138,12 @@ analytic_dataset_cluster_compare = analytic_dataset_cluster.copy()
 data_scaled_cluster_compare = data_scaled_cluster.copy()
 data_scaled_cluster_compare['cluster_9var'] = kmeans2.labels_
 analytic_dataset_cluster_compare['cluster_9var'] = kmeans2.labels_
+# relabel the cluster labels in the analytic dataset
+analytic_dataset_cluster_compare['cluster_9var'] = analytic_dataset_cluster_compare['cluster_9var'].replace({0:'SIRD', 1:'MOD', 2:'MARD', 3:'SIDD'})
 
-analytic_dataset_cluster_compare['cluster_9var'].value_counts()
+
+# check means of the clusters (ignore the cluster labels)
+#analytic_dataset_cluster_compare.drop(columns=['cluster']).groupby('cluster_9var').mean()
 
 # add study, race, and female back to the dataset
 analytic_dataset_cluster_compare['study_id'] = study_id
@@ -159,4 +167,4 @@ print(contingency_table)
 
 # Save the contingency table to a CSV file
 path_folder = '/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/Diabetes Endotypes Project (JV and ZL)'
-contingency_table.to_csv(path_folder + '/working/processed/dec_an08a_contingency_table_clusters_clean.csv')
+contingency_table.to_csv(path_folder + '/working/processed/dec_an08ab_contingency_table_clusters_clean_test.csv')

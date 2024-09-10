@@ -129,7 +129,7 @@ print("Estimated Coefficients with Confidence Intervals and p-values:")
 print(coef_df)
 # Save the estimated coefficients with confidence intervals and p-values to a CSV file
 path_folder = '/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/Diabetes Endotypes Project (JV and ZL)'
-coef_df.to_csv(path_folder + '/working/processed/dec_an04c_sird_estimated_coefficients_with_ci_clean_0.13.csv', index=False)
+coef_df.to_csv(path_folder + '/working/processed/dec_an04c_sird_estimated_coefficients_with_ci_clean_0.12.csv', index=False)
 
 # now get the covariance matrix
 cov_matrix = result_full.cov_params()
@@ -140,7 +140,7 @@ print(cov_matrix)
 cov_matrix.index = ['Intercept'] + list(X.columns)
 cov_matrix.columns = ['Intercept'] + list(X.columns)
 # save the covariance matrix
-cov_matrix.to_csv(path_folder + '/working/processed/dec_an04c_sird_covariance_matrix_statsmodels_clean_0.13.csv')
+cov_matrix.to_csv(path_folder + '/working/processed/dec_an04c_sird_covariance_matrix_statsmodels_clean_0.12.csv')
 
 
 # Save the sensitivity, specificity, PPV, and NPV and F1 score for the test set at the best threshold
@@ -158,4 +158,4 @@ metrics_at_best_threshold.update({
 metrics_df = pd.DataFrame([metrics_at_best_threshold])
 
 # Save the DataFrame to a CSV file
-metrics_df.to_csv(path_folder + '/working/processed/dec_an04c_sird_performance_at_best_threshold_clean_0.13.csv', index=True)
+metrics_df.to_csv(path_folder + '/working/processed/dec_an04c_sird_performance_at_best_threshold_clean_0.12.csv', index=True)

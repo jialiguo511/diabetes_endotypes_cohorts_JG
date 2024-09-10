@@ -35,10 +35,10 @@ print(analytic_dataset.groupby('cluster')[var_5].mean())
 
 # Relabel the original labels to the true labels
 relabelled_original_labels = pd.Series(original_labels).map({
-    0: "MOD",  
-    1: "SIRD",  
-    2: "SIDD",  
-    3: "MARD"  
+    0: "SIDD",  
+    1: "MOD",  
+    2: "MARD",  
+    3: "SIRD"  
 })
 # Print the relabeled clusters to verify
 print("Relabeled Original Labels:")
@@ -60,10 +60,10 @@ print(excluded_dataset_1.groupby('cluster')[var_5].mean())
 
 # relabel the excluded labels
 relabelled_excluded_labels_1 = pd.Series(excluded_labels_1).map({
-    0: "SIRD",  
+    0: "MARD",  
     1: "MOD",  
-    2: "SIDD",  
-    3: "MARD"  
+    2: "SIRD",  
+    3: "SIDD"  
 })
 # Print the relabeled clusters to verify
 print("Relabeled Excluded Labels:")
@@ -91,9 +91,9 @@ print(excluded_dataset_2.groupby('cluster')[var_5].mean())
 # relabel the excluded labels
 relabelled_excluded_labels_2 = pd.Series(excluded_labels_2).map({
     0: "MOD",  
-    1: "MARD",  
-    2: "SIRD",  
-    3: "SIDD"  
+    1: "SIRD",  
+    2: "SIDD",  
+    3: "MARD"  
 })
 # Print the relabeled clusters to verify
 print("Relabeled Excluded Labels:")
@@ -122,8 +122,8 @@ print(excluded_dataset_3.groupby('cluster')[var_5].mean())
 relabelled_excluded_labels_3 = pd.Series(excluded_labels_3).map({
     0: "MOD",  
     1: "SIRD",  
-    2: "MARD",  
-    3: "SIDD"  
+    2: "SIDD",  
+    3: "MARD"  
 })
 # Print the relabeled clusters to verify
 print("Relabeled Excluded Labels:")
@@ -151,8 +151,8 @@ print(excluded_dataset_4.groupby('cluster')[var_5].mean())
 # relabel the excluded labels
 relabelled_excluded_labels_4 = pd.Series(excluded_labels_4).map({
     0: "SIDD",  
-    1: "MOD",  
-    2: "MARD",  
+    1: "MARD",  
+    2: "MOD",  
     3: "SIRD"  
 })
 # Print the relabeled clusters to verify
@@ -178,9 +178,9 @@ excluded_dataset_5['cluster'] = excluded_labels_5
 print(excluded_dataset_5.groupby('cluster')[var_5].mean())
 # relabel the excluded labels
 relabelled_excluded_labels_5 = pd.Series(excluded_labels_5).map({
-    0: "MARD",  
-    1: "SIDD",  
-    2: "MOD",  
+    0: "SIDD",  
+    1: "MOD",  
+    2: "MARD",  
     3: "SIRD"  
 })
 # Print the relabeled clusters to verify

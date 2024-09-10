@@ -79,11 +79,11 @@ complete_case_dataset['cluster'].value_counts()
 
 # check the mean values for the five variables in each cluster and relabel the clusters
 imputed_dataset.groupby('cluster')[var_5].mean()
-imputed_dataset['cluster'] = imputed_dataset['cluster'].replace({0:'MOD', 1:'SIRD', 2:'SIDD', 3:'MARD'})
+imputed_dataset['cluster'] = imputed_dataset['cluster'].replace({0:'SIDD', 1:'MOD', 2:'MARD', 3:'SIRD'})
 
 
 complete_case_dataset.groupby('cluster')[var_5].mean()
-complete_case_dataset['cluster'] = complete_case_dataset['cluster'].replace({0:'SIDD', 1:'SIRD', 2:'MARD', 3:'MOD'})
+complete_case_dataset['cluster'] = complete_case_dataset['cluster'].replace({0:'SIDD', 1:'MARD', 2:'SIRD', 3:'MOD'})
 
 # Ensure the correct order to match the table in the manuscript
 order_5var = ['SIDD', 'SIRD', 'MOD', 'MARD']

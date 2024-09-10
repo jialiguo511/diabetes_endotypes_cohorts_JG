@@ -14,6 +14,8 @@ data_6c_clean_mi<- data_6c_clean[complete.cases(data_6c_clean[,var_sel_mi]),]
 write.csv(data_6c_clean_mi, paste0(path_endotypes_folder,"/working/processed/final_dataset_6c_clean_mi.csv"), row.names = FALSE)
 
 
+
+
 # for nine variable method (Method 4)
 var_sel <- c("bmi","hba1c","ldlc","hdlc","tgl","sbp","dbp","ratio_th","dmagediag")
 data_9v_nona <- data_6c_clean[complete.cases(data_6c_clean[,var_sel]),] # 3,299 no NA new DM cases 

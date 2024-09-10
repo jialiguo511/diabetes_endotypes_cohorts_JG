@@ -84,7 +84,7 @@ analytic_dataset_cluster['cluster'] = kmeans.labels_
 analytic_dataset_cluster.groupby('cluster').mean()
 
 # relabel the cluster labels 
-analytic_dataset_cluster['cluster'] = analytic_dataset_cluster['cluster'].replace({0:'SIDD', 1:'SIRD', 2:'MARD', 3:'MOD'})
+analytic_dataset_cluster['cluster'] = analytic_dataset_cluster['cluster'].replace({0:'SIDD', 1:'MARD', 2:'SIRD', 3:'MOD'})
 analytic_dataset_cluster['cluster'].value_counts()
 
 # add study, race, and female back to the dataset
@@ -100,7 +100,7 @@ analytic_dataset_cluster['female'] = female
 data_scaled_cluster = data_scaled.copy()
 data_scaled_cluster['cluster'] = kmeans.labels_
 # relabel the cluster labels
-data_scaled_cluster['cluster'] = data_scaled_cluster['cluster'].replace({0:'SIDD', 1:'SIRD', 2:'MARD', 3:'MOD'})
+data_scaled_cluster['cluster'] = data_scaled_cluster['cluster'].replace({0:'SIDD', 1:'MARD', 2:'SIRD', 3:'MOD'})
 
 import seaborn as sns
 # Create a new DataFrame with the cluster assignments and variables
@@ -119,7 +119,6 @@ plt.xticks(rotation=45)
 plt.show()
 
 analytic_dataset_cluster.head()
-
 
 
 # save the dataset to shared folder

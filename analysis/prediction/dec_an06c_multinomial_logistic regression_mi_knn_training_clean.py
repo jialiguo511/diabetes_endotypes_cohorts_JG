@@ -67,7 +67,7 @@ combined_df['predicted_cluster'] = y_train_pred
 
 # Save the combined DataFrame to a CSV file
 path_folder = '/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/Diabetes Endotypes Project (JV and ZL)'
-combined_df.to_csv(path_folder + '/working/processed/training_data_with_probabilities.csv', index=False)
+combined_df.to_csv(path_folder + '/working/processed/training_data_with_probabilities_clean.csv', index=False)
 
 
 # Setup cross-validation
