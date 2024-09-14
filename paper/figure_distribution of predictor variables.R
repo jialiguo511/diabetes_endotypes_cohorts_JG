@@ -1,8 +1,8 @@
 rm(list=ls());gc();source(".Rprofile")
 
-analytic_dataset_after_imputation = read_csv(paste0(path_endotypes_folder,"/working/processed/dec_an02_kmeans_5var_mi_knn_cluster.csv")) %>% 
+analytic_dataset_after_imputation = read_csv(paste0(path_endotypes_folder,"/working/processed/dec_an02_clean_kmeans_5var_mi_knn_cluster.csv")) %>% 
   dplyr::select(study_id,study,cluster) %>% 
-  left_join(read_csv(paste0(path_endotypes_folder,"/working/processed/final_dataset_6c_mi_imputed_homa2.csv")),
+  left_join(read_csv(paste0(path_endotypes_folder,"/working/processed/final_dataset_6c_clean_mi_imputed_homa2.csv")),
             by=c("study_id","study")) 
 
 library(ggplot2)

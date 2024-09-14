@@ -22,3 +22,4 @@ table_df = analytic_dataset_cluster %>%
   table1_summary(.,c_vars = c_vars,p_vars = p_vars,g_vars = g_vars,id_vars = "study")
 
 write_csv(table_df,"analysis/descriptives/decan_descriptives02_summary by cohort.csv")
+

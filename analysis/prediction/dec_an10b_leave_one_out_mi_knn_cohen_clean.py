@@ -207,9 +207,9 @@ print(excluded_dataset_6.groupby('cluster')[var_5].mean())
 # relabel the excluded labels
 relabelled_excluded_labels_6 = pd.Series(excluded_labels_6).map({
     0: "SIRD",  
-    1: "MARD",  
-    2: "MOD",  
-    3: "SIDD"  
+    1: "SIDD",  
+    2: "MARD",  
+    3: "MOD"  
 })
 # Print the relabeled clusters to verify
 print("Relabeled Excluded Labels:")
