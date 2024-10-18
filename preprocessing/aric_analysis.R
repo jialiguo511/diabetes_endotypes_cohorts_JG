@@ -299,4 +299,11 @@ v6_new<-v6_all%>%
 
 aric_analysis<- bind_rows(v1_new,v2_new,v3_new,v4_new,v5_new,v6_new) # new cases are not yet identified in this dataset.
 
-saveRDS(aric_analysis,paste0(path_endotypes_folder,"/working/interim/aric_analysis.RDS"))
+aric_analysis_filled <- aric_analysis %>% 
+  group_by(study_id) %>% 
+  arrange(study_id,visit) %>%
+  fill(female,race, .direction = "downup")%>% 
+  ungroup()
+
+# fill missing values of race and race_rev and gender 
+saveRDS(aric_analysis_filled,paste0(path_endotypes_folder,"/working/interim/aric_analysis.RDS"))
