@@ -7,6 +7,9 @@ rm(list=ls()); gc(); source(".Rprofile")
 
 data_6c_clean <- read.csv(paste0(path_endotypes_folder,"/working/processed/final_data_temp_6c_clean.csv")) #7623 new DM cases 
 
+#missing_gender_data <- data_6c_clean%>%
+  #dplyr::filter(is.na(female))
+
 # for imputation purpose 
 var_sel_mi <- c("hba1c","dmagediag","bmi") #4862 ==> n = 3390
 data_6c_clean_mi<- data_6c_clean[complete.cases(data_6c_clean[,var_sel_mi]),] 

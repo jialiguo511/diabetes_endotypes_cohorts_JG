@@ -89,6 +89,7 @@ dos_newdm<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/dos_newdm.RDS"
 dos_newdm$study = "dppos" # n = 1100
 
 ## ARIC 
+
 aric_newdm<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/aric_newdm.RDS"))%>% 
   dplyr::mutate(ratio_th=tgl/hdlc,
                 glucosef2=glucosef*0.0555,
@@ -97,11 +98,15 @@ aric_newdm<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/aric_newdm.RD
                 race_rev = case_when(
                   race == "W" ~ "White",
                   race == "B" ~ "AA",
+                  # female == "B" ~ "AA", # JV checked the mapping for V4 and V5
+                  # female == "W" ~ "White",
                   TRUE ~ NA_character_  
                 ),
                 female = case_when(
                   female == "M" ~ 0,  
-                  female == "F" ~ 1,  
+                  female == "F" ~ 1,
+                  # race == "M" ~ 0,  # JV checked the mapping for V4 and V5
+                  # race == "F" ~ 1,  # JV checked the mapping for V4 and V5
                   TRUE ~ NA_integer_
                 ),
                   race = case_when(
@@ -118,6 +123,8 @@ aric_newdm<-readRDS(paste0(path_endotypes_folder,"/working/cleaned/aric_newdm.RD
 aric_newdm <- aric_newdm[aric_newdm$dmduration%in% c(0, 1), ]
 aric_newdm$study = "aric" # n = 4352 
 
+#check_data_aric <- aric_newdm %>% 
+  #dplyr::filter((female %in% c("B","W")) & (race %in% c("F","M"))) 
 
 ## CARDIA 
 cardia_newdm <-readRDS(paste0(path_endotypes_folder,"/working/cleaned/cardia_newdm.RDS"))%>% 
