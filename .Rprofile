@@ -8,7 +8,6 @@ if(Sys.info()["user"] == "JVARGH7"){
   path_endotypes_folder <- "C:/Cloud/Emory University/li, zhongyu - Diabetes Endotypes Project (JV and ZL)"
   cluster_labels = c("MOD","SIRD","MARD","SIDD")
   cluster_colors = c("MOD"="#F8BDA4","SIRD"="#A1C3AC","SIDD"="#ACD9EA","MARD"="#D0ACC9")
-
 }
 
 if(Sys.info()["user"] == "zhongyuli"){

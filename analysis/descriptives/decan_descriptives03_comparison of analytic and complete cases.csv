@@ -349,7 +349,7 @@ excluded_diagnosed,dmagediag,q75,67,Continuous,NA
 excluded_diagnosed,dmagediag,min,20,Continuous,NA
 excluded_diagnosed,dmagediag,max,93,Continuous,NA
 excluded_diagnosed,dmagediag,freq,4246,Continuous,NA
-excluded_diagnosed,dmagediag,missing,791,Continuous,NA
+excluded_diagnosed,dmagediag,missing,0,Continuous,NA
 excluded_diagnosed,bmi,mean,30.963132998332917,Continuous,NA
 excluded_diagnosed,bmi,sd,6.234673009757576,Continuous,NA
 excluded_diagnosed,bmi,median,30.12705007,Continuous,NA
@@ -358,7 +358,7 @@ excluded_diagnosed,bmi,q75,34.397542095,Continuous,NA
 excluded_diagnosed,bmi,min,14.47639286,Continuous,NA
 excluded_diagnosed,bmi,max,62.97610803,Continuous,NA
 excluded_diagnosed,bmi,freq,3995,Continuous,NA
-excluded_diagnosed,bmi,missing,1042,Continuous,NA
+excluded_diagnosed,bmi,missing,251,Continuous,NA
 excluded_diagnosed,hba1c,mean,6.09308176100629,Continuous,NA
 excluded_diagnosed,hba1c,sd,0.9546103650018843,Continuous,NA
 excluded_diagnosed,hba1c,median,5.9,Continuous,NA
@@ -367,7 +367,7 @@ excluded_diagnosed,hba1c,q75,6.4,Continuous,NA
 excluded_diagnosed,hba1c,min,4.9,Continuous,NA
 excluded_diagnosed,hba1c,max,12.5,Continuous,NA
 excluded_diagnosed,hba1c,freq,159,Continuous,NA
-excluded_diagnosed,hba1c,missing,4878,Continuous,NA
+excluded_diagnosed,hba1c,missing,4087,Continuous,NA
 excluded_diagnosed,glucosef2,mean,7.579303150497513,Continuous,NA
 excluded_diagnosed,glucosef2,sd,2.4941296448849903,Continuous,NA
 excluded_diagnosed,glucosef2,median,7.215,Continuous,NA
@@ -376,7 +376,7 @@ excluded_diagnosed,glucosef2,q75,7.9365,Continuous,NA
 excluded_diagnosed,glucosef2,min,3.3855,Continuous,NA
 excluded_diagnosed,glucosef2,max,29.1375,Continuous,NA
 excluded_diagnosed,glucosef2,freq,3618,Continuous,NA
-excluded_diagnosed,glucosef2,missing,1419,Continuous,NA
+excluded_diagnosed,glucosef2,missing,628,Continuous,NA
 excluded_diagnosed,insulinf2,mean,133.6138393731636,Continuous,NA
 excluded_diagnosed,insulinf2,sd,143.4976484185909,Continuous,NA
 excluded_diagnosed,insulinf2,median,99.84,Continuous,NA
@@ -385,7 +385,7 @@ excluded_diagnosed,insulinf2,q75,157.85,Continuous,NA
 excluded_diagnosed,insulinf2,min,0,Continuous,NA
 excluded_diagnosed,insulinf2,max,2019.6,Continuous,NA
 excluded_diagnosed,insulinf2,freq,2042,Continuous,NA
-excluded_diagnosed,insulinf2,missing,2995,Continuous,NA
+excluded_diagnosed,insulinf2,missing,2204,Continuous,NA
 excluded_diagnosed,homa2b,mean,85.79397710303634,Continuous,NA
 excluded_diagnosed,homa2b,sd,51.038359027232715,Continuous,NA
 excluded_diagnosed,homa2b,median,78.7,Continuous,NA
@@ -394,7 +394,7 @@ excluded_diagnosed,homa2b,q75,107.9,Continuous,NA
 excluded_diagnosed,homa2b,min,2.8,Continuous,NA
 excluded_diagnosed,homa2b,max,686.4,Continuous,NA
 excluded_diagnosed,homa2b,freq,2009,Continuous,NA
-excluded_diagnosed,homa2b,missing,3028,Continuous,NA
+excluded_diagnosed,homa2b,missing,2237,Continuous,NA
 excluded_diagnosed,homa2ir,mean,2.5675885995903434,Continuous,NA
 excluded_diagnosed,homa2ir,sd,2.01847503797864,Continuous,NA
 excluded_diagnosed,homa2ir,median,2.016129032,Continuous,NA
@@ -403,7 +403,7 @@ excluded_diagnosed,homa2ir,q75,3.236245955,Continuous,NA
 excluded_diagnosed,homa2ir,min,0.147123731,Continuous,NA
 excluded_diagnosed,homa2ir,max,22.22222222,Continuous,NA
 excluded_diagnosed,homa2ir,freq,2009,Continuous,NA
-excluded_diagnosed,homa2ir,missing,3028,Continuous,NA
+excluded_diagnosed,homa2ir,missing,2237,Continuous,NA
 excluded_diagnosed,ldlc,mean,124.47907867820605,Continuous,NA
 excluded_diagnosed,ldlc,sd,39.11125143465068,Continuous,NA
 excluded_diagnosed,ldlc,median,123,Continuous,NA
@@ -412,7 +412,7 @@ excluded_diagnosed,ldlc,q75,149,Continuous,NA
 excluded_diagnosed,ldlc,min,5,Continuous,NA
 excluded_diagnosed,ldlc,max,389.4,Continuous,NA
 excluded_diagnosed,ldlc,freq,3813,Continuous,NA
-excluded_diagnosed,ldlc,missing,1224,Continuous,NA
+excluded_diagnosed,ldlc,missing,433,Continuous,NA
 excluded_diagnosed,hdlc,mean,39.86289825282638,Continuous,NA
 excluded_diagnosed,hdlc,sd,18.569540575045586,Continuous,NA
 excluded_diagnosed,hdlc,median,40,Continuous,NA
@@ -421,7 +421,7 @@ excluded_diagnosed,hdlc,q75,51,Continuous,NA
 excluded_diagnosed,hdlc,min,0,Continuous,NA
 excluded_diagnosed,hdlc,max,142.524,Continuous,NA
 excluded_diagnosed,hdlc,freq,3892,Continuous,NA
-excluded_diagnosed,hdlc,missing,1145,Continuous,NA
+excluded_diagnosed,hdlc,missing,354,Continuous,NA
 excluded_diagnosed,tgl,mean,168.51278772378518,Continuous,NA
 excluded_diagnosed,tgl,sd,135.62209815309558,Continuous,NA
 excluded_diagnosed,tgl,median,137,Continuous,NA
@@ -430,7 +430,7 @@ excluded_diagnosed,tgl,q75,200,Continuous,NA
 excluded_diagnosed,tgl,min,22,Continuous,NA
 excluded_diagnosed,tgl,max,3234,Continuous,NA
 excluded_diagnosed,tgl,freq,3910,Continuous,NA
-excluded_diagnosed,tgl,missing,1127,Continuous,NA
+excluded_diagnosed,tgl,missing,336,Continuous,NA
 excluded_diagnosed,sbp,mean,144.03905939695306,Continuous,NA
 excluded_diagnosed,sbp,sd,23.336138438929016,Continuous,NA
 excluded_diagnosed,sbp,median,143.3333333,Continuous,NA
@@ -439,7 +439,7 @@ excluded_diagnosed,sbp,q75,158.3333333,Continuous,NA
 excluded_diagnosed,sbp,min,54,Continuous,NA
 excluded_diagnosed,sbp,max,281,Continuous,NA
 excluded_diagnosed,sbp,freq,4168,Continuous,NA
-excluded_diagnosed,sbp,missing,869,Continuous,NA
+excluded_diagnosed,sbp,missing,78,Continuous,NA
 excluded_diagnosed,dbp,mean,88.28263859557337,Continuous,NA
 excluded_diagnosed,dbp,sd,17.103767504720864,Continuous,NA
 excluded_diagnosed,dbp,median,90,Continuous,NA
@@ -448,7 +448,7 @@ excluded_diagnosed,dbp,q75,100.41666665000001,Continuous,NA
 excluded_diagnosed,dbp,min,32,Continuous,NA
 excluded_diagnosed,dbp,max,163.3333333,Continuous,NA
 excluded_diagnosed,dbp,freq,4168,Continuous,NA
-excluded_diagnosed,dbp,missing,869,Continuous,NA
+excluded_diagnosed,dbp,missing,78,Continuous,NA
 excluded_diagnosed,ratio_th,mean,Inf,Continuous,NA
 excluded_diagnosed,ratio_th,sd,NA,Continuous,NA
 excluded_diagnosed,ratio_th,median,3.703703704,Continuous,NA
@@ -457,7 +457,7 @@ excluded_diagnosed,ratio_th,q75,7.1883445945,Continuous,NA
 excluded_diagnosed,ratio_th,min,0.287670848,Continuous,NA
 excluded_diagnosed,ratio_th,max,Inf,Continuous,NA
 excluded_diagnosed,ratio_th,freq,3891,Continuous,NA
-excluded_diagnosed,ratio_th,missing,1146,Continuous,NA
+excluded_diagnosed,ratio_th,missing,355,Continuous,NA
 excluded_diagnosed,ast,mean,31.692307692307693,Continuous,NA
 excluded_diagnosed,ast,sd,16.605142854873886,Continuous,NA
 excluded_diagnosed,ast,median,27,Continuous,NA
@@ -466,7 +466,7 @@ excluded_diagnosed,ast,q75,35,Continuous,NA
 excluded_diagnosed,ast,min,16,Continuous,NA
 excluded_diagnosed,ast,max,78,Continuous,NA
 excluded_diagnosed,ast,freq,13,Continuous,NA
-excluded_diagnosed,ast,missing,5024,Continuous,NA
+excluded_diagnosed,ast,missing,4233,Continuous,NA
 excluded_diagnosed,alt,mean,38.23076923076923,Continuous,NA
 excluded_diagnosed,alt,sd,27.16355967760806,Continuous,NA
 excluded_diagnosed,alt,median,23,Continuous,NA
@@ -475,7 +475,7 @@ excluded_diagnosed,alt,q75,46,Continuous,NA
 excluded_diagnosed,alt,min,12,Continuous,NA
 excluded_diagnosed,alt,max,98,Continuous,NA
 excluded_diagnosed,alt,freq,13,Continuous,NA
-excluded_diagnosed,alt,missing,5024,Continuous,NA
+excluded_diagnosed,alt,missing,4233,Continuous,NA
 excluded_diagnosed,urinealbumin,mean,3.6517908101571934,Continuous,NA
 excluded_diagnosed,urinealbumin,sd,28.730526407381575,Continuous,NA
 excluded_diagnosed,urinealbumin,median,0.41,Continuous,NA
@@ -484,7 +484,7 @@ excluded_diagnosed,urinealbumin,q75,1.4,Continuous,NA
 excluded_diagnosed,urinealbumin,min,0.06,Continuous,NA
 excluded_diagnosed,urinealbumin,max,1001.4,Continuous,NA
 excluded_diagnosed,urinealbumin,freq,1654,Continuous,NA
-excluded_diagnosed,urinealbumin,missing,3383,Continuous,NA
+excluded_diagnosed,urinealbumin,missing,2592,Continuous,NA
 excluded_diagnosed,urinecreatinine,mean,127.7420245398773,Continuous,NA
 excluded_diagnosed,urinecreatinine,sd,65.86682634771009,Continuous,NA
 excluded_diagnosed,urinecreatinine,median,124.3,Continuous,NA
@@ -493,7 +493,7 @@ excluded_diagnosed,urinecreatinine,q75,169.525,Continuous,NA
 excluded_diagnosed,urinecreatinine,min,12.8,Continuous,NA
 excluded_diagnosed,urinecreatinine,max,398.1,Continuous,NA
 excluded_diagnosed,urinecreatinine,freq,326,Continuous,NA
-excluded_diagnosed,urinecreatinine,missing,4711,Continuous,NA
+excluded_diagnosed,urinecreatinine,missing,3920,Continuous,NA
 excluded_diagnosed,uacr,mean,42.40831292993575,Continuous,NA
 excluded_diagnosed,uacr,sd,189.46504292440596,Continuous,NA
 excluded_diagnosed,uacr,median,8.55,Continuous,NA
@@ -502,7 +502,7 @@ excluded_diagnosed,uacr,q75,19.9,Continuous,NA
 excluded_diagnosed,uacr,min,1,Continuous,NA
 excluded_diagnosed,uacr,max,3425.8,Continuous,NA
 excluded_diagnosed,uacr,freq,498,Continuous,NA
-excluded_diagnosed,uacr,missing,4539,Continuous,NA
+excluded_diagnosed,uacr,missing,3748,Continuous,NA
 excluded_diagnosed,egfr,mean,81.97409445706697,Continuous,NA
 excluded_diagnosed,egfr,sd,20.066788418882872,Continuous,NA
 excluded_diagnosed,egfr,median,83.09658714,Continuous,NA
@@ -511,7 +511,7 @@ excluded_diagnosed,egfr,q75,96.25387298,Continuous,NA
 excluded_diagnosed,egfr,min,14.84918473,Continuous,NA
 excluded_diagnosed,egfr,max,141.2278167,Continuous,NA
 excluded_diagnosed,egfr,freq,433,Continuous,NA
-excluded_diagnosed,egfr,missing,4604,Continuous,NA
+excluded_diagnosed,egfr,missing,3813,Continuous,NA
 newly_diagnosed,dmagediag,mean,61.59046684600821,Continuous,NA
 newly_diagnosed,dmagediag,sd,12.694078147733327,Continuous,NA
 newly_diagnosed,dmagediag,median,61,Continuous,NA
@@ -520,7 +520,7 @@ newly_diagnosed,dmagediag,q75,71,Continuous,NA
 newly_diagnosed,dmagediag,min,20,Continuous,NA
 newly_diagnosed,dmagediag,max,100,Continuous,NA
 newly_diagnosed,dmagediag,freq,7623,Continuous,NA
-newly_diagnosed,dmagediag,missing,791,Continuous,NA
+newly_diagnosed,dmagediag,missing,0,Continuous,NA
 newly_diagnosed,bmi,mean,31.972144397778077,Continuous,NA
 newly_diagnosed,bmi,sd,6.6963572317432085,Continuous,NA
 newly_diagnosed,bmi,median,30.94040543,Continuous,NA
@@ -529,7 +529,7 @@ newly_diagnosed,bmi,q75,35.673252989999995,Continuous,NA
 newly_diagnosed,bmi,min,14.47639286,Continuous,NA
 newly_diagnosed,bmi,max,74.16105934,Continuous,NA
 newly_diagnosed,bmi,freq,7372,Continuous,NA
-newly_diagnosed,bmi,missing,1042,Continuous,NA
+newly_diagnosed,bmi,missing,251,Continuous,NA
 newly_diagnosed,hba1c,mean,6.356419683257919,Continuous,NA
 newly_diagnosed,hba1c,sd,0.9315549916447755,Continuous,NA
 newly_diagnosed,hba1c,median,6.2,Continuous,NA
@@ -538,7 +538,7 @@ newly_diagnosed,hba1c,q75,6.7,Continuous,NA
 newly_diagnosed,hba1c,min,3.2,Continuous,NA
 newly_diagnosed,hba1c,max,17.2,Continuous,NA
 newly_diagnosed,hba1c,freq,3536,Continuous,NA
-newly_diagnosed,hba1c,missing,4878,Continuous,NA
+newly_diagnosed,hba1c,missing,4087,Continuous,NA
 newly_diagnosed,glucosef2,mean,7.261017760652174,Continuous,NA
 newly_diagnosed,glucosef2,sd,2.130700604111752,Continuous,NA
 newly_diagnosed,glucosef2,median,7.0485,Continuous,NA
@@ -547,7 +547,7 @@ newly_diagnosed,glucosef2,q75,7.659,Continuous,NA
 newly_diagnosed,glucosef2,min,3.3855,Continuous,NA
 newly_diagnosed,glucosef2,max,29.1375,Continuous,NA
 newly_diagnosed,glucosef2,freq,6900,Continuous,NA
-newly_diagnosed,glucosef2,missing,1514,Continuous,NA
+newly_diagnosed,glucosef2,missing,723,Continuous,NA
 newly_diagnosed,insulinf2,mean,168.0624511370625,Continuous,NA
 newly_diagnosed,insulinf2,sd,162.62919615499092,Continuous,NA
 newly_diagnosed,insulinf2,median,121.02,Continuous,NA
@@ -556,7 +556,7 @@ newly_diagnosed,insulinf2,q75,206.22,Continuous,NA
 newly_diagnosed,insulinf2,min,0,Continuous,NA
 newly_diagnosed,insulinf2,max,2019.6,Continuous,NA
 newly_diagnosed,insulinf2,freq,4881,Continuous,NA
-newly_diagnosed,insulinf2,missing,3533,Continuous,NA
+newly_diagnosed,insulinf2,missing,2742,Continuous,NA
 newly_diagnosed,homa2b,mean,110.04328296418952,Continuous,NA
 newly_diagnosed,homa2b,sd,76.5779851486506,Continuous,NA
 newly_diagnosed,homa2b,median,93.2,Continuous,NA
@@ -565,7 +565,7 @@ newly_diagnosed,homa2b,q75,134.2,Continuous,NA
 newly_diagnosed,homa2b,min,0.5,Continuous,NA
 newly_diagnosed,homa2b,max,1250.5,Continuous,NA
 newly_diagnosed,homa2b,freq,4831,Continuous,NA
-newly_diagnosed,homa2b,missing,3583,Continuous,NA
+newly_diagnosed,homa2b,missing,2792,Continuous,NA
 newly_diagnosed,homa2ir,mean,3.1965314960542326,Continuous,NA
 newly_diagnosed,homa2ir,sd,2.606457409377347,Continuous,NA
 newly_diagnosed,homa2ir,median,2.43902439,Continuous,NA
@@ -574,7 +574,7 @@ newly_diagnosed,homa2ir,q75,4.06504065,Continuous,NA
 newly_diagnosed,homa2ir,min,0.049152126,Continuous,NA
 newly_diagnosed,homa2ir,max,27.02702703,Continuous,NA
 newly_diagnosed,homa2ir,freq,4831,Continuous,NA
-newly_diagnosed,homa2ir,missing,3583,Continuous,NA
+newly_diagnosed,homa2ir,missing,2792,Continuous,NA
 newly_diagnosed,ldlc,mean,116.83968857303691,Continuous,NA
 newly_diagnosed,ldlc,sd,37.93109848205501,Continuous,NA
 newly_diagnosed,ldlc,median,115,Continuous,NA
@@ -583,7 +583,7 @@ newly_diagnosed,ldlc,q75,141,Continuous,NA
 newly_diagnosed,ldlc,min,5,Continuous,NA
 newly_diagnosed,ldlc,max,389.4,Continuous,NA
 newly_diagnosed,ldlc,freq,7106,Continuous,NA
-newly_diagnosed,ldlc,missing,1308,Continuous,NA
+newly_diagnosed,ldlc,missing,517,Continuous,NA
 newly_diagnosed,hdlc,mean,43.40497574497582,Continuous,NA
 newly_diagnosed,hdlc,sd,16.607747445059662,Continuous,NA
 newly_diagnosed,hdlc,median,43,Continuous,NA
@@ -592,7 +592,7 @@ newly_diagnosed,hdlc,q75,53,Continuous,NA
 newly_diagnosed,hdlc,min,0,Continuous,NA
 newly_diagnosed,hdlc,max,142.524,Continuous,NA
 newly_diagnosed,hdlc,freq,7215,Continuous,NA
-newly_diagnosed,hdlc,missing,1199,Continuous,NA
+newly_diagnosed,hdlc,missing,408,Continuous,NA
 newly_diagnosed,tgl,mean,159.2442969722108,Continuous,NA
 newly_diagnosed,tgl,sd,122.63609658553632,Continuous,NA
 newly_diagnosed,tgl,median,132,Continuous,NA
@@ -601,7 +601,7 @@ newly_diagnosed,tgl,q75,189,Continuous,NA
 newly_diagnosed,tgl,min,22,Continuous,NA
 newly_diagnosed,tgl,max,3234,Continuous,NA
 newly_diagnosed,tgl,freq,7233,Continuous,NA
-newly_diagnosed,tgl,missing,1181,Continuous,NA
+newly_diagnosed,tgl,missing,390,Continuous,NA
 newly_diagnosed,sbp,mean,135.78793035742268,Continuous,NA
 newly_diagnosed,sbp,sd,23.250041266673982,Continuous,NA
 newly_diagnosed,sbp,median,134.3333333,Continuous,NA
@@ -610,7 +610,7 @@ newly_diagnosed,sbp,q75,150,Continuous,NA
 newly_diagnosed,sbp,min,52.66666667,Continuous,NA
 newly_diagnosed,sbp,max,281,Continuous,NA
 newly_diagnosed,sbp,freq,7539,Continuous,NA
-newly_diagnosed,sbp,missing,875,Continuous,NA
+newly_diagnosed,sbp,missing,84,Continuous,NA
 newly_diagnosed,dbp,mean,81.97491307414508,Continuous,NA
 newly_diagnosed,dbp,sd,17.507564563262942,Continuous,NA
 newly_diagnosed,dbp,median,80,Continuous,NA
@@ -619,7 +619,7 @@ newly_diagnosed,dbp,q75,94,Continuous,NA
 newly_diagnosed,dbp,min,32,Continuous,NA
 newly_diagnosed,dbp,max,163.3333333,Continuous,NA
 newly_diagnosed,dbp,freq,7539,Continuous,NA
-newly_diagnosed,dbp,missing,875,Continuous,NA
+newly_diagnosed,dbp,missing,84,Continuous,NA
 newly_diagnosed,ratio_th,mean,Inf,Continuous,NA
 newly_diagnosed,ratio_th,sd,NA,Continuous,NA
 newly_diagnosed,ratio_th,median,3.1440092164999998,Continuous,NA
@@ -628,7 +628,7 @@ newly_diagnosed,ratio_th,q75,5.416666667,Continuous,NA
 newly_diagnosed,ratio_th,min,0.287670848,Continuous,NA
 newly_diagnosed,ratio_th,max,Inf,Continuous,NA
 newly_diagnosed,ratio_th,freq,7214,Continuous,NA
-newly_diagnosed,ratio_th,missing,1200,Continuous,NA
+newly_diagnosed,ratio_th,missing,409,Continuous,NA
 newly_diagnosed,ast,mean,25.992248062015506,Continuous,NA
 newly_diagnosed,ast,sd,14.621525294509619,Continuous,NA
 newly_diagnosed,ast,median,22,Continuous,NA
@@ -637,7 +637,7 @@ newly_diagnosed,ast,q75,28,Continuous,NA
 newly_diagnosed,ast,min,13,Continuous,NA
 newly_diagnosed,ast,max,134,Continuous,NA
 newly_diagnosed,ast,freq,129,Continuous,NA
-newly_diagnosed,ast,missing,8285,Continuous,NA
+newly_diagnosed,ast,missing,7494,Continuous,NA
 newly_diagnosed,alt,mean,27.519379844961243,Continuous,NA
 newly_diagnosed,alt,sd,23.895312293678096,Continuous,NA
 newly_diagnosed,alt,median,21,Continuous,NA
@@ -646,7 +646,7 @@ newly_diagnosed,alt,q75,32,Continuous,NA
 newly_diagnosed,alt,min,8,Continuous,NA
 newly_diagnosed,alt,max,232,Continuous,NA
 newly_diagnosed,alt,freq,129,Continuous,NA
-newly_diagnosed,alt,missing,8285,Continuous,NA
+newly_diagnosed,alt,missing,7494,Continuous,NA
 newly_diagnosed,urinealbumin,mean,4.093309060589221,Continuous,NA
 newly_diagnosed,urinealbumin,sd,29.001653111647236,Continuous,NA
 newly_diagnosed,urinealbumin,median,0.7,Continuous,NA
@@ -655,7 +655,7 @@ newly_diagnosed,urinealbumin,q75,1.8,Continuous,NA
 newly_diagnosed,urinealbumin,min,0.06,Continuous,NA
 newly_diagnosed,urinealbumin,max,1060,Continuous,NA
 newly_diagnosed,urinealbumin,freq,3598,Continuous,NA
-newly_diagnosed,urinealbumin,missing,4816,Continuous,NA
+newly_diagnosed,urinealbumin,missing,4025,Continuous,NA
 newly_diagnosed,urinecreatinine,mean,134.48350230414746,Continuous,NA
 newly_diagnosed,urinecreatinine,sd,75.37113005670759,Continuous,NA
 newly_diagnosed,urinecreatinine,median,126,Continuous,NA
@@ -664,7 +664,7 @@ newly_diagnosed,urinecreatinine,q75,176,Continuous,NA
 newly_diagnosed,urinecreatinine,min,8.5,Continuous,NA
 newly_diagnosed,urinecreatinine,max,562,Continuous,NA
 newly_diagnosed,urinecreatinine,freq,1085,Continuous,NA
-newly_diagnosed,urinecreatinine,missing,7329,Continuous,NA
+newly_diagnosed,urinecreatinine,missing,6538,Continuous,NA
 newly_diagnosed,uacr,mean,33.17671415826114,Continuous,NA
 newly_diagnosed,uacr,sd,134.69503707879062,Continuous,NA
 newly_diagnosed,uacr,median,7.669995811,Continuous,NA
@@ -673,7 +673,7 @@ newly_diagnosed,uacr,q75,18.5,Continuous,NA
 newly_diagnosed,uacr,min,1,Continuous,NA
 newly_diagnosed,uacr,max,3425.8,Continuous,NA
 newly_diagnosed,uacr,freq,1256,Continuous,NA
-newly_diagnosed,uacr,missing,7158,Continuous,NA
+newly_diagnosed,uacr,missing,6367,Continuous,NA
 newly_diagnosed,egfr,mean,84.05363797029322,Continuous,NA
 newly_diagnosed,egfr,sd,23.568320172765457,Continuous,NA
 newly_diagnosed,egfr,median,83.16381181,Continuous,NA
@@ -682,19 +682,19 @@ newly_diagnosed,egfr,q75,98.99681431,Continuous,NA
 newly_diagnosed,egfr,min,14.84918473,Continuous,NA
 newly_diagnosed,egfr,max,227.9262615,Continuous,NA
 newly_diagnosed,egfr,freq,989,Continuous,NA
-newly_diagnosed,egfr,missing,7425,Continuous,NA
+newly_diagnosed,egfr,missing,6634,Continuous,NA
 analytic,female,proportion,59.75718092981941,Proportion,NA
 analytic,female,freq,3377,Proportion,NA
 analytic,female,missing,0,Proportion,NA
 complete,female,proportion,60.18018018018033,Proportion,NA
 complete,female,freq,2775,Proportion,NA
 complete,female,missing,0,Proportion,NA
-excluded_diagnosed,female,proportion,52.827032452325206,Proportion,NA
-excluded_diagnosed,female,freq,2989,Proportion,NA
-excluded_diagnosed,female,missing,2048,Proportion,NA
-newly_diagnosed,female,proportion,56.5032987747407,Proportion,NA
-newly_diagnosed,female,freq,6366,Proportion,NA
-newly_diagnosed,female,missing,2048,Proportion,NA
+excluded_diagnosed,female,proportion,54.68676401318887,Proportion,NA
+excluded_diagnosed,female,freq,4246,Proportion,NA
+excluded_diagnosed,female,missing,0,Proportion,NA
+newly_diagnosed,female,proportion,56.93296602387503,Proportion,NA
+newly_diagnosed,female,freq,7623,Proportion,NA
+newly_diagnosed,female,missing,0,Proportion,NA
 analytic,race_rev,proportion,35.504885993485345,Grouped,AA
 analytic,race_rev,freq,1199,Grouped,AA
 analytic,race_rev,proportion,14.598756292567368,Grouped,Other
@@ -707,18 +707,18 @@ complete,race_rev,proportion,13.297297297297296,Grouped,Other
 complete,race_rev,freq,369,Grouped,Other
 complete,race_rev,proportion,54.054054054054056,Grouped,White
 complete,race_rev,freq,1500,Grouped,White
-excluded_diagnosed,race_rev,proportion,38.9762462361994,Grouped,AA
-excluded_diagnosed,race_rev,freq,1165,Grouped,AA
-excluded_diagnosed,race_rev,proportion,6.457009033121445,Grouped,Other
+excluded_diagnosed,race_rev,proportion,34.903438530381536,Grouped,AA
+excluded_diagnosed,race_rev,freq,1482,Grouped,AA
+excluded_diagnosed,race_rev,proportion,4.545454545454546,Grouped,Other
 excluded_diagnosed,race_rev,freq,193,Grouped,Other
-excluded_diagnosed,race_rev,proportion,54.566744730679154,Grouped,White
-excluded_diagnosed,race_rev,freq,1631,Grouped,White
-newly_diagnosed,race_rev,proportion,37.13477851083883,Grouped,AA
-newly_diagnosed,race_rev,freq,2364,Grouped,AA
-newly_diagnosed,race_rev,proportion,10.775997486647816,Grouped,Other
+excluded_diagnosed,race_rev,proportion,60.55110692416392,Grouped,White
+excluded_diagnosed,race_rev,freq,2571,Grouped,White
+newly_diagnosed,race_rev,proportion,35.16988062442608,Grouped,AA
+newly_diagnosed,race_rev,freq,2681,Grouped,AA
+newly_diagnosed,race_rev,proportion,8.999081726354454,Grouped,Other
 newly_diagnosed,race_rev,freq,686,Grouped,Other
-newly_diagnosed,race_rev,proportion,52.089224002513355,Grouped,White
-newly_diagnosed,race_rev,freq,3316,Grouped,White
+newly_diagnosed,race_rev,proportion,55.83103764921947,Grouped,White
+newly_diagnosed,race_rev,freq,4256,Grouped,White
 analytic,study,proportion,31.448030796565,Grouped,aric
 analytic,study,freq,1062,Grouped,aric
 analytic,study,proportion,6.751554634290791,Grouped,cardia
