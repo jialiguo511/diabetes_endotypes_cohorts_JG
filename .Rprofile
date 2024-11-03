@@ -17,6 +17,13 @@ if(Sys.info()["user"] == "zhongyuli"){
   cluster_colors = c("MOD"="#F8BDA4","SIRD"="#A1C3AC","SIDD"="#ACD9EA","MARD"="#D0ACC9")
 }
 
+if(Sys.info()["user"] == "JGUO258"){
+  path_endotypes_folder <- "C:/Users/JGUO258/OneDrive - Emory/Diabetes Endotypes Project (JV and ZL)"
+  cluster_labels = c("MOD","SIRD","MARD","SIDD")
+  cluster_colors = c("MOD"="#F8BDA4","SIRD"="#A1C3AC","SIDD"="#ACD9EA","MARD"="#D0ACC9")
+  
+}
+
 duration_cutoff <- 1
 lab_cutoff <- c(0:365)
 # Example for Look AHEAD study on how to use relative paths

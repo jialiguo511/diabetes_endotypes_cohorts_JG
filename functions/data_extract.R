@@ -16,7 +16,9 @@ data_extract <- function(study_name, vl_column,data_path,df_name = character()){
                                   sheet=study_name)
   }
   
- 
+  if(Sys.info()["user"] == "JGUO258"){
+    vl_sheet = readxl::read_excel("data/Phenotypes Variable List.xlsx",sheet = study_name)
+  }
   
   var_names <- vl_sheet %>% 
     dplyr::select(label,harmonized,one_of(vl_column)) %>% 
