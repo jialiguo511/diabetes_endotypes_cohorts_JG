@@ -9,3 +9,11 @@ physical <- data_extract(study_name,vl_column,data_path) %>%
          weight = rowMeans(.[,c("bswgt1","bswgt2")],na.rm = TRUE)) %>% 
   mutate(height = sqrt(weight/bmi)*100) %>% 
   dplyr::select(-visit,-StudyDays)
+
+
+physical_long <- data_extract(study_name,vl_column,data_path) %>% 
+  mutate(sbp = rowMeans(.[,c("bssbp1","bssbp2")],na.rm = TRUE),
+         dbp = rowMeans(.[,c("bsdbp1","bsdbp2")],na.rm = TRUE),
+         weight = rowMeans(.[,c("bswgt1","bswgt2")],na.rm = TRUE)) %>% 
+  mutate(height = sqrt(weight/bmi)*100) %>% 
+  dplyr::select(-StudyDays)

@@ -17,10 +17,12 @@ if os.getlogin()=="JVARGH7":
     repo = 'C:/code/external/diabetes_endotypes_cohorts/analysis/kmeans'
 if os.getlogin()=="zhongyuli":
     path = '/Users/zhongyuli/Desktop/python/cluster analysis/dataset/'
+if os.getlogin()=="JGUO258":
+    path = 'C:/Users/JGUO258/OneDrive - Emory/Papers/Diabetes Endotypes Project (JV and ZL)/working/processed/'
+    repo = 'C:/Users/JGUO258/Documents/JGUO/papers repo/diabetes_endotypes_cohorts/analysis/kmeans'
 
 
-
-data_6c_imputed = pd.read_csv(path + 'final_dataset_6c_mi_imputed_homa2.csv').dropna() 
+data_6c_imputed = pd.read_csv(path + 'final_dataset_6c_clean_mi_imputed_homa2.csv').dropna() 
 data_6c_imputed[:10]
 print(data_6c_imputed.shape)
 # preprocessing - standardize the data
