@@ -3,21 +3,9 @@ source("functions/data_extract.R")
 
 library(tidyverse)
 
-# Read about how .Rprofile is useful
-if(Sys.info()["user"] == "JVARGH7"){
-  path_endotypes_folder <- "C:/Cloud/Emory University/li, zhongyu - Diabetes Endotypes Project (JV and ZL)"
-  cluster_labels = c("MOD","SIRD","MARD","SIDD")
-  cluster_colors = c("MOD"="#F8BDA4","SIRD"="#A1C3AC","SIDD"="#ACD9EA","MARD"="#D0ACC9")
-}
-
-if(Sys.info()["user"] == "zhongyuli"){
-  path_endotypes_folder <- "/Users/zhongyuli/Library/CloudStorage/OneDrive-EmoryUniversity/Diabetes Endotypes Project (JV and ZL)"
-  cluster_labels = c("MOD","SIRD","MARD","SIDD")
-  cluster_colors = c("MOD"="#F8BDA4","SIRD"="#A1C3AC","SIDD"="#ACD9EA","MARD"="#D0ACC9")
-}
 
 if(Sys.info()["user"] == "JGUO258"){
-  path_endotypes_folder <- "C:/Users/JGUO258/OneDrive - Emory/Papers/Diabetes Endotypes Project (JV and ZL)"
+  path_endotypes_folder <- "C:/Users/JGUO258/OneDrive - Emory/Papers/Diabetes Endotypes Project (JG)"
   cluster_labels = c("MOD","SIRD","MARD","SIDD")
   cluster_colors = c("MOD"="#F8BDA4","SIRD"="#A1C3AC","SIDD"="#ACD9EA","MARD"="#D0ACC9")
   

@@ -103,10 +103,17 @@ anthro_matched <- map_dfr(anthro_vars,
   pivot_wider(names_from=var_name,values_from=values)
 
 
+medications <- readRDS(paste0(path_endotypes_folder,"/working/interim/dpppre05_medications.RDS")) %>% 
+  select(study_id,med_dm_use,med_chol_use,med_bp_use,med_dep_use) %>% 
+  left_join(confirmed_dm,
+            by = "study_id")
+
+
 dpp_newdm <- full_join(lab_matched,
                    anthro_matched,
                    by = c("study_id","diagDays")) %>% 
   left_join(demographic %>% distinct(study_id,.keep_all=TRUE),by="study_id") %>% 
+  left_join(medications %>% distinct(study_id,.keep_all=TRUE),by="study_id") %>%
   mutate(dmagediag = case_when(agegroup == 1 ~ 37 + diagDays/365, # Less than 40
                                agegroup == 2 ~ 42 + diagDays/365,
                                agegroup == 3 ~ 47 + diagDays/365,

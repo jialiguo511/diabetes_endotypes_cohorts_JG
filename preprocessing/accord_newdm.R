@@ -32,10 +32,23 @@ accord_dat_all<-readRDS(paste0(path_endotypes_folder,"/working/interim/accord_da
   dplyr::mutate(ratio_th=tgl/hdlc,
                 bmi = weight/((height/100)^2)
   )%>% 
-  dplyr::select(study_id,female,race_eth,bsage,dmagediag,dmduration,
+  dplyr::select(study_id,visit,female,race_eth,bsage,dmagediag,dmduration,
                 alcohol,smoking,weight,height,bmi,wc,sbp,dbp,
                 hba1c,glucosef,totalc,ldlc,hdlc,vldlc,tgl,ratio_th,
-                serumcreatinine, urinealbumin, urinecreatinine,uacr,egfr,alt) # no fasting insulin; fasting glucose in mg/gl 
+                serumcreatinine, urinealbumin, urinecreatinine,uacr,egfr,alt) %>% # no fasting insulin; fasting glucose in mg/gl 
+  mutate(
+    # Extract the numeric part from visits that start with "F"
+    visit_month = if_else(
+      str_starts(visit, "F"),
+      as.numeric(str_extract(visit, "[0-9.]+")),
+      NA_real_,
+      NA_real_
+    ),
+    # Add logging to identify problematic entries
+    log_visit = if_else(is.na(visit_month) & !visit %in% c("BLR", "EXIT"), visit, NA_character_),
+    # Calculate age at visit, handling NA values gracefully
+    age = if_else(is.na(visit_month), bsage, bsage + visit_month / 12)
+  )
 
 accord_newdm_long <-accord_dat_all[accord_dat_all$dmduration%in% c(0, 1), ] 
 accord_newdm_long$study = "accord" #N=601 

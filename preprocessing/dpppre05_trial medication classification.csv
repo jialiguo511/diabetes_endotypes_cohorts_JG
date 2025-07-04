@@ -1,0 +1,1639 @@
+Unnamed: 0,medications,med_dm_use,med_chol_use,med_bp_use,med_dep_use
+1,naproxen,0,0,0,0
+2,"estrogens,conjugated",0,0,0,0
+3,warfarin sodium,0,0,0,0
+4,clopidogrel bisulfate,0,0,0,0
+5,plavix,0,0,0,0
+6,beconase aq,0,0,0,0
+7,amoxicillin,0,0,0,0
+8,synthroid,0,0,0,0
+9,ferrous sulfate,0,0,0,0
+10,claritin-d 12 hour,0,0,0,0
+11,timolol,0,0,0,0
+12,keflex,0,0,0,0
+13,allegra,0,0,0,0
+14,zocor,0,1,0,0
+15,premarin,0,0,0,0
+16,prempro,0,0,0,0
+17,zestril,0,0,0,0
+18,tamoxifen citrate,0,0,0,0
+19,cortisporin (ophthalmic),0,0,0,0
+20,metrogel,0,0,0,0
+21,bellergal-s,0,0,0,0
+22,vitamin e,0,0,0,0
+23,lovastatin,0,1,0,0
+24,celebrex,0,0,0,0
+25,coumadin,0,0,0,0
+26,penicillin v potassium,0,0,0,0
+27,guaifenesin,0,0,0,0
+28,claritin,0,0,0,0
+29,claritin-d 24 hour,0,0,0,0
+30,lisinopril,0,0,1,0
+31,prilosec,0,0,0,0
+32,diphenhydramine,0,0,0,0
+33,docusate sodium,0,0,0,0
+34,bisacodyl,0,0,0,0
+35,dok,0,0,0,0
+36,dilacor xr,0,0,0,0
+37,propylthiouracil,0,0,0,0
+38,flonase,0,0,0,0
+39,pepcid,0,0,0,0
+40,soma,0,0,0,0
+41,prozac,0,0,0,0
+42,feldene,0,0,0,0
+43,aspirin,0,0,0,0
+44,trusopt,0,0,0,0
+45,azopt,0,0,0,0
+46,timolol maleate,0,0,0,0
+47,patanol,0,0,0,0
+48,tri-norinyl,0,0,0,0
+49,aralen phosphate,0,0,0,0
+50,cortisone acetate,0,0,0,0
+51,triphasil-21,0,0,0,0
+52,hydrocortisone,0,0,0,0
+53,triminulet,0,0,0,0
+54,verapamil hcl,0,0,0,0
+55,calan,0,0,0,0
+56,monopril,0,0,0,0
+57,atenolol,0,0,1,0
+58,lipitor,0,1,0,0
+59,aceon,0,0,0,0
+60,zoloft,0,0,0,0
+61,celexa,0,0,0,0
+62,fosamax,0,0,0,0
+63,norvasc,0,0,0,0
+64,evista,0,0,0,0
+65,diclofenac sodium,0,0,0,0
+66,salsalate,0,0,0,0
+67,naprosyn,0,0,0,0
+68,diprolene,0,0,0,0
+69,methocarbamol,0,0,0,0
+70,amitriptyline hcl,0,0,0,1
+71,hycodan,0,0,0,0
+72,lescol,0,0,0,0
+73,bactrim ds,0,0,0,0
+74,flomax,0,0,0,0
+75,furosemide,0,0,1,0
+76,allopurinol,0,0,0,0
+77,potassium chloride,0,0,0,0
+78,calcium,0,0,0,0
+79,nitroglycerin,0,0,0,0
+80,lasix,0,0,0,0
+81,lopressor,0,0,0,0
+82,folic acid,0,0,0,0
+83,hydrochlorothiazide,0,0,1,0
+84,metamucil,0,0,0,0
+85,k-dur,0,0,0,0
+86,cozaar,0,0,0,0
+87,vitamin c,0,0,0,0
+88,cardura,0,0,0,0
+89,levothroid,0,0,0,0
+90,levoxyl,0,0,0,0
+91,apresoline,0,0,0,0
+92,prednisolone acetate,0,0,0,0
+93,ocuflox,0,0,0,0
+94,hydralazine hcl,0,0,0,0
+95,levlen 28,0,0,0,0
+96,tri-levlen 28,0,0,0,0
+97,lo/ovral-28,0,0,0,0
+98,tri-levlen 21,0,0,0,0
+99,flexeril,0,0,0,0
+100,talwin,0,0,0,0
+101,talwin compound,0,0,0,0
+102,omnicef,0,0,0,0
+103,percocet,0,0,0,0
+104,talwin nx,0,0,0,0
+105,piroxicam,0,0,0,0
+106,ibuprofen,0,0,0,0
+107,sulfamethoxazole/trimethoprim,0,0,0,0
+108,mevacor,0,0,0,0
+109,bactrim,0,0,0,0
+110,hydrocodone,0,0,0,0
+111,humibid dm,0,0,0,0
+112,ceftin,0,0,0,0
+113,loestrin,0,0,0,0
+114,premphase,0,0,0,0
+115,guaimax-d,0,0,0,0
+116,westcort,0,0,0,0
+117,sporanox,0,0,0,0
+118,feosol,0,0,0,0
+119,ortho-novum,0,0,0,0
+120,cycrin,0,0,0,0
+121,dipyridamole,0,0,0,0
+122,vasotec,0,0,0,0
+123,provera,0,0,0,0
+124,mircette,0,0,0,0
+125,albuterol,0,0,0,0
+126,motrin,0,0,0,0
+127,atrovent âinhaler/solutionã,0,0,0,0
+128,allegra-d,0,0,0,0
+129,vioxx,0,0,0,0
+130,vancenase aq,0,0,0,0
+131,meclizine hcl,0,0,0,0
+132,accupril,0,0,0,0
+133,singulair,0,0,0,0
+134,flovent,0,0,0,0
+135,diovan,0,0,0,0
+136,nasonex,0,0,0,0
+137,arthrotec 50,0,0,0,0
+138,pravachol,0,0,0,0
+139,prinivil,0,0,0,0
+140,lanoxin,0,0,0,0
+141,clindamycin hcl,0,0,0,0
+142,erythromycin base âoralã,0,0,0,0
+143,meridia,0,0,0,0
+144,asacol,0,0,0,0
+145,cholestyramine,0,0,0,0
+146,minocycline hcl,0,0,0,0
+147,paxil,0,0,0,0
+148,neurontin,0,0,0,0
+149,flagyl,0,0,0,0
+150,colchicine,0,0,0,0
+151,zantac,0,0,0,0
+152,solganal suspension,0,0,0,0
+153,pepcid ac,0,0,0,0
+154,benadryl,0,0,0,0
+155,estradiol,0,0,0,0
+156,estrace,0,0,0,0
+157,meprobamate,0,0,0,0
+158,hydroxyzine hcl,0,0,0,0
+159,zestoretic,0,0,0,0
+160,voltaren-xr,0,0,0,0
+161,augmentin,0,0,0,0
+162,celestone,0,0,0,0
+163,wellbutrin sr,0,0,0,0
+164,viagra,0,0,0,0
+165,rhinocort,0,0,0,0
+166,rhinocort aqua,0,0,0,0
+167,lariam,0,0,0,0
+168,aldactone,0,0,0,0
+169,trandate,0,0,0,0
+170,lotrisone,0,0,0,0
+171,dovonex,0,0,0,0
+172,salicylic acid/alc/prop gly,0,0,0,0
+173,nasacort,0,0,0,0
+174,triamcinolone,0,0,0,0
+175,clotrimazole,0,0,0,0
+176,betamethasone,0,0,0,0
+177,labetalol hcl,0,0,0,0
+178,adalat,0,0,0,0
+179,adalat cc,0,0,0,0
+180,zyrtec,0,0,0,0
+181,climara,0,0,0,0
+182,baycol,0,0,0,0
+183,ampicillin trihydrate,0,0,0,0
+184,toprol xl,0,0,0,0
+185,dyazide,0,0,0,0
+186,triamterene w/hctz,0,0,0,0
+187,proleukin,0,0,0,0
+188,intron a,0,0,0,0
+189,triamterene,0,0,0,0
+190,cipro,0,0,0,0
+191,prednisone,0,0,0,0
+192,prevacid,0,0,0,0
+193,procardia xl,0,0,0,0
+194,acetaminophen,0,0,0,0
+195,midrin,0,0,0,0
+196,mobic,0,0,0,0
+197,wellbutrin,0,0,0,0
+198,serzone,0,0,0,0
+199,trazodone hcl,0,0,0,1
+200,progesterone,0,0,0,0
+201,aygestin,0,0,0,0
+202,medroxyprogesterone acet,0,0,0,0
+203,estropipate,0,0,0,0
+204,sulindac,0,0,0,0
+205,medroxyprogesterone acetate,0,0,0,0
+206,estratest h.s.,0,0,0,0
+207,relafen,0,0,0,0
+208,pyridium,0,0,0,0
+209,ranitidine hcl,0,0,0,0
+210,oxycodone hcl,0,0,0,0
+211,quinine sulfate,0,0,0,0
+212,tylenol w/codeine no.3,0,0,0,0
+213,compazine,0,0,0,0
+214,levsinex,0,0,0,0
+215,lorazepam,0,0,0,0
+216,proventil,0,0,0,0
+217,serevent,0,0,0,0
+218,vanceril,0,0,0,0
+219,accolate,0,0,0,0
+220,glucophage,0,0,0,0
+221,avapro,0,0,0,0
+222,xenical,0,0,0,0
+223,microzide,0,0,0,0
+224,humibid,0,0,0,0
+225,actos,0,0,0,0
+226,naproxen sodium,0,0,0,0
+227,vicodin,0,0,0,0
+228,sertraline hcl,0,0,0,1
+229,tobradex,0,0,0,0
+230,cephalexin,0,0,0,0
+231,orphenadrine citrate,0,0,0,0
+232,monistat 7,0,0,0,0
+233,propulsid,0,0,0,0
+234,trimox,0,0,0,0
+235,guaifen/phenyleph hcl/ppa,0,0,0,0
+236,reglan,0,0,0,0
+237,imitrex,0,0,0,0
+238,darvocet-n 100,0,0,0,0
+239,influenza virus trivalent,0,0,0,0
+240,levothyroxine sodium,0,0,0,0
+241,"estrogen,con/m-progest acet",0,0,0,0
+242,doxycycline hyclate,0,0,0,0
+243,clindamycin palmitate,0,0,0,0
+244,trentinoin cream,0,0,0,0
+245,promethazine hcl,0,0,0,0
+246,albuterol sulfate,0,0,0,0
+247,erythrocin stearate,0,0,0,0
+248,nystatin âtopicalã,0,1,0,0
+249,isosorbide dinitrate,0,0,0,0
+250,elavil,0,0,0,0
+251,skelaxin,0,0,0,0
+252,metronidazole,0,0,0,0
+253,lortab,0,0,0,0
+254,ambien,0,0,0,0
+255,macrodantin,0,0,0,0
+256,propoxyphene hcl/apap,0,0,0,0
+257,oxybutynin chloride,0,0,0,0
+258,sinemet cr,0,0,0,0
+259,dicyclomine hcl,0,0,0,0
+260,ranitidine bismuth citrate,0,0,0,0
+261,gemfibrozil,0,1,0,0
+262,propoxyphene hcl,0,0,0,0
+263,simvastatin,0,1,0,0
+264,acetaminophen w/codeine,0,0,0,0
+265,cardizem,0,0,0,0
+266,diovan hct,0,0,0,0
+267,garamycin âsystemicã,0,0,0,0
+268,lincocin,0,0,0,0
+269,duratuss,0,0,0,0
+270,periostat,0,0,0,0
+271,prandin,0,0,0,0
+272,tricor,0,0,0,0
+273,niaspan,0,0,0,0
+274,tussionex,0,0,0,0
+275,liquibid,0,0,0,0
+276,zithromax,0,0,0,0
+277,guaifenesin/p-ephed hcl,0,0,0,0
+278,axid ar,0,0,0,0
+279,aciphex,0,0,0,0
+280,deconamine,0,0,0,0
+281,cardizem cd,0,0,0,0
+282,beclomethasone dipropionate,0,0,0,0
+283,diltiazem hcl,0,0,1,0
+284,chlorpheniramine maleate,0,0,0,0
+285,lotensin,0,0,0,0
+286,tiazac,0,0,0,0
+287,tagamet,0,0,0,0
+288,clonidine hcl,0,0,0,0
+289,blephamide,0,0,0,0
+290,estratab,0,0,0,0
+291,robaxin,0,0,0,0
+292,deconamine sr,0,0,0,0
+293,duratuss g,0,0,0,0
+294,oxazepam,0,0,0,0
+295,oxycodone hcl/acetaminophen,0,0,0,0
+296,cyclobenzaprine hcl,0,0,0,0
+297,hydrocodone bitartrate/apap,0,0,0,0
+298,doxepin hcl,0,0,0,0
+299,oxycontin,0,0,0,0
+300,baclofen,0,0,0,0
+301,xanax,0,0,0,0
+302,glucotrol xl,0,0,0,0
+303,ziac,0,0,0,0
+304,avandia,0,0,0,0
+305,glucotrol,0,0,0,0
+306,diazepam,0,0,0,0
+307,daypro,0,0,0,0
+308,griseofulvin microsize,0,0,0,0
+309,phentermine hcl,0,0,0,0
+310,niferex,0,0,0,0
+311,restoril,0,0,0,0
+312,minoxidil âsolutionã,0,0,0,0
+313,loestrin fe,0,0,0,0
+314,lamisil,0,0,0,0
+315,lotrel,0,0,0,0
+316,librax,0,0,0,0
+317,bentyl,0,0,0,0
+318,yohimbine hcl,0,0,0,0
+319,beconase,0,0,0,0
+320,beclovent,0,0,0,0
+321,alupent,0,0,0,0
+322,dexamethasone sod phosphate,0,0,0,0
+323,tylenol,0,0,0,0
+324,buspar,0,0,0,0
+325,clinoril,0,0,0,0
+326,spectazole,0,0,0,0
+327,estratest,0,0,0,0
+328,calan sr,0,0,0,0
+329,enalapril maleate,0,0,1,0
+330,klonopin,0,0,0,0
+331,vistaril,0,0,0,0
+332,loratadine,0,0,0,0
+333,cetirizine hcl,0,0,0,0
+334,transderm-scop,0,0,0,0
+335,clonidine hcl âoralã,0,0,0,0
+336,miacalcin,0,0,0,0
+337,atarax,0,0,0,0
+338,diprosone,0,0,0,0
+339,imodium a-d,0,0,0,0
+340,bethanechol chloride,0,0,0,0
+341,lopid,0,0,0,0
+342,erythromycin ethylsuccinate,0,0,0,0
+343,nortriptyline hcl,0,0,0,0
+344,hytrin,0,0,0,0
+345,iso-acetazone,0,0,0,0
+346,norethindrone,0,0,0,0
+347,ovcon-50,0,0,0,0
+348,ovcon-35,0,0,0,0
+349,covera-hs,0,0,0,0
+350,synvisc,0,0,0,0
+351,ultram,0,0,0,0
+352,serevent diskus,0,0,0,0
+353,colace,0,0,0,0
+354,erythromycin base,0,0,0,0
+355,prometrium,0,0,0,0
+356,progesterone suppository,0,0,0,0
+357,doxycycline monohydrate,0,0,0,0
+358,arthrotec 75,0,0,0,0
+359,ativan,0,0,0,0
+360,phenergan,0,0,0,0
+361,vancenase,0,0,0,0
+362,vacenase,0,0,0,0
+363,effexor xr,0,0,0,0
+364,pindolol,0,0,0,0
+365,meloxicam,0,0,0,0
+366,questran,0,0,0,0
+367,procardia,0,0,0,0
+368,depo-medrol,0,0,0,0
+369,lorcet 10/650,0,0,0,0
+370,lodine,0,0,0,0
+371,toradol,0,0,0,0
+372,lamisil âtabletã,0,0,0,0
+373,donnatal,0,0,0,0
+374,levaquin,0,0,0,0
+375,depo-testosterone,0,0,0,0
+376,keftab,0,0,0,0
+377,propoxyphene napsylate w/apap,0,0,0,0
+378,senokot,0,0,0,0
+379,isosorbide mononitrate,0,0,0,0
+380,plendil,0,0,0,0
+381,endocet,0,0,0,0
+382,miralax,0,0,0,0
+383,zanaflex,0,0,0,0
+384,metrocream,0,0,0,0
+385,lomotil,0,0,0,0
+386,diclofenac potassium,0,0,0,0
+387,dura-vent,0,0,0,0
+388,ethynodiol diace-eth estradiol,0,0,0,0
+389,omeprazole,0,0,0,0
+390,apap,0,0,0,0
+391,oxycodone w/acetaminophen,0,0,0,0
+392,metronidazole hydrochloride,0,0,0,0
+393,zovia 1/35-28,0,0,0,0
+394,estrace-cream,0,0,0,0
+395,estrace vaginal cream,0,0,0,0
+396,fluvirin,0,0,0,0
+397,estrace vag cream,0,0,0,0
+398,plaquenil,0,0,0,0
+399,nasalcrom,0,0,0,0
+400,phenylprop/guaifen/d-methorph,0,0,0,0
+401,indomethacin,0,0,0,0
+402,ciprofloxacin hcl,0,0,0,0
+403,fexofenadine hcl,0,0,0,0
+404,terazosin hcl,0,0,0,0
+405,diphenhydramine hcl,0,0,0,0
+406,prazosin hcl,0,0,0,0
+407,betamethasone sodium phosphate,0,0,0,0
+408,fluocinonide,0,0,0,0
+409,alesse-28,0,0,0,0
+410,azmacort,0,0,0,0
+411,propoxyphene hcl/acetaminophen,0,0,0,0
+412,bacitracin zinc/polymyx b sulf,0,0,0,0
+413,neomycin/polymyxin/hc,0,0,0,0
+414,protonix,0,0,0,0
+415,valium,0,0,0,0
+416,lidex,0,0,0,0
+417,sulfamethoxazole,0,0,0,0
+418,excedrin,0,0,0,0
+419,biaxin,0,0,0,0
+420,mometasone furoate,0,0,0,0
+421,betoptic s,0,0,0,0
+422,betoptic,0,0,0,0
+423,oxistat,0,0,0,0
+424,proscar,0,0,0,0
+425,loprox,0,0,0,0
+426,triphasil-28,0,0,0,0
+427,aerobid,0,0,0,0
+428,septra ds,0,0,0,0
+429,dyrenium,0,0,0,0
+430,ventolin,0,0,0,0
+431,levora-28,0,0,0,0
+432,detrol,0,0,0,0
+433,penicillin g benzathine,0,0,0,0
+434,norflex,0,0,0,0
+435,lansoprazole,0,0,0,0
+436,niacin,0,1,0,0
+437,proventil hfa,0,0,0,0
+438,famciclovir,0,0,0,0
+439,cataflam,0,0,0,0
+440,fiorinal w/codeine #3,0,0,0,0
+441,fioricet w/codeine,0,0,0,0
+442,fioricet,0,0,0,0
+443,depakote,0,0,0,0
+444,ditropan,0,0,0,0
+445,glucosamine complex,0,0,0,0
+446,metoclopramide hcl,0,0,0,0
+447,disalcid,0,0,0,0
+448,propranolol hcl,0,0,0,0
+449,cimetidine,0,0,0,0
+450,propoxyphene napsylate/apap,0,0,0,0
+451,temazepam,0,0,0,0
+452,ranitidine,0,0,0,0
+453,losartan potassium,0,0,1,0
+454,maalox/lidocaine,0,0,0,0
+455,temovate,0,0,0,0
+456,lac-hydrin 5,0,0,0,0
+457,clobetasol propionate,0,0,0,0
+458,oxistat 1% (oxiconazole),0,0,0,0
+459,phenol,0,0,0,0
+460,phenytoin sodium,0,0,0,0
+461,alprazolam,0,0,0,0
+462,epamin,0,0,0,0
+463,aleve,0,0,0,0
+464,fluocinolone acetonide,0,0,0,0
+465,opcon-a,0,0,0,0
+466,cormax ointment,0,0,0,0
+467,cormax,0,0,0,0
+468,astelin,0,0,0,0
+469,zaditor,0,0,0,0
+470,dermasmothe/fs,0,0,0,0
+471,cormax scalp,0,0,0,0
+472,quaitenex pse 600,0,0,0,0
+473,tetanus toxoid,0,0,0,0
+474,quaifenex,0,0,0,0
+475,voltaren âtabletã,0,0,0,0
+476,voltaren,0,0,0,0
+477,testosterone,0,0,0,0
+478,tapazole,0,0,0,0
+479,livostin,0,0,0,0
+480,chlorhexidine gluconate,0,0,0,0
+481,"estrogens,esterified",0,0,0,0
+482,effexor,0,0,0,0
+483,imipramine hcl,0,0,0,0
+484,tetracycline hcl âoralã,0,0,0,0
+485,propine,0,0,0,0
+486,lodine xl,0,0,0,0
+487,chromagen fa,0,0,0,0
+488,promethazine vc w/codeine,0,0,0,0
+489,menest,0,0,0,0
+490,fluvastatin sodium,0,1,0,0
+491,eucerin,0,0,0,0
+492,fosinopril sodium,0,0,0,0
+493,paroxetine hcl,0,0,0,1
+494,tobrex,0,0,0,0
+495,isopto hyoscine,0,0,0,0
+496,drysol,0,0,0,0
+497,axid,0,0,0,0
+498,hyoscyamine sulfate,0,0,0,0
+499,norinyl 1+35,0,0,0,0
+500,vivactil,0,0,0,0
+501,calcium carbonate,0,0,0,0
+502,zovirax âsystemicã,0,0,0,0
+503,zovirax,0,0,0,0
+504,catapres,0,0,0,0
+505,combivent,0,0,0,0
+506,cyanocobalamin,0,0,0,0
+507,carisoprodol,0,0,0,0
+508,metronidazole 1%,0,0,0,0
+509,fluconazole - ointment,0,0,0,0
+510,ketoconazole,0,0,0,0
+511,exelderm - ointment,0,0,0,0
+512,fluconazole-ointment,0,0,0,0
+513,exelderm-ointment,0,0,0,0
+514,eyelderm-ointment,0,0,0,0
+515,tussin ac,0,0,0,0
+516,ercaf,0,0,0,0
+517,desipramine hcl,0,0,0,0
+518,maxalt,0,0,0,0
+519,nadolol,0,0,0,0
+520,amantadine hcl,0,0,0,0
+521,armour thyroid,0,0,0,0
+522,liothyronine sodium,0,0,0,0
+523,guaifenesin la,0,0,0,0
+524,risperdal,0,0,0,0
+525,dioxycillin hydro chloride,0,0,0,0
+526,zyban,0,0,0,0
+527,elphamide,0,0,0,0
+528,cortisporin,0,0,0,0
+529,inflamase forte,0,0,0,0
+530,doxidan,0,0,0,0
+531,timoptic-xe,0,0,0,0
+532,clidinium/chlordiazepoxide,0,0,0,0
+533,nasarel,0,0,0,0
+534,desyrel,0,0,0,0
+535,xalatan,0,0,0,0
+536,roxicet,0,0,0,0
+537,klor-con 10,0,0,0,0
+538,propoxyphene napsylate,0,0,0,0
+539,seldane,0,0,0,0
+540,amaryl,0,0,0,0
+541,dostinex,0,0,0,0
+542,entex la,0,0,0,0
+543,benzonatate,0,0,0,0
+544,indocin,0,0,0,0
+545,zyprexa,0,0,0,0
+546,urispas,0,0,0,0
+547,guiatuss,0,0,0,0
+548,avalide,0,0,0,0
+549,ecotrin,0,0,0,0
+550,univasc,0,0,0,0
+551,anaprox,0,0,0,0
+552,"interferon alfa-2b,recomb.",0,0,0,0
+553,ribavirin,0,0,0,0
+554,iron,0,0,0,0
+555,trinalin repetabs,0,0,0,0
+556,sinuvent,0,0,0,0
+557,cytomel,0,0,0,0
+558,zonalon,0,0,0,0
+559,psorcon,0,0,0,0
+560,amoxil,0,0,0,0
+561,bromfed,0,0,0,0
+562,benadryl allergy,0,0,0,0
+563,ditropan xl,0,0,0,0
+564,tofranil,0,0,0,0
+565,imipramine pamoate,0,0,0,0
+566,slow fe,0,0,0,0
+567,ortho-cept,0,0,0,0
+568,nizoral cream,0,0,0,0
+569,glyburide,1,0,0,0
+570,methyldopa,0,0,0,0
+571,atacand,0,0,0,0
+572,hydrocodone w/acetaminophen,0,0,0,0
+573,prinzide,0,0,0,0
+574,maxair autohaler,0,0,0,0
+575,vicoprofen,0,0,0,0
+576,lozol,0,0,0,0
+577,depo-provera contraceptive,0,0,0,0
+578,estrostep fe,0,0,0,0
+579,prenate advance,0,0,0,0
+580,chromium picolinate,0,0,0,0
+581,phendimetrazine tartrate,0,0,0,0
+582,captopril,0,0,0,0
+583,entex,0,0,0,0
+584,cefzil,0,0,0,0
+585,clarithromycin,0,0,0,0
+586,vitamin b-12,0,0,0,0
+587,avelox,0,0,0,0
+588,hycotuss,0,0,0,0
+589,bromadrine,0,0,0,0
+590,dynacirc,0,0,0,0
+591,lamisil âcreamã,0,0,0,0
+592,dynacirc cr,0,0,0,0
+593,penicillin g potassium,0,0,0,0
+594,uniphyl,0,0,0,0
+595,ortho-cyclen,0,0,0,0
+596,ortho tri-cyclen,0,0,0,0
+597,migranal,0,0,0,0
+598,prednicarbate,0,0,0,0
+599,prednicarbate ointment,0,0,0,0
+600,hismanal,0,0,0,0
+601,hyoscyamine,0,0,0,0
+602,sinemet-10/100,0,0,0,0
+603,sinemet-25/100,0,0,0,0
+604,novafed a,0,0,0,0
+605,cortisporin (topical),0,0,0,0
+606,naphcon,0,0,0,0
+607,guaifenesin/phenylprop,0,0,0,0
+608,macrobid,0,0,0,0
+609,entex pse,0,0,0,0
+610,verelan,0,0,0,0
+611,tequin,0,0,0,0
+612,nifedipine,0,0,0,0
+613,prednisolone acetate âeye dropsã,0,0,0,0
+614,ofloxacin âeye dropsã,0,0,0,0
+615,gabapentin,0,0,0,0
+616,persantine,0,0,0,0
+617,tramadol hcl,0,0,0,0
+618,tessalon,0,0,0,0
+619,robitussin-dm,0,0,0,0
+620,metformin hcl,1,0,0,0
+621,tranxene sd,0,0,0,0
+622,advil,0,0,0,0
+623,calcium acetate,0,0,0,0
+624,methotrexate sodium,0,0,0,0
+625,solu-medrol,0,0,0,0
+626,posicor,0,0,0,0
+627,micro-k,0,0,0,0
+628,tetracycline hcl,0,0,0,0
+629,melatonin,0,0,0,0
+630,nordette-28,0,0,0,0
+631,hydroxychloroquine sulfate,0,0,0,0
+632,ampicillin,0,0,0,0
+633,triaminic w/codeine,0,0,0,0
+634,lac-hydrin 12%,0,0,0,0
+635,carmol 40,0,0,0,0
+636,didanosine,0,0,0,0
+637,retrovir,0,0,0,0
+638,arava,0,0,0,0
+639,cardizem sr,0,0,0,0
+640,hctz/reserpine/hydralazine,0,0,0,0
+641,levsin,0,0,0,0
+642,erythromycin stearate,0,0,0,0
+643,carisoprodol/aspirin,0,0,0,0
+644,decadron phosphate,0,0,0,0
+645,marcaine,0,0,0,0
+646,nasacort aq,0,0,0,0
+647,ocean,0,0,0,0
+648,mupirocin,0,0,0,0
+649,endal,0,0,0,0
+650,duragesic,0,0,0,0
+651,ogen,0,0,0,0
+652,atorvastatin calcium,0,1,0,0
+653,luvox,0,0,0,0
+654,phenergan w/dextromethorphan,0,0,0,0
+655,timoptic,0,0,0,0
+656,cosopt,0,0,0,0
+657,benadryl steri-dose,0,0,0,0
+658,aricept,0,0,0,0
+659,guaifed,0,0,0,0
+660,homeopathic drugs,0,0,0,0
+661,drisdol,0,0,0,0
+662,maxzide,0,0,0,0
+663,isoniazid,0,0,0,0
+664,pyridoxine hcl,0,0,0,0
+665,etodolac,0,0,0,0
+666,actonel,0,0,0,0
+667,metronidazole - cream,0,0,0,0
+668,sulfacetamide sodium,0,0,0,0
+669,carafate,0,0,0,0
+670,nestabs fa,0,0,0,0
+671,fiortal w/codeine #3,0,0,0,0
+672,clomid,0,0,0,0
+673,maxair,0,0,0,0
+674,cerivastatin sodium,0,1,0,0
+675,cervastatin sodium,0,1,0,0
+676,methylprednisolone,0,0,0,0
+677,sumycin,0,0,0,0
+678,bumex,0,0,0,0
+679,septra,0,0,0,0
+680,halotussin-ac,0,0,0,0
+681,vitacon,0,0,0,0
+682,vitacon forte,0,0,0,0
+683,ciprofloxacin hydrochloride âtabletã,0,0,0,0
+684,levobunolol hcl,0,0,0,0
+685,tavist-d,0,0,0,0
+686,tegretol,0,0,0,0
+687,doxycycline calcium,0,0,0,0
+688,codeine sulfate,0,0,0,0
+689,famvir,0,0,0,0
+690,talacen,0,0,0,0
+691,candesartan cilexetil,0,0,0,0
+692,guaifenesin w/pseudoephedrine,0,0,0,0
+693,theragran-m,0,0,0,0
+694,sudafed,0,0,0,0
+695,glucovance,0,0,0,0
+696,clindamycin phosphate,0,0,0,0
+697,trental,0,0,0,0
+698,denavir,0,0,0,0
+699,butalbital/apap/caffeine,0,0,0,0
+700,remeron,0,0,0,0
+701,darvon-n,0,0,0,0
+702,quinidine sulfate,0,0,0,0
+703,azithromycin,0,0,0,0
+704,tylenol w/codeine no.2,0,0,0,0
+705,tenormin,0,0,0,0
+706,thyrolar-1,0,0,0,0
+707,digoxin,0,0,0,0
+708,imdur,0,0,0,0
+709,acyclovir,0,0,0,0
+710,altace,0,0,0,0
+711,hydrocortisone acetate,0,0,0,0
+712,valtrex,0,0,0,0
+713,oruvail,0,0,0,0
+714,casodex,0,0,0,0
+715,leuprolide acetate,0,0,0,0
+716,ethinyl estradiol,0,0,0,0
+717,hctz/triamterene,0,0,0,0
+718,hyzaar,0,0,0,0
+719,triamcinolone cream,0,0,0,0
+720,cenestin,0,0,0,0
+721,doxepin hydrochloride âoralã,0,0,0,0
+722,nystatin,0,1,0,0
+723,trinalin,0,0,0,0
+724,propoxyphene hcl w/apap,0,0,0,0
+725,intal,0,0,0,0
+726,pulmicort,0,0,0,0
+727,polaramine,0,0,0,0
+728,multivitamin,0,0,0,0
+729,androderm,0,0,0,0
+730,pancote,0,0,0,0
+731,pseudoephedrine hcl/chlor-mal,0,0,0,0
+732,pseudoephedrine w/chlorphenir,0,0,0,0
+733,pseudo-chlor,0,0,0,0
+734,pseudoephedrine hcl,0,0,0,0
+735,promethazine w/codeine,0,0,0,0
+736,ofloxacin,0,0,0,0
+737,bromocriptine mesylate,0,0,0,0
+738,cabergoline,0,0,0,0
+739,urocit-k,0,0,0,0
+740,dolobid,0,0,0,0
+741,adenosine,0,0,0,0
+742,semprex-d,0,0,0,0
+743,hawthorne,0,0,0,0
+744,estraderm,0,0,0,0
+745,combipatch,0,0,0,0
+746,carbidopa/levodopa,0,0,0,0
+747,nystatin cream,0,1,0,0
+748,propantheline bromide,0,0,0,0
+749,levbid,0,0,0,0
+750,medrol,0,0,0,0
+751,fluor-op,0,0,0,0
+752,antivert,0,0,0,0
+753,phenobarbital,0,0,0,0
+754,lac-hydrin,0,0,0,0
+755,clonidine hcl w/chlorthalidone,0,0,0,0
+756,terfenadine,0,0,0,0
+757,miconazole nitrate,0,0,0,0
+758,ocupress,0,0,0,0
+759,statin/placebo,0,1,0,0
+760,tylenol w/codeine,0,0,0,0
+761,orlistat,0,0,0,0
+762,methotrexate,0,0,0,0
+763,ht-tuss dm elixir,0,0,0,0
+764,clonazepam,0,0,0,0
+765,finasteride,0,0,0,0
+766,hydrocortisone acetate âsystemicã,0,0,0,0
+767,fluoxetine hcl,0,0,0,1
+768,pilocarpine hcl,0,0,0,0
+769,optipranolol,0,0,0,0
+770,vibramycin,0,0,0,0
+771,acetazolamide,0,0,0,0
+772,vexol,0,0,0,0
+773,isopto homatropine,0,0,0,0
+774,betimol,0,0,0,0
+775,alphagan,0,0,0,0
+776,econopred,0,0,0,0
+777,p-v-tussin,0,0,0,0
+778,desoximetasone,0,0,0,0
+779,provocholine,0,0,0,0
+780,atrohist plus,0,0,0,0
+781,diethylpropion hcl,0,0,0,0
+782,levofloxacin,0,0,0,0
+783,zovia 1/35-21,0,0,0,0
+784,chromagen forte,0,0,0,0
+785,femhrt,0,0,0,0
+786,capsaicin,0,0,0,0
+787,atrovent,0,0,0,0
+788,flurbiprofen,0,0,0,0
+789,betagan,0,0,0,0
+790,potassium,0,0,0,0
+791,estrogenic substance,0,0,0,0
+792,e-mycin,0,0,0,0
+793,enteric,0,0,0,0
+794,repaglinide ta,0,0,0,0
+795,glipizide,1,0,0,0
+796,fiorinal,0,0,0,0
+797,metoprolol tartrate,0,0,1,0
+798,coreg,0,0,0,0
+799,accuretic,0,0,0,0
+800,crixivan,0,0,0,0
+801,stavudine,0,0,0,0
+802,lamivudine,0,0,0,0
+803,isometheptene/apap/caffeine,0,0,0,0
+804,advair diskus,0,0,0,0
+805,fluorometholone,0,0,0,0
+806,neosporin âointmentã,0,0,0,0
+807,poliovax,0,0,0,0
+808,aralen hcl,0,0,0,0
+809,terbinafine hcl,0,0,0,0
+810,bel-phen-ergot s,0,0,0,0
+811,suprax,0,0,0,0
+812,chlor-trimeton,0,0,0,0
+813,vivelle-dot,0,0,0,0
+814,calcium gluconate,0,0,0,0
+815,colestid,0,0,0,0
+816,r-tannate,0,0,0,0
+817,elocon,0,0,0,0
+818,robinul,0,0,0,0
+819,guiatex la,0,0,0,0
+820,norpace,0,0,0,0
+821,disopyramide phosphate,0,0,0,0
+822,vaseretic,0,0,0,0
+823,erythromycin,0,0,0,0
+824,desowen lotion,0,0,0,0
+825,loprox lotion,0,0,0,0
+826,loprax lotion,0,0,0,0
+827,pandel,0,0,0,0
+828,guiatuss ac,0,0,0,0
+829,nor-q-d,0,0,0,0
+830,estrace__cream,0,0,0,0
+831,estrace - cream,0,0,0,0
+832,tilade,0,0,0,0
+833,theophylline,0,0,0,0
+834,neupogen,0,0,0,0
+835,fluorouracil,0,0,0,0
+836,cyclophosphamide,0,0,0,0
+837,doxorubicin hcl,0,0,0,0
+838,dexamethasone,0,0,0,0
+839,dolasetron mesylate,0,0,0,0
+840,chromagen,0,0,0,0
+841,baycol_investigational study drug,0,0,0,0
+842,ornade,0,0,0,0
+843,zofran,0,0,0,0
+844,oxibutin,0,0,0,0
+845,metrolotion,0,0,0,0
+846,klaron lotion,0,0,0,0
+847,desonide,0,0,0,0
+848,nizoral âtabletã,0,0,0,0
+849,depo-provera,0,0,0,0
+850,cephalexin mh,0,0,0,0
+851,diflucan,0,0,0,0
+852,opticrom,0,0,0,0
+853,allergy shots,0,0,0,0
+854,darvocet-n 50,0,0,0,0
+855,darvon,0,0,0,0
+856,nizoral,0,0,0,0
+857,esgic,0,0,0,0
+858,clorazepate dipotassium,0,0,0,0
+859,progesterone gel,0,0,0,0
+860,estrogen ring,0,0,0,0
+861,cafergot,0,0,0,0
+862,alesse-21,0,0,0,0
+863,zaroxolyn,0,0,0,0
+864,pentoxifylline,0,0,0,0
+865,premarin cream,0,0,0,0
+866,robinul forte,0,0,0,0
+867,duragen-10,0,0,0,0
+868,differin,0,0,0,0
+869,levobunolol hydrochloride,0,0,0,0
+870,papaverine hcl,0,0,0,0
+871,spironolactone,0,0,0,0
+872,rynatuss,0,0,0,0
+873,panlor sf,0,0,0,0
+874,zinc sulfate,0,0,0,0
+875,amoxicillin trihydrate,0,0,0,0
+876,betapace,0,0,0,0
+877,guaifen/d-methorphan hb/ppa,0,0,0,0
+878,norplant,0,0,0,0
+879,lotronex,0,0,0,0
+880,principen 250,0,0,0,0
+881,cyclocort,0,0,0,0
+882,tolmetin sodium,0,0,0,0
+883,irbesartan,0,0,0,0
+884,latanoprost,0,0,0,0
+885,carisoprodol compound,0,0,0,0
+886,micardis,0,0,0,0
+887,levothyroxine,0,0,0,0
+888,mold extracts,0,0,0,0
+889,orudis,0,0,0,0
+890,thyroid,0,0,0,0
+891,rofecoxib,0,0,0,0
+892,l-thyroxine,0,0,0,0
+893,benazepril hcl,0,0,0,0
+894,quinapril hcl/mag carb,0,0,0,0
+895,pravastatin sodium,0,1,0,0
+896,hydrocortisone acetate âtopicalã,0,0,0,0
+897,beclomethasone dipropionate âanti-inflammatoryã,0,0,0,0
+898,citalopram hydrobromide,0,0,0,1
+899,trimethoprim,0,0,0,0
+900,tolterodine tartrate,0,0,0,0
+901,liquibid-d,0,0,0,0
+902,retin-a,0,0,0,0
+903,azelex - ka,0,0,0,0
+904,azelex,0,0,0,0
+905,trivora-28,0,0,0,0
+906,sudafed sinus,0,0,0,0
+907,nitrostat,0,0,0,0
+908,nitro-dur,0,0,0,0
+909,minitran,0,0,0,0
+910,econopred plus,0,0,0,0
+911,anzemet,0,0,0,0
+912,taxol,0,0,0,0
+913,ketoprofen,0,0,0,0
+914,nelova,0,0,0,0
+915,zomig,0,0,0,0
+916,necon 1/35 - 28 nelova,0,0,0,0
+917,butalbital compound w/codeine,0,0,0,0
+918,miconazole 7,0,0,0,0
+919,sumycin 250,0,0,0,0
+920,erythromycin estolate,0,0,0,0
+921,quinidine gluconate,0,0,0,0
+922,ku-zyme,0,0,0,0
+923,doxazosin mesylate,0,0,0,0
+924,astemizole,0,0,0,0
+925,pentoxil,0,0,0,0
+926,lisinopril/hydrochlorothiazide,0,0,1,0
+927,isoptin s.r.,0,0,0,0
+928,erythromycin base âeye ointmentã,0,0,0,0
+929,niacin (antilipemic),0,1,0,0
+930,unithroid,0,0,0,0
+931,micronor,0,0,0,0
+932,sulfacet-r,0,0,0,0
+933,naprelan,0,0,0,0
+934,zovirax âointmentã,0,0,0,0
+935,naltrexone hcl,0,0,0,0
+936,acyclovir âoralã,0,0,0,0
+937,tenoretic 100,0,0,0,0
+938,vitamin e âoralã,0,0,0,0
+939,thyrolar-3,0,0,0,0
+940,alendronate sodium,0,0,0,0
+941,os-cal 500,0,0,0,0
+942,os-cal 250+d,0,0,0,0
+943,codeine phosphate/apap,0,0,0,0
+944,acular,0,0,0,0
+945,corgard,0,0,0,0
+946,helidac,0,0,0,0
+947,cefaclor,0,0,0,0
+948,amibid,0,0,0,0
+949,cogentin,0,0,0,0
+950,lithium carbonate,0,0,0,0
+951,cytotec,0,0,0,0
+952,rythmol,0,0,0,0
+953,zovia 1/35e,0,0,0,0
+954,humibid l.a.,0,0,0,0
+955,norgestrel,0,0,0,0
+956,chloroquine phosphate,0,0,0,0
+957,nitrofurantoin,0,0,0,0
+958,diprolene af,0,0,0,0
+959,bactroban,0,0,0,0
+960,bacitracin,0,0,0,0
+961,bacitracin/polymyxin (topical),0,0,0,0
+962,pred forte,0,0,0,0
+963,oxaprozin,0,0,0,0
+964,duricef,0,0,0,0
+965,anusol,0,0,0,0
+966,pneumovax 23,0,0,0,0
+967,vitron-c,0,0,0,0
+968,xylocaine âtopicalã,0,0,0,0
+969,zydone,0,0,0,0
+970,sulfatrim,0,0,0,0
+971,sular,0,0,0,0
+972,tobramycin sulfate âeye preparationã,0,0,0,0
+973,ranitidine hcl/sodium chloride,0,0,0,0
+974,orthoprefest,0,0,0,0
+975,dhea,0,0,0,0
+976,hctz/metoprolol tartrate,0,0,1,0
+977,profen ii,0,0,0,0
+978,azelex cream,0,0,0,0
+979,advair,0,0,0,0
+980,estroven,0,0,0,0
+981,mestinon,0,0,0,0
+982,lo/ovral-21,0,0,0,0
+983,urecholine,0,0,0,0
+984,chlordiazepoxide hcl,0,0,0,0
+985,librium,0,0,0,0
+986,ortho-est,0,0,0,0
+987,robitussin a-c,0,0,0,0
+988,atenolol w/chlorthalidone,0,0,1,0
+989,triamcinolone acetonide âtopicalã,0,0,0,0
+990,diflunisal,0,0,0,0
+991,diclofenac sodium âtabletã,0,0,0,0
+992,clidinium w/chlordiazepoxide,0,0,0,0
+993,guaifenesin/codeine phosphate,0,0,0,0
+994,indocin sr,0,0,0,0
+995,lactulose,0,0,0,0
+996,didronel,0,0,0,0
+997,aldomet,0,0,0,0
+998,prenatal plus,0,0,0,0
+999,amitriptyline hcl/perphenazine,0,0,0,1
+1000,arthropan,0,0,0,0
+1001,tobramycin sulfate,0,0,0,0
+1002,humulin 70/30,0,0,0,0
+1003,humulin u hi-610 ultralente,0,0,0,0
+1004,humulin u,0,0,0,0
+1005,propafenone hcl,0,0,0,0
+1006,vivelle,0,0,0,0
+1007,propecia,0,0,0,0
+1008,isoptin,0,0,0,0
+1009,pletal,0,0,0,0
+1010,ciloxan,0,0,0,0
+1011,flunisolide âeent anti-inflammat.ã,0,0,0,0
+1012,demulen 1/35-28,0,0,0,0
+1013,demulen 1/50-28,0,0,0,0
+1014,norgesic forte,0,0,0,0
+1015,glucosamine,0,0,0,0
+1016,caltrate-600,0,0,0,0
+1017,cutivate ointment,0,0,0,0
+1018,pilocar,0,0,0,0
+1019,isometheptene/apap/dichlphen,0,0,0,0
+1020,cefprozil,0,0,0,0
+1021,danazol,0,0,0,0
+1022,tenuate,0,0,0,0
+1023,nicotine,0,0,0,0
+1024,prenatal 1mg and iron,0,0,0,0
+1025,mystatin- cream,0,1,0,0
+1026,allergy shot,0,0,0,0
+1027,triamcinolone - ka,0,0,0,0
+1028,triamcinolone acetonide,0,0,0,0
+1029,provigil,0,0,0,0
+1030,robitussin,0,0,0,0
+1031,ferrous gluconate,0,0,0,0
+1032,salmeterol xinafoate,0,0,0,0
+1033,probenecid,0,0,0,0
+1034,lorabid,0,0,0,0
+1035,hydrocodone bitartrate/aspirin,0,0,0,0
+1036,procrit,0,0,0,0
+1037,parafon forte dsc,0,0,0,0
+1038,monodox,0,0,0,0
+1039,hydrocodone w/guaifenesin,0,0,0,0
+1040,percodan,0,0,0,0
+1041,tranxene t-tab,0,0,0,0
+1042,prolex d,0,0,0,0
+1043,cleocin hcl,0,0,0,0
+1044,diazoxide,0,0,0,0
+1045,aspirin e.c.,0,0,0,0
+1046,cisapride monohydrate,0,0,0,0
+1047,betamethasone dipro cream,0,0,0,0
+1048,luxiq,0,0,0,0
+1049,st. john's wort,0,0,0,0
+1050,desogen,0,0,0,0
+1051,efudex,0,0,0,0
+1052,extendryl jr,0,0,0,0
+1053,naldecon,0,0,0,0
+1054,fml,0,0,0,0
+1055,viroptic,0,0,0,0
+1056,alomide,0,0,0,0
+1057,mavik,0,0,0,0
+1058,testosterone cypionate,0,0,0,0
+1059,diprosare,0,0,0,0
+1060,avista,0,0,0,0
+1061,enbrel,0,0,0,0
+1062,tenex,0,0,0,0
+1063,guanfacine hcl,0,0,0,0
+1064,phenazopyridine hcl,0,0,0,0
+1065,clobetasol propionate - solution,0,0,0,0
+1066,lexxel,0,0,0,0
+1067,spironolactone w/hctz,0,0,0,0
+1068,inderal,0,0,0,0
+1069,ery-tab,0,0,0,0
+1070,catapres-tts 2,0,0,0,0
+1071,globetasol propionate gel,0,0,0,0
+1072,nizoral shampoo,0,0,0,0
+1073,tessalon perle,0,0,0,0
+1074,nordette-21,0,0,0,0
+1075,ovral-28,0,0,0,0
+1076,nicoderm cq,0,0,0,0
+1077,belladonna alkaloids/phenobarb,0,0,0,0
+1078,nelova 1/50,0,0,0,0
+1079,ceclor cd,0,0,0,0
+1080,hydrodiuril,0,0,0,0
+1081,megaton e,0,0,0,0
+1082,fenfluramine hcl,0,0,0,0
+1083,ilotycin,0,0,0,0
+1084,chlordrine,0,0,0,0
+1085,phenylpropanolamine hcl,0,0,0,0
+1086,questran light,0,0,0,0
+1087,cholestyramine light,0,0,0,0
+1088,cedax,0,0,0,0
+1089,lamisil cream,0,0,0,0
+1090,cartia,0,0,0,0
+1091,hctz/bisoprolol fumarate,0,0,0,0
+1092,deconsal ii,0,0,0,0
+1093,fibercon,0,0,0,0
+1094,esgic-plus,0,0,0,0
+1095,chlorzoxazone,0,0,0,0
+1096,chlorthalidone,0,0,0,0
+1097,vicodin tuss,0,0,0,0
+1098,mometasone furoate-cream,0,0,0,0
+1099,miconazole,0,0,0,0
+1100,modicon,0,0,0,0
+1101,levonorgestrel-ethin estradiol,0,0,0,0
+1102,surfak,0,0,0,0
+1103,darvon compound-65,0,0,0,0
+1104,dynabac,0,0,0,0
+1105,capoten,0,0,0,0
+1106,ceclor,0,0,0,0
+1107,budesonide,0,0,0,0
+1108,claron,0,0,0,0
+1109,claron - ka,0,0,0,0
+1110,azelex - ta,0,0,0,0
+1111,redux,0,0,0,0
+1112,promethazine w/dm,0,0,0,0
+1113,azelex gel,0,0,0,0
+1114,pandol,0,0,0,0
+1115,methylphenidate hcl,0,0,0,0
+1116,cytoxan lyophilized,0,0,0,0
+1117,potassium citrate (alk),0,0,0,0
+1118,phenylephrine/guaifenesin,0,0,0,0
+1119,neomycin/bacitracin/polymyxin,0,0,0,0
+1120,triamcinolone acetonide-cream,0,0,0,0
+1121,nystatin-cream,0,1,0,0
+1122,belladonna alkaloids,0,0,0,0
+1123,guaifenex g,0,0,0,0
+1124,pancrease,0,0,0,0
+1125,aci-jel,0,0,0,0
+1126,allergy relief,0,0,0,0
+1127,allerjec-10,0,0,0,0
+1128,trinsicon,0,0,0,0
+1129,chondroitin sulfate,0,0,0,0
+1130,indapamide,0,0,0,0
+1131,tarka,0,0,0,0
+1132,phenergan w/codeine,0,0,0,0
+1133,triamcinolone .1%,0,0,0,0
+1134,guaifenesin dm,0,0,0,0
+1135,protuss-d,0,0,0,0
+1136,butalbital compound,0,0,0,0
+1137,veetids 500,0,0,0,0
+1138,spironalactone,0,0,0,0
+1139,gaviscon,0,0,0,0
+1140,diavon,0,0,0,0
+1141,amiodarone hcl,0,0,0,0
+1142,allergy injections,0,0,0,0
+1143,adderall,0,0,0,0
+1144,sulfamethizole,0,0,0,0
+1145,estradiol valerate,0,0,0,0
+1146,aerobid-m,0,0,0,0
+1147,demadex,0,0,0,0
+1148,maxzide-25mg,0,0,0,0
+1149,triamcinolone ka,0,0,0,0
+1150,pilopine hs,0,0,0,0
+1151,dipivefrin hcl,0,0,0,0
+1152,fluoxetine hydrochloride,0,0,0,1
+1153,nicotrol,0,0,0,0
+1154,clonazole nitrate 1%,0,0,0,0
+1155,cleocin t,0,0,0,0
+1156,cleocin-t,0,0,0,0
+1157,ciclopirox cream,0,0,0,0
+1158,neomy sulf/polymyx b sulf/hc,0,0,0,0
+1159,parlodel,0,0,0,0
+1160,permax,0,0,0,0
+1161,cyclogyl,0,0,0,0
+1162,gentamicin sulfate,0,0,0,0
+1163,neomycin/polymyxin/dexameth,0,0,0,0
+1164,propacet,0,0,0,0
+1165,clobetasol propionate/emoll,0,0,0,0
+1166,ultravate,0,0,0,0
+1167,duratuss dm,0,0,0,0
+1168,florical,0,0,0,0
+1169,bayer aspirin,0,0,0,0
+1170,metronidazole âtopicalã,0,0,0,0
+1171,desowen,0,0,0,0
+1172,megace,0,0,0,0
+1173,mirapex,0,0,0,0
+1174,norethindrone-ethin estradiol,0,0,0,0
+1175,pirbuterol acetate,0,0,0,0
+1176,guaifenesin w/codeine,0,0,0,0
+1177,diuril,0,0,0,0
+1178,verapamil,0,0,0,0
+1179,verapamil sr,0,0,0,0
+1180,nefazodone hcl,0,0,0,0
+1181,phenobarbital/ergotamine/bell,0,0,0,0
+1182,nabumetone,0,0,0,0
+1183,cortisporin âeent antibioticã,0,0,0,0
+1184,oxiconazole (lotion),0,0,0,0
+1185,oxiconazole nitrate,0,0,0,0
+1186,vicodin hp,0,0,0,0
+1187,azatadine maleate,0,0,0,0
+1188,glucophage xr,0,0,0,0
+1189,selegiline hcl,0,0,0,0
+1190,levodopa,0,0,0,0
+1191,epinephrine injection,0,0,0,0
+1192,colax,0,0,0,0
+1193,comtan,0,0,0,0
+1194,seroquel,0,0,0,0
+1195,polysporin,0,0,0,0
+1196,anusol-hc,0,0,0,0
+1197,hydrochlorot,0,0,0,0
+1198,pamelor,0,0,0,0
+1199,typhoid vaccine,0,0,0,0
+1200,levsin/sl,0,0,0,0
+1201,anafranil,0,0,0,0
+1202,chlordiazepoxide,0,0,0,0
+1203,hydrotuss,0,0,0,0
+1204,levo-t,0,0,0,0
+1205,telmisartan,0,0,0,0
+1206,thorazine,0,0,0,0
+1207,nizoral âtopicalã,0,0,0,0
+1208,norgestimate-ethinyl estradiol,0,0,0,0
+1209,rocaltrol,0,0,0,0
+1210,keralyt gel,0,0,0,0
+1211,ciclopirox 8% (penlac),0,0,0,0
+1212,vitamin b-6 pyridoxine,0,0,0,0
+1213,combivir,0,0,0,0
+1214,lopinavir,0,0,0,0
+1215,rifampin,0,0,0,0
+1216,myambutol,0,0,0,0
+1217,pen-vee k,0,0,0,0
+1218,wigraine,0,0,0,0
+1219,lonox,0,0,0,0
+1220,nystatin âoralã,0,1,0,0
+1221,alconefrin 12,0,0,0,0
+1222,antacid,0,0,0,0
+1223,raxar,0,0,0,0
+1224,alprostadil,0,0,0,0
+1225,delatestryl,0,0,0,0
+1226,deconsal,0,0,0,0
+1227,mexiletine hcl,0,0,0,0
+1228,carbidopa,0,0,0,0
+1229,nizoral 2% creme,0,0,0,0
+1230,adriamycin-pfs,0,0,0,0
+1231,hemorrhoidal hc,0,0,0,0
+1232,alkeran,0,0,0,0
+1233,ferrous sulfate/vit c/fa,0,0,0,0
+1234,mesalamine,0,0,0,0
+1235,e-pilo-6,0,0,0,0
+1236,betamethasone valerate,0,0,0,0
+1237,estring,0,0,0,0
+1238,dulcolax,0,0,0,0
+1239,dapsone,0,0,0,0
+1240,exgest la,0,0,0,0
+1241,micro-k 10,0,0,0,0
+1242,peri-colace,0,0,0,0
+1243,docusate sodium w/casanthranol,0,0,0,0
+1244,erythromycin âoralã,0,0,0,0
+1245,leucovorin calcium,0,0,0,0
+1246,imodium,0,0,0,0
+1247,opium,0,0,0,0
+1248,sandostatin lar,0,1,0,0
+1249,quinaglute,0,0,0,0
+1250,fertinex,0,0,0,0
+1251,accutane,0,0,0,0
+1252,mysoline,0,0,0,0
+1253,desogestrel-ethinyl estradiol,0,0,0,0
+1254,flagyl 375,0,0,0,0
+1255,dipentum,0,0,0,0
+1256,prevpac,0,0,0,0
+1257,lamotrigine,0,0,0,0
+1258,cromolyn sodium,0,0,0,0
+1259,fluticasone propionate âinhalerã,0,0,0,0
+1260,oramorph sr,0,0,0,0
+1261,amlodipine besylate,0,0,1,0
+1262,diphenoxylate hcl/atrop sulf,0,0,0,0
+1263,bumetanide,0,0,0,0
+1264,grifulvin v,0,0,0,0
+1265,lotensin hct,0,0,0,0
+1266,nexium,0,0,0,0
+1267,estriol,0,0,0,0
+1268,estrone,0,0,0,0
+1269,cortaid,0,0,0,0
+1270,cordran,0,0,0,0
+1271,ticlopidine hcl,0,0,0,0
+1272,cyproheptadine hcl,0,0,0,0
+1273,k-tab,0,0,0,0
+1274,ergotamine tartrate/caffeine,0,0,0,0
+1275,troglitazone,0,0,0,0
+1276,acyclovir sodium,0,0,0,0
+1277,brevicon,0,0,0,0
+1278,estring (estradiol vaginal ring),0,0,0,0
+1279,primatene mist,0,0,0,0
+1280,buspirone hcl,0,0,0,0
+1281,fluticasone propionate,0,0,0,0
+1282,hydroxyzine compound,0,0,0,0
+1283,levlen 21,0,0,0,0
+1284,acetasol hc,0,0,0,0
+1285,mometasone furoate cream,0,0,0,0
+1286,lidex-e,0,0,0,0
+1287,adipex-p,0,0,0,0
+1288,actigall,0,0,0,0
+1289,ru-tuss âliquidã,0,0,0,0
+1290,theophylline anhydrous,0,0,0,0
+1291,sulfacetamide sodium âeye preparationã,0,0,0,0
+1292,guaifenesin/ppa hcl,0,0,0,0
+1293,geritol,0,0,0,0
+1294,lavacol,0,0,0,0
+1295,nitrofurantoin macrocrystal,0,0,0,0
+1296,ansaid,0,0,0,0
+1297,benzocaine/phenol,0,0,0,0
+1298,vaniqa eflornithine hydrocloride,0,0,0,0
+1299,difterin gel,0,0,0,0
+1300,benzaclin,0,0,0,0
+1301,sumycin 500,0,0,0,0
+1302,trilisate,0,0,0,0
+1303,methimazole,0,0,0,0
+1304,nystatin w/triamcinolone,0,1,0,0
+1305,flarex,0,0,0,0
+1306,prednisolone,0,0,0,0
+1307,dirithromycin,0,0,0,0
+1308,os-cal 500+d,0,0,0,0
+1309,depakote er,0,0,0,0
+1310,cortisone ointment,0,0,0,0
+1311,muco-fen 800,0,0,0,0
+1312,nitro-bid,0,0,0,0
+1313,proctofoam-hc,0,0,0,0
+1314,tebamide,0,0,0,0
+1315,panase,0,0,0,0
+1316,fergon,0,0,0,0
+1317,analpram-hc,0,0,0,0
+1318,guiaphen hd,0,0,0,0
+1319,guaifenesin/pseudoephedrine pd,0,0,0,0
+1320,dicloxacillin sodium,0,0,0,0
+1321,dilantin,0,0,0,0
+1322,zyloprim,0,0,0,0
+1323,clozapine,0,0,0,0
+1324,pseudoephedrine sulfate/azata,0,0,0,0
+1325,timolol maleate âeye preparationã,0,0,0,0
+1326,mibefradil dihydrochloride,0,0,0,0
+1327,ventolin rotacaps,0,0,0,0
+1328,scopolamine hydrobromide,0,0,0,0
+1329,nasalide,0,0,0,0
+1330,guaipax,0,0,0,0
+1331,cefadroxil,0,0,0,0
+1332,vicodin es,0,0,0,0
+1333,cutivate,0,0,0,0
+1334,atropine sulfate,0,0,0,0
+1335,prednisol,0,0,0,0
+1336,protriptyline hcl,0,0,0,0
+1337,thyrolar-1/2,0,0,0,0
+1338,acidophilus,0,0,0,0
+1339,amino-cerv,0,0,0,0
+1340,metformin xr,1,0,0,0
+1341,insulin nph human recom,1,0,0,0
+1342,insulin reg human rec,1,0,0,0
+1343,diflorasone dicetate,0,0,0,0
+1344,cartia xt,0,0,0,0
+1345,prednisolone sod phosphate,0,0,0,0
+1346,terazol 7,0,0,0,0
+1347,rilutek,0,0,0,0
+1348,raloxifene hcl,0,0,0,0
+1349,ticlid,0,0,0,0
+1350,terbinafine hcl topical,0,0,0,0
+1351,niferex-150,0,0,0,0
+1352,iron polysaccharides complex,0,0,0,0
+1353,valsartan,0,0,1,0
+1354,fetinic,0,0,0,0
+1355,aldactazide,0,0,0,0
+1356,esgic plus,0,0,0,0
+1357,azo-gantrisin,0,0,0,0
+1358,prostanglandin,0,0,0,0
+1359,prostaglandin,0,0,0,0
+1360,dura-tap/pd,0,0,0,0
+1361,tylenol w/codeine no.4,0,0,0,0
+1362,zoladex,0,0,0,0
+1363,naftin 1% gel,0,0,0,0
+1364,felodipine,0,0,0,0
+1365,thyroid rx,0,0,0,0
+1366,minocin,0,0,0,0
+1367,triamanolone acetonide aquaphorel,0,0,0,0
+1368,limbitrol,0,0,0,0
+1369,nexivm,0,0,0,0
+1370,catapres-tts 1,0,0,0,0
+1371,metrogel-vaginal,0,0,0,0
+1372,ketoprofen-30% oint.,0,0,0,0
+1373,triamcinolone acetonide cream 1%,0,0,0,0
+1374,ketoprofen-30% oint,0,0,0,0
+1375,codeine phosphate/aspirin,0,0,0,0
+1376,benadryl âanti-histamineã,0,0,0,0
+1377,prochlorperazine maleate,0,0,0,0
+1378,premarin vaginal cream,0,0,0,0
+1379,rezulin,0,0,0,0
+1380,bidex,0,0,0,0
+1381,mydfrin,0,0,0,0
+1382,thalidomide,0,0,0,0
+1383,estradiol cypionate,0,0,0,0
+1384,amidrine,0,0,0,0
+1385,amitriptyline/chlordiazepoxide,0,0,0,1
+1386,levatol,0,0,0,0
+1387,periactin,0,0,0,0
+1388,allerfrim,0,0,0,0
+1389,andro gel,0,0,0,0
+1390,triamcinolone-cream,0,0,0,0
+1391,triamcinolone acetonide cream,0,0,0,0
+1392,elimite,0,0,0,0
+1393,iodopen,0,0,0,0
+1394,asendin,0,0,0,0
+1395,famotidine,0,0,0,0
+1396,cortomycin,0,0,0,0
+1397,ms contin,0,0,0,0
+1398,topamax,0,0,0,0
+1399,triamcinolone acetonide ointment 0.1%,0,0,0,0
+1400,triamcinolone acetonide ointment 1%,0,0,0,0
+1401,fenesin,0,0,0,0
+1402,ionamin,0,0,0,0
+1403,klor-con,0,0,0,0
+1404,periogard,0,0,0,0
+1405,benzamycin,0,0,0,0
+1406,vaniqa,0,0,0,0
+1407,tazorac,0,0,0,0
+1408,tamovac,0,0,0,0
+1409,delhistine dm,0,0,0,0
+1410,hydrocortisone/iodoquinol,0,0,0,0
+1411,mometasone furoate topical 0.1%,0,0,0,0
+1412,depo-estradiol,0,0,0,0
+1413,depo-testadiol,0,0,0,0
+1414,salagen,0,0,0,0
+1415,rocephin,0,0,0,0
+1416,nizoral 2% shampoo,0,0,0,0
+1417,roxicodone,0,0,0,0
+1418,grisactin ultra,0,0,0,0
+1419,ru-tuss de,0,0,0,0
+1420,simprex,0,0,0,0
+1421,venlafaxine hcl,0,0,0,1
+1422,aristocort cream,0,0,0,0
+1423,tussi-12,0,0,0,0
+1424,ortho-prefest,0,0,0,0
+1425,sulfamethoxazole/trimethoprim ds,0,0,0,0
+1426,metoprolol succinate,0,0,1,0
+1427,dimetapp,0,0,0,0
+1428,sulfur 5% topical,0,0,0,0
+1429,sudafed 12 hour,0,0,0,0
+1430,banex-la,0,0,0,0
+1431,testosterone cream,0,0,0,0
+1432,tri-est,0,0,0,0
+1433,aquabid-m,0,0,0,0
+1434,selenium sulfide-shampoo,0,0,0,0
+1435,selenium sulfide shampoo,0,0,0,0
+1436,ocuvite,0,0,0,0
+1437,salicylic acid,0,0,0,0
+1438,sotalol hcl,0,0,0,0
+1439,ferro-sequel,0,0,0,0
+1440,dilor,0,0,0,0
+1441,ancef,0,0,0,0
+1442,dynacin,0,0,0,0
+1443,celecoxib,0,0,0,0
+1444,pulmocare,0,0,0,0
+1445,meprozine,0,0,0,0
+1446,floxin,0,0,0,0
+1447,trac 2x,0,0,0,0
+1448,genora,0,0,0,0
+1449,mepergan fortis,0,0,0,0
+1450,progest,0,0,0,0
+1451,azelastine hcl,0,0,0,0
+1452,cordarone,0,0,0,0
+1453,starlix,0,0,0,0
+1454,atrovent âsprayã,0,0,0,0
+1455,ntg,0,0,0,0
+1456,proctocream-hc,0,0,0,0
+1457,revia,0,0,0,0
+1458,duratex,0,0,0,0
+1459,valisone,0,0,0,0
+1460,sulfasalazine,0,0,0,0
+1461,cortenema,0,0,0,0
+1462,azathioprine,0,0,0,0
+1463,rowasa,0,0,0,0
+1464,fiv asa suppository,0,0,0,0
+1465,demulen 1/35-21,0,0,0,0
+1466,cliane,0,0,0,0
+1467,triquilar,0,0,0,0
+1468,veetids 250,0,0,0,0
+1469,ritalin,0,0,0,0
+1470,methylcellulose,0,0,0,0
+1471,hemocyte âtabletã,0,0,0,0
+1472,pondimin,0,0,0,0
+1473,hemocyte plus,0,0,0,0
+1474,sucralfate,0,0,0,0
+1475,pentasa,0,0,0,0
+1476,mycostatin cream,0,1,0,0
+1477,quinapril hcl/mag cb(ant),0,0,0,0
+1478,profenal,0,0,0,0
+1479,allergen,0,0,0,0
+1480,amitriptyline w/perphenazine,0,0,0,1
+1481,triamcinolone ointment,0,0,0,0
+1482,ciclopirox,0,0,0,0
+1483,animal hair/dander,0,0,0,0
+1484,tree pollen,0,0,0,0
+1485,grass pollen,0,0,0,0
+1486,norco,0,0,0,0
+1487,nolamine,0,0,0,0
+1488,apap/isometheptene/dichlphen,0,0,0,0
+1489,terazol 3,0,0,0,0
+1490,terbinafine hcl âtabletã,0,0,0,0
+1491,hydrocortisone/benz per,0,0,0,0
+1492,hydrea,0,0,0,0
+1493,agrylin,0,0,0,0
+1494,prefilled nebulizer,0,0,0,0
+1495,nizatidine,0,0,0,0
+1496,omnihist,0,0,0,0
+1497,lidocaine hcl,0,0,0,0
+1498,insul nph hu rec/ins rg hu rec,0,0,0,0
+1499,easprin,0,0,0,0
+1500,halcion,0,0,0,0
+1501,kenalog-10,0,0,0,0
+1502,vicks 44,0,0,0,0
+1503,brevoxyl,0,0,0,0
+1504,promethazine vc,0,0,0,0
+1505,slow-k,0,0,0,0
+1506,arthricin,0,0,0,0
+1507,keto/gua/lido speedgel,0,0,0,0
+1508,guaifen/dm hb/p-ephedrine,0,0,0,0
+1509,bufferin analgesic,0,0,0,0
+1510,polymyxin b sulfate/hc,0,0,0,0
+1511,halog,0,0,0,0
+1512,peridex,0,0,0,0
+1513,epivir,0,0,0,0
+1514,flurazepam hcl,0,0,0,0
+1515,bupropion hcl,0,0,0,1
+1516,nitrofurantoin/nitrofuran mac,0,0,0,0
+1517,metrolotion topical,0,0,0,0
+1518,bromfed-pd,0,0,0,0
+1519,corvera,0,0,0,0
+1520,corvera hs,0,0,0,0
+1521,nizoral topical,0,0,0,0
+1522,betamethasone dipropionate lotion,0,0,0,0
+1523,oxiconazole nitrate cream,0,0,0,0
+1524,alclometasone dipropionate cream,0,0,0,0
+1525,fiorpap,0,0,0,0
+1526,sarafem,0,0,0,0
+1527,clomiphene citrate,0,0,0,0
+1528,nostril,0,0,0,0
+1529,actifed,0,0,0,0
+1530,poly-histine cs,0,0,0,0
+1531,contrin,0,0,0,0
+1532,colyte flavored,0,0,0,0
+1533,clindamycin phosphate âtopicalã,0,0,0,0
+1534,nalfon,0,0,0,0
+1535,monistat 1,0,0,0,0
+1536,similasan,0,0,0,0
+1537,sluvastatin,0,1,0,0
+1538,rynatan,0,0,0,0
+1539,iodoquinol cream 1%,0,0,0,0
+1540,chromagen ob,0,0,0,0
+1541,flunisolide,0,0,0,0
+1542,zantac 75,0,0,0,0
+1543,lotrimin,0,0,0,0
+1544,estrace (vaginal cream),0,0,0,0
+1545,oxsoralen-ultra,0,0,0,0
+1546,lidex - e cream,0,0,0,0
+1547,amerge,0,0,0,0
+1548,duract,0,0,0,0
+1549,"interferon alfa-2a,recomb.",0,0,0,0
+1550,volmax,0,0,0,0
+1551,poly-histine-d,0,0,0,0
+1552,ak-con-a,0,0,0,0
+1553,tetracycline hcl âtopicalã,0,0,0,0
+1554,donepezil hcl,0,0,0,0
+1555,geneteal gtts,0,0,0,0
+1556,genteal lubricant,0,0,0,0
+1557,allergan gtts,0,0,0,0
+1558,tobramycin sulfate/dexameth,0,0,0,0
+1559,cleocin,0,0,0,0
+1560,maxidex,0,0,0,0
+1561,vaniqa__ka,0,0,0,0
+1562,esidrix,0,0,0,0
+1563,estradiol__cream,0,0,0,0
+1564,tetracycline hcl âdentalã,0,0,0,0
+1565,menthol in 1/4% aquaphor,0,0,0,0
+1566,baycol__investigational study drug,0,0,0,0
+1567,hydroxyprogesterone caproate,0,0,0,0
+1568,oxycodone/aspirin,0,0,0,0
+1569,alrex,0,0,0,0
+1570,lindane,0,0,0,0
+1571,clindamycin phosphate_topical gel,0,0,0,0
+1572,prograf,0,0,0,0
+1573,vanceril double strength,0,0,0,0
+1574,z-bec,0,0,0,0
+1575,flunarizine,0,0,0,0
+1576,calcium dobesilate,0,0,0,0
+1577,bactroban cream,0,0,0,0
+1578,antivert/25,0,0,0,0
+1579,estradiol/noreth ac,0,0,0,0
+1580,methadone,0,0,0,0
+1581,haldol,0,0,0,0
+1582,isopto atropine,0,0,0,0
+1583,dacriose,0,0,0,0
+1584,mold/yeast/dust,0,0,0,0
+1585,protonix (pantoprazole sodium),0,0,0,0
+1586,clobetasol propionate-solution,0,0,0,0
+1587,cardia,0,0,0,0
+1588,guaifen/p-ephed hcl/d-cp,0,0,0,0
+1589,triamcinolone acetonide .1%,0,0,0,0
+1590,allergy injection,0,0,0,0
+1591,cicloprox,0,0,0,0
+1592,activella,0,0,0,0
+1593,synalar,0,0,0,0
+1594,terazol,0,0,0,0
+1595,clemastine fumarate,0,0,0,0
+1596,demerol,0,0,0,0
+1597,potassium iodide,0,0,0,0
+1598,panthenol/gly(emoll)/pet h-ph,0,0,0,0
+1599,caverject,0,0,0,0
+1600,hepatitis a virus vaccine,0,0,0,0
+1601,estrogen cream,0,0,0,0
+1602,ear antibiotic drops,0,0,0,0
+1603,v-cillin k,0,0,0,0
+1604,nardil,0,0,0,0
+1605,necon,0,0,0,0
+1606,iberet,0,0,0,0
+1607,gentacidin,0,0,0,0
+1608,duranest,0,0,0,0
+1609,normodyne,0,0,0,0
+1610,triamcinolone acetonide lotion,0,0,0,0
+1611,robitussin with codeine,0,0,0,0
+1612,progesterone gel 4%,0,0,0,0
+1613,triamcinolone acetonide aquaphorel,0,0,0,0
+1614,benadryl itch relief,0,0,0,0
+1615,cleocin 1% cream,0,0,0,0
+1616,respbid,0,0,0,0
+1617,norethindrone-mestranol,0,0,0,0
+1618,milk of magnesia,0,0,0,0
+1619,trimipramine maleate,0,0,0,0
+1620,protonix (pantoprozole),0,0,0,0
+1621,reserpine/hydroflumethiazide,0,0,0,0
+1622,cleocin to,0,0,0,0
+1623,afrin,0,0,0,0
+1624,saline mist,0,0,0,0
+1625,tempra,0,0,0,0
+1626,vitamin b complex,0,0,0,0
+1627,motrin ib,0,0,0,0
+1628,estar,0,0,0,0
+1629,vosol hc,0,0,0,0
+1630,silver sulfadiazine,0,0,0,0
+1631,alora,0,0,0,0
+1632,eye lubricant,0,0,0,0
+1633,mylanta,0,0,0,0
+1634,albuterol sulfate/ipratropium,0,0,0,0
+1635,betamethasone dipropionate-lotion,0,0,0,0
+1636,iophen-c-nr,0,0,0,0
+1637,ranitidine hydrochloride,0,0,0,0
+1638,tribenoside,0,0,0,0
