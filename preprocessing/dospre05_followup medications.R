@@ -2,6 +2,8 @@ vl_column1 = "f01"
 vl_column2 = "f02"
 vl_column3 = "f06"
 
+study_name = "DPPOS"
+
 data_path1 <-  paste0(path_endotypes_folder,"/working/dppos/Data/DPP_Bridge/Form_Based")
 data_path2 <-  paste0(path_endotypes_folder,"/working/dppos/Data/DPPOS_Phase1/Form_Based")
 data_path3 <-  paste0(path_endotypes_folder,"/working/dppos/Data/DPPOS_Phase2/Form_Based")
@@ -23,9 +25,9 @@ phase2 <- bind_rows(data_extract(study_name,vl_column1,data_path3),
 
 meds <- bind_rows(bridge,
                   phase1,
-                  phase2) %>% 
-  select(study_id, visit, StudyDays, all_of(med_vars)) %>%
-  left_join(tr1, by = c("study_id", "visit", "StudyDays", med_vars))
+                  phase2,
+                  tr1) %>% 
+  select(study_id, visit, StudyDays, all_of(med_vars)) 
 
 
 meds_long <- meds %>%
@@ -51,7 +53,8 @@ meds_class <- meds_long %>%
   pivot_wider(
     id_cols = c(study_id, visit, StudyDays,med_dm_use,med_chol_use,med_bp_use,med_dep_use),
     names_from = med_code,
-    values_from = medications
+    values_from = medications,
+    values_fn = ~ paste(unique(.x), collapse = "; ")
   ) %>% 
   distinct(study_id, visit, StudyDays, .keep_all = TRUE)
 

@@ -4,15 +4,17 @@ vl_column3 = "f06"
 
 data_path <- paste0(path_endotypes_folder,"/working/dpp/Data/DPP_Data_2008/Form_Data/Data")
 
+study_name = "DPP"
+
 med_vars <- paste0("med_", letters[1:10])
 
 tr1 <- data_extract(study_name,"tr1",data_path)
 
 meds <- bind_rows(data_extract(study_name,vl_column1,data_path),
                   data_extract(study_name,vl_column2,data_path),
-                  data_extract(study_name,vl_column3,data_path)) %>% 
-  select(study_id, visit, StudyDays, all_of(med_vars)) %>%
-  left_join(tr1, by = c("study_id", "visit", "StudyDays", med_vars))
+                  data_extract(study_name,vl_column3,data_path),
+                  tr1) %>% 
+  select(study_id, visit, StudyDays, all_of(med_vars))
 
 
 meds_long <- meds %>%
@@ -59,7 +61,8 @@ meds_class <- meds_long %>%
   pivot_wider(
     id_cols = c(study_id, visit, StudyDays,med_dm_use,med_chol_use,med_bp_use,med_dep_use),
     names_from = med_code,
-    values_from = medications
+    values_from = medications,
+    values_fn = ~ paste(unique(.x), collapse = "; ")
   ) %>% 
   distinct(study_id, visit, StudyDays, .keep_all = TRUE)
 
